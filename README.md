@@ -23,7 +23,7 @@ Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest*
 | Current snapshot (films) | **190** |
 | Cumulative history (unique films) | **190** |
 | New since previous run | **0** |
-| Last successful update (UTC) | **2026-04-08T22:10:49Z** |
+| Last successful update (UTC) | **2026-04-08T22:20:53Z** |
 | Manifest URL | `https://EllandeVED.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
