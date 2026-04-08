@@ -37,10 +37,7 @@ jobs:
       - name: Generate addon and data
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          TRAKT_CLIENT_ID: ${{ secrets.TRAKT_CLIENT_ID }}
-          TRAKT_CLIENT_SECRET: ${{ secrets.TRAKT_CLIENT_SECRET }}
-          TRAKT_REFRESH_TOKEN: ${{ secrets.TRAKT_REFRESH_TOKEN }}
-          TRAKT_LIST_SLUG: ${{ secrets.TRAKT_LIST_SLUG }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
         run: python -m src.generate_addon
 
       - name: Commit and push if changed

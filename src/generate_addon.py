@@ -4,13 +4,13 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 from src.scrape import ScrapeError, enrich_missing_posters, scrape_franceinter_films
-from src import trakt_sync
 from src.tmdb_resolve import is_configured, resolve_movies_parallel
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,8 +23,13 @@ README_PATH = ROOT / "README.md"
 README_START = "<!-- FRList:status:start -->"
 README_END = "<!-- FRList:status:end -->"
 
-# GitHub username/org for Pages URL in README status (forks: change here).
-PAGES_OWNER = "EllandeVED"
+# README manifest URL: Actions sets GITHUB_REPOSITORY_OWNER; forks can set FRLIST_PAGES_OWNER locally.
+def _pages_owner() -> str:
+    return (
+        (os.environ.get("GITHUB_REPOSITORY_OWNER") or "").strip()
+        or (os.environ.get("FRLIST_PAGES_OWNER") or "").strip()
+        or "YOUR_GITHUB_USERNAME"
+    )
 
 MANIFEST = {
     # Dot-separated id per Stremio addon SDK (better client compatibility).
@@ -106,7 +111,7 @@ def _update_readme(
 | Cumulative history (unique films) | **{history_n}** |
 | New since previous run | **{new_n}** |
 | Last successful update (UTC) | **{last_run_utc}** |
-| Manifest URL | `https://{PAGES_OWNER}.github.io/FRList/manifest.json` |
+| Manifest URL | `https://{_pages_owner()}.github.io/FRList/manifest.json` |
 {README_END}"""
     if README_START in text and README_END in text:
         text = re.sub(
@@ -236,21 +241,6 @@ def run() -> None:
     )
 
     _write_catalog_and_meta(movies)
-
-    if trakt_sync.is_configured():
-        try:
-            stats = trakt_sync.sync_list(movies)
-            print(
-                "FRList Trakt: "
-                f"+{stats['added']} added, -{stats['removed']} removed, "
-                f"{stats['skipped_no_imdb']} skipped (no IMDb id)",
-                flush=True,
-            )
-        except Exception as e:
-            print(
-                f"FRList Trakt sync failed (Letterboxd data and addon still saved): {e}",
-                file=sys.stderr,
-            )
 
     _update_readme(
         current_n=len(movies),
