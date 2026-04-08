@@ -20,6 +20,9 @@ README_PATH = ROOT / "README.md"
 README_START = "<!-- FRList:status:start -->"
 README_END = "<!-- FRList:status:end -->"
 
+# GitHub username/org for Pages URL in README status (forks: change here).
+PAGES_OWNER = "EllandeVED"
+
 MANIFEST = {
     "id": "franceinter-letterboxd-catalog",
     "version": "1.0.0",
@@ -85,7 +88,7 @@ def _update_readme(
 | Cumulative history (unique films) | **{history_n}** |
 | New since previous run | **{new_n}** |
 | Last successful update (UTC) | **{last_run_utc}** |
-| Manifest URL (replace `YOUR_GITHUB_USERNAME`) | `https://YOUR_GITHUB_USERNAME.github.io/FRList/manifest.json` |
+| Manifest URL | `https://{PAGES_OWNER}.github.io/FRList/manifest.json` |
 {README_END}"""
     if README_START in text and README_END in text:
         text = re.sub(

@@ -17,14 +17,12 @@ Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest*
 | Cumulative history (unique films) | **0** |
 | New since previous run | **0** |
 | Last successful update (UTC) | **2026-04-08T21:06:26Z** |
-| Manifest URL (replace `YOUR_GITHUB_USERNAME`) | `https://YOUR_GITHUB_USERNAME.github.io/FRList/manifest.json` |
+| Manifest URL | `https://EllandeVED.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
 ## Manifest URL (after Pages is enabled)
 
-`https://YOUR_GITHUB_USERNAME.github.io/FRList/manifest.json`
-
-Replace `YOUR_GITHUB_USERNAME` with your GitHub username or org name.
+`https://EllandeVED.github.io/FRList/manifest.json`
 
 ## How it works
 
@@ -72,7 +70,7 @@ python -m src.generate_addon
 1. **Settings** → **Pages**.  
 2. **Build and deployment** → **Source**: **Deploy from a branch**.  
 3. **Branch**: your default branch (e.g. `main`), folder **/ (root)**.  
-4. Save. After the first deployment, the site will be at `https://<user>.github.io/FRList/` (repo name `FRList`).
+4. Save. After the first deployment, the site will be at `https://EllandeVED.github.io/FRList/` (repo name `FRList`).
 
 This repo includes **`.nojekyll`** so GitHub Pages does not process the site with Jekyll.
 
