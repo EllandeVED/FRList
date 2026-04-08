@@ -37,7 +37,6 @@ jobs:
       - name: Generate addon and data
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
         run: python -m src.generate_addon
 
       - name: Commit and push if changed

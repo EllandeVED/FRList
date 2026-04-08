@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import copy
 import json
-import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -22,14 +21,6 @@ README_PATH = ROOT / "README.md"
 
 README_START = "<!-- FRList:status:start -->"
 README_END = "<!-- FRList:status:end -->"
-
-# README manifest URL: Actions sets GITHUB_REPOSITORY_OWNER; forks can set FRLIST_PAGES_OWNER locally.
-def _pages_owner() -> str:
-    return (
-        (os.environ.get("GITHUB_REPOSITORY_OWNER") or "").strip()
-        or (os.environ.get("FRLIST_PAGES_OWNER") or "").strip()
-        or "YOUR_GITHUB_USERNAME"
-    )
 
 MANIFEST = {
     # Dot-separated id per Stremio addon SDK (better client compatibility).
@@ -111,7 +102,7 @@ def _update_readme(
 | Cumulative history (unique films) | **{history_n}** |
 | New since previous run | **{new_n}** |
 | Last successful update (UTC) | **{last_run_utc}** |
-| Manifest URL | `https://{_pages_owner()}.github.io/FRList/manifest.json` |
+| Manifest URL | `https://<github-username>.github.io/FRList/manifest.json` |
 {README_END}"""
     if README_START in text and README_END in text:
         text = re.sub(

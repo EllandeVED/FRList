@@ -34,10 +34,10 @@ This addon exposes **catalog** and (when needed) **meta** only. It does **not** 
 | Cumulative history (unique films) | **190** |
 | New since previous run | **0** |
 | Last successful update (UTC) | **2026-04-08T23:12:40Z** |
-| Manifest URL | `https://YOUR_GITHUB_USERNAME.github.io/FRList/manifest.json` |
+| Manifest URL | `https://<github-username>.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
-*This table is rewritten when the update workflow runs. The manifest URL uses `github.repository_owner` in Actions; for local runs set `FRLIST_PAGES_OWNER` or rely on the placeholder until CI updates it.*
+*Counts and timestamps are updated when the update workflow runs. The manifest URL row stays a generic pattern—substitute your GitHub username (and repo name if you renamed the fork).*
 
 ---
 
@@ -60,7 +60,6 @@ python3.11 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python -m playwright install chromium
 export TMDB_API_KEY='…'          # optional
-export FRLIST_PAGES_OWNER='…'    # optional; README status manifest URL
 python -m src.generate_addon
 ```
 
