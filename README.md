@@ -8,6 +8,12 @@ It generates a **static Stremio addon** (catalog + meta only, no streams) and pu
 
 Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest**.
 
+### Stremio: posters, scores, and playback
+
+- **Posters** come from each film’s Letterboxd page (`og:image`) when the grid only had lazy placeholders. Without that step, Stremio shows its generic icon.
+- **IMDb / Rotten Tomatoes bars** on the home row come from other addons (e.g. TMDB/Cinemeta) that match **`tt…` / TMDB-style ids**. This catalog uses **Letterboxd slugs** as `id`, so those addons usually **do not merge** ratings into these rows.
+- **“No addons were requested for this meta!”** is expected: this addon ships **catalog + meta only** (no `stream` resource). Open a title from a catalog that *does* provide streams, or use your usual streaming addons after finding the film elsewhere.
+
 ## Generated status
 
 <!-- FRList:status:start -->

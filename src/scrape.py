@@ -122,6 +122,16 @@ def _raise_if_blocked(html: str, url: str) -> None:
         raise ScrapeError(f"Unexpected challenge or blocked response for {url!r}.")
 
 
+def _poster_from_og(soup: BeautifulSoup) -> str | None:
+    og = soup.select_one('meta[property="og:image"][content]')
+    if not og:
+        return None
+    raw = (og.get("content") or "").strip()
+    if not raw or "empty-poster" in raw.lower():
+        return None
+    return urljoin(BASE_URL, raw)
+
+
 def _slug_to_id(slug: str) -> str:
     return slug.strip().lower()
 
@@ -297,7 +307,9 @@ def fetch_films_listing(session: Any) -> list[dict[str, Any]]:
 
 
 def enrich_meta(session: Any, film: dict[str, Any]) -> dict[str, Any]:
-    """Optional per-film page fetch for poster/title/year if missing from listing."""
+    """Fetch film page for og:image poster and optional title/year (local / curl-friendly paths)."""
+    if film.get("poster"):
+        return film
     url = film["letterboxd_url"]
     try:
         r = _get(session, url, timeout=45.0)
@@ -305,17 +317,83 @@ def enrich_meta(session: Any, film: dict[str, Any]) -> dict[str, Any]:
     except Exception:
         return film
     html = r.text
-    if "Just a moment" in html:
+    if _cf_interstitial(html):
         return film
     soup = BeautifulSoup(html, "html.parser")
+    og_poster = _poster_from_og(soup)
+    if og_poster:
+        film["poster"] = og_poster
     title, year, poster = _extract_title_year_poster(soup, url, film["id"])
     if title:
         film["title"] = title
     if year is not None:
         film["year"] = year
-    if poster:
+    if poster and not film.get("poster"):
         film["poster"] = poster
     return film
+
+
+def _playwright_batch_posters(films: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """One Chromium session: open each film page and read og:image (for CI when listing had no real posters)."""
+    from playwright.sync_api import sync_playwright
+
+    result = [dict(m) for m in films]
+    idxs = [i for i, m in enumerate(result) if not m.get("poster")]
+    if not idxs:
+        return result
+
+    _ua = (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    )
+    with sync_playwright() as p:
+        browser = p.chromium.launch(
+            headless=True,
+            args=[
+                "--disable-dev-shm-usage",
+                "--no-sandbox",
+                "--disable-blink-features=AutomationControlled",
+            ],
+        )
+        try:
+            context = browser.new_context(
+                user_agent=_ua,
+                viewport={"width": 1280, "height": 720},
+                locale="en-US",
+            )
+            context.add_init_script(
+                "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
+            )
+            page = context.new_page()
+            for i in idxs:
+                url = result[i]["letterboxd_url"]
+                try:
+                    page.goto(url, wait_until="domcontentloaded", timeout=90000)
+                    page.wait_for_timeout(2500)
+                    soup = BeautifulSoup(page.content(), "html.parser")
+                    pu = _poster_from_og(soup)
+                    if pu:
+                        result[i]["poster"] = pu
+                except Exception:
+                    continue
+            context.close()
+        finally:
+            browser.close()
+
+    return result
+
+
+def enrich_missing_posters(films: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Fill poster URLs from each film's Letterboxd page (og:image) when the listing only had placeholders."""
+    missing = [m for m in films if not m.get("poster")]
+    if not missing:
+        return films
+
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        return _playwright_batch_posters(films)
+
+    session = _session()
+    return [enrich_meta(session, dict(m)) if not m.get("poster") else dict(m) for m in films]
 
 
 def scrape_franceinter_films(*, enrich: bool = False) -> list[dict[str, Any]]:

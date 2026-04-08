@@ -8,7 +8,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from src.scrape import ScrapeError, scrape_franceinter_films
+from src.scrape import ScrapeError, enrich_missing_posters, scrape_franceinter_films
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -154,6 +154,7 @@ def run() -> None:
     prev_ids = {m["id"] for m in prev_movies if m.get("id")}
 
     movies = scrape_franceinter_films(enrich=False)
+    movies = enrich_missing_posters(movies)
 
     now = _utc_now_iso()
     current_doc = {
