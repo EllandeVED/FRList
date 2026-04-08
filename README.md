@@ -33,7 +33,7 @@ If the catalog still misbehaves, confirm **`TMDB_API_KEY`** is set on the repo s
 | Current snapshot (films) | **190** |
 | Cumulative history (unique films) | **190** |
 | New since previous run | **0** |
-| Last successful update (UTC) | **2026-04-08T22:37:24Z** |
+| Last successful update (UTC) | **2026-04-08T22:44:39Z** |
 | Manifest URL | `https://EllandeVED.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
