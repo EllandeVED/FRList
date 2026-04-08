@@ -15,6 +15,9 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      # Opt into Node 24 for JS-based actions (checkout/setup-python); see GitHub changelog.
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4

@@ -2,19 +2,18 @@
 
 from __future__ import annotations
 
+import os
 import re
 from typing import Any
 from urllib.parse import urljoin
 
-import requests
 from bs4 import BeautifulSoup
+from curl_cffi import requests as curl_requests
 
 BASE_URL = "https://letterboxd.com"
 FILMS_PATH = "/franceinter/films/"
-USER_AGENT = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-)
+# TLS fingerprint impersonation helps pass Letterboxd/Cloudflare on CI runners.
+CURL_IMPERSONATE = os.environ.get("FRList_CURL_IMPERSONATE", "chrome124")
 FILM_HREF_RE = re.compile(r"^/film/([^/]+)/$")
 YEAR_FROM_SLUG_RE = re.compile(r"-(\d{4})$")
 
@@ -23,25 +22,12 @@ class ScrapeError(RuntimeError):
     """Raised when the page cannot be fetched or parsed."""
 
 
-def _session() -> requests.Session:
-    s = requests.Session()
-    s.headers.update(
-        {
-            "User-Agent": USER_AGENT,
-            "Accept": (
-                "text/html,application/xhtml+xml,application/xml;q=0.9,"
-                "image/avif,image/webp,*/*;q=0.8"
-            ),
-            "Accept-Language": "en-US,en;q=0.9,fr;q=0.8",
-            "Cache-Control": "no-cache",
-            "Upgrade-Insecure-Requests": "1",
-            "Sec-Fetch-Dest": "document",
-            "Sec-Fetch-Mode": "navigate",
-            "Sec-Fetch-Site": "none",
-            "Sec-Fetch-User": "?1",
-        }
-    )
-    return s
+def _session() -> Any:
+    return curl_requests.Session()
+
+
+def _get(session: Any, url: str, *, timeout: float) -> Any:
+    return session.get(url, timeout=timeout, impersonate=CURL_IMPERSONATE)
 
 
 def _raise_if_blocked(html: str, url: str) -> None:
@@ -102,12 +88,64 @@ def _extract_title_year_poster(
     return title, year, poster
 
 
+def _movie_from_slug_href(
+    slug: str,
+    *,
+    title_hint: str | None,
+    poster_hint: str | None,
+) -> dict[str, Any]:
+    sid = _slug_to_id(slug)
+    title = (title_hint or "").strip() or None
+    year = _year_from_slug(slug)
+    if title:
+        ym = re.search(r"\((\d{4})\)\s*$", title)
+        if ym:
+            year = int(ym.group(1))
+    if not title:
+        title = slug.replace("-", " ").title()
+
+    poster = poster_hint
+    if poster and "empty-poster" in poster:
+        poster = None
+    if poster:
+        poster = urljoin(BASE_URL, poster)
+
+    film_path = f"/film/{slug}/"
+    letterboxd_url = urljoin(BASE_URL, film_path)
+
+    return {
+        "id": sid,
+        "title": title,
+        "year": year,
+        "letterboxd_url": letterboxd_url,
+        "poster": poster,
+        "film_path": film_path,
+    }
+
+
 def _parse_films_from_listing(
     html: str, page_url: str, *, require_any: bool
 ) -> list[dict[str, Any]]:
     soup = BeautifulSoup(html, "html.parser")
     seen_slugs: set[str] = set()
     out: list[dict[str, Any]] = []
+
+    # Current Letterboxd: React poster tiles use data-item-link, not <a href>.
+    for el in soup.select('[data-item-link^="/film/"]'):
+        href = (el.get("data-item-link") or "").strip()
+        m = FILM_HREF_RE.match(href)
+        if not m:
+            continue
+        slug = m.group(1)
+        sid = _slug_to_id(slug)
+        if sid in seen_slugs:
+            continue
+        seen_slugs.add(sid)
+
+        title = (el.get("data-item-full-display-name") or el.get("data-item-name") or "").strip() or None
+        img = el.find("img")
+        poster = img.get("src") if img else None
+        out.append(_movie_from_slug_href(slug, title_hint=title, poster_hint=poster))
 
     scope = soup.select_one("ul.poster-list") or soup.select_one("div#content")
     if scope is None:
@@ -136,26 +174,7 @@ def _parse_films_from_listing(
             if span:
                 title = span.get_text(strip=True)
 
-        year = _year_from_slug(slug)
-        if not title:
-            title = slug.replace("-", " ").title()
-
-        if poster:
-            poster = urljoin(BASE_URL, poster)
-
-        film_path = f"/film/{slug}/"
-        letterboxd_url = urljoin(BASE_URL, film_path)
-
-        out.append(
-            {
-                "id": sid,
-                "title": title,
-                "year": year,
-                "letterboxd_url": letterboxd_url,
-                "poster": poster,
-                "film_path": film_path,
-            }
-        )
+        out.append(_movie_from_slug_href(slug, title_hint=title, poster_hint=poster))
 
     if not out and require_any:
         raise ScrapeError(
@@ -165,7 +184,7 @@ def _parse_films_from_listing(
     return out
 
 
-def fetch_films_listing(session: requests.Session) -> list[dict[str, Any]]:
+def fetch_films_listing(session: Any) -> list[dict[str, Any]]:
     """Fetch all films from paginated /films/ listing."""
     by_id: dict[str, dict[str, Any]] = {}
     page = 1
@@ -174,8 +193,8 @@ def fetch_films_listing(session: requests.Session) -> list[dict[str, Any]]:
         path = FILMS_PATH if page == 1 else f"{FILMS_PATH.rstrip('/')}/page/{page}/"
         url = urljoin(BASE_URL, path)
         try:
-            r = session.get(url, timeout=60)
-        except requests.RequestException as e:
+            r = _get(session, url, timeout=60.0)
+        except Exception as e:
             raise ScrapeError(f"Network error fetching {url!r}: {e}") from e
 
         html = r.text
@@ -205,13 +224,13 @@ def fetch_films_listing(session: requests.Session) -> list[dict[str, Any]]:
     return list(by_id.values())
 
 
-def enrich_meta(session: requests.Session, film: dict[str, Any]) -> dict[str, Any]:
+def enrich_meta(session: Any, film: dict[str, Any]) -> dict[str, Any]:
     """Optional per-film page fetch for poster/title/year if missing from listing."""
     url = film["letterboxd_url"]
     try:
-        r = session.get(url, timeout=45)
+        r = _get(session, url, timeout=45.0)
         r.raise_for_status()
-    except requests.RequestException:
+    except Exception:
         return film
     html = r.text
     if "Just a moment" in html:

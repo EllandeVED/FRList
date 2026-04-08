@@ -13,10 +13,10 @@ Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest*
 <!-- FRList:status:start -->
 | Metric | Value |
 | --- | --- |
-| Current snapshot (films) | **0** |
-| Cumulative history (unique films) | **0** |
-| New since previous run | **0** |
-| Last successful update (UTC) | **2026-04-08T21:06:26Z** |
+| Current snapshot (films) | **190** |
+| Cumulative history (unique films) | **190** |
+| New since previous run | **190** |
+| Last successful update (UTC) | **2026-04-08T21:25:38Z** |
 | Manifest URL | `https://EllandeVED.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
@@ -26,7 +26,7 @@ Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest*
 
 ## How it works
 
-1. `src/scrape.py` fetches the Letterboxd HTML with `requests` and parses it with **BeautifulSoup** (realistic `User-Agent`, paginated `/films/` listing).
+1. `src/scrape.py` fetches the Letterboxd HTML with **curl_cffi** (Chrome TLS impersonation so Cloudflare often allows GitHub-hosted runners) and parses it with **BeautifulSoup** (paginated `/films/` listing).
 2. `python -m src.generate_addon` writes:
    - `data/current.json` — latest full snapshot  
    - `data/history.json` — cumulative unique films ever seen  
@@ -77,7 +77,7 @@ This repo includes **`.nojekyll`** so GitHub Pages does not process the site wit
 ## Requirements
 
 - Python **3.11**  
-- Dependencies: `requests`, `beautifulsoup4` (see `requirements.txt`)  
+- Dependencies: `curl-cffi`, `beautifulsoup4` (see `requirements.txt`)  
 - No database, no Docker, no paid services, no local server — only static files and Actions.
 
 ## License
