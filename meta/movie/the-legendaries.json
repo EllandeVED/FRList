@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/the-legendaries/",
     "id": "the-legendaries",
-    "name": "The Legendaries (2025)",
+    "name": "The Legendaries",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/6/0/1/8/5/6/601856-the-legendaries-0-230-0-345-crop.jpg?v=2c3a8077f3",
     "releaseInfo": "2025",
     "type": "movie"
   }

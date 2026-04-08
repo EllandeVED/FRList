@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/anatomy-of-a-fall/",
     "id": "anatomy-of-a-fall",
-    "name": "Anatomy of a Fall (2023)",
+    "name": "Anatomy of a Fall",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/wt/mj/4u/pj/anatomy-1200-1200-675-675-crop-000000.jpg?v=b1310de47c",
     "releaseInfo": "2023",
     "type": "movie"
   }

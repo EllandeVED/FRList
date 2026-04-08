@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/bugonia/",
     "id": "bugonia",
-    "name": "Bugonia (2025)",
+    "name": "Bugonia",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/jf/rv/eq/r2/bug-1200-1200-675-675-crop-000000.jpg?v=9227b4cd8a",
     "releaseInfo": "2025",
     "type": "movie"
   }

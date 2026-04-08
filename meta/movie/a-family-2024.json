@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/a-family-2024/",
     "id": "a-family-2024",
-    "name": "A Family (2024)",
+    "name": "A Family",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/ov/6u/83/8u/AFamily2024b-1200-1200-675-675-crop-000000.jpg?v=a9c4978db4",
     "releaseInfo": "2024",
     "type": "movie"
   }

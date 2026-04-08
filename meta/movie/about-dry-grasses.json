@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/about-dry-grasses/",
     "id": "about-dry-grasses",
-    "name": "About Dry Grasses (2023)",
+    "name": "About Dry Grasses",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/sk/5n/ov/ul/about-1200-1200-675-675-crop-000000.jpg?v=b646c2635d",
     "releaseInfo": "2023",
     "type": "movie"
   }

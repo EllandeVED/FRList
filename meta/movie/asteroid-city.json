@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/asteroid-city/",
     "id": "asteroid-city",
-    "name": "Asteroid City (2023)",
+    "name": "Asteroid City",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/j4/pi/fy/cf/525FJ1YD28efjP5cI7V2gDro6Qc-1200-1200-675-675-crop-000000.jpg?v=c93e68da37",
     "releaseInfo": "2023",
     "type": "movie"
   }

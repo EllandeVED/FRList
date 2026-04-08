@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/falcon-lake/",
     "id": "falcon-lake",
-    "name": "Falcon Lake (2022)",
+    "name": "Falcon Lake",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/3f/u4/pe/yx/falcon-1200-1200-675-675-crop-000000.jpg?v=c0b61e0aba",
     "releaseInfo": "2022",
     "type": "movie"
   }

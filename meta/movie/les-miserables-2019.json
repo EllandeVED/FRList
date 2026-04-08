@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/les-miserables-2019/",
     "id": "les-miserables-2019",
-    "name": "Les Misérables (2019)",
+    "name": "Les Misérables",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/6m/my/8q/5h/les-misearables-2019-1200-1200-675-675-crop-000000.jpg?v=a6be7ec009",
     "releaseInfo": "2019",
     "type": "movie"
   }

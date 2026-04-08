@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/delete-history/",
     "id": "delete-history",
-    "name": "Delete History (2020)",
+    "name": "Delete History",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/5/8/5/1/5/8/585158-delete-history-0-230-0-345-crop.jpg?v=ca78c9a487",
     "releaseInfo": "2020",
     "type": "movie"
   }

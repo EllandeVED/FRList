@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/second-tour-2023/",
     "id": "second-tour-2023",
-    "name": "Second Tour (2023)",
+    "name": "Second Tour",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/sk/lp/jh/d1/second-1200-1200-675-675-crop-000000.jpg?v=067f8026d0",
     "releaseInfo": "2023",
     "type": "movie"
   }

@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/marcello-mio/",
     "id": "marcello-mio",
-    "name": "Marcello Mio (2024)",
+    "name": "Marcello Mio",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/70/q1/66/0v/MarcelloMio-1200-1200-675-675-crop-000000.jpg?v=66627713e4",
     "releaseInfo": "2024",
     "type": "movie"
   }

@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/dark-waters-2019/",
     "id": "dark-waters-2019",
-    "name": "Dark Waters (2019)",
+    "name": "Dark Waters",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/eg/uj/8j/n1/dark-waters-1200-1200-675-675-crop-000000.jpg?v=c46a6c4022",
     "releaseInfo": "2019",
     "type": "movie"
   }

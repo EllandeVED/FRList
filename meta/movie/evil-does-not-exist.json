@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/evil-does-not-exist/",
     "id": "evil-does-not-exist",
-    "name": "Evil Does Not Exist (2023)",
+    "name": "Evil Does Not Exist",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/cb/v9/65/wl/evil-1200-1200-675-675-crop-000000.jpg?v=3811fd94d9",
     "releaseInfo": "2023",
     "type": "movie"
   }

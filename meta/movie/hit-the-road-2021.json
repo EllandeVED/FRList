@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/hit-the-road-2021/",
     "id": "hit-the-road-2021",
-    "name": "Hit the Road (2021)",
+    "name": "Hit the Road",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/qf/f7/s7/d2/hit%20the%20road-1200-1200-675-675-crop-000000.jpg?v=51750ff4ed",
     "releaseInfo": "2021",
     "type": "movie"
   }

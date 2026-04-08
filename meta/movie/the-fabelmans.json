@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/the-fabelmans/",
     "id": "the-fabelmans",
-    "name": "The Fabelmans (2022)",
+    "name": "The Fabelmans",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/oi/nc/rl/26/fabel-1200-1200-675-675-crop-000000.jpg?v=00f46d5132",
     "releaseInfo": "2022",
     "type": "movie"
   }

@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/jims-story/",
     "id": "jims-story",
-    "name": "Jim's Story (2024)",
+    "name": "Jim's Story",
+    "poster": "https://a.ltrbxd.com/resized/alternative-backdrop/9/9/4/5/7/4/tmdb/ehl3RZOQkRCT0DDYLZKMgBusyVd-1200-1200-675-675-crop-000000.jpg?v=2902321b1f",
     "releaseInfo": "2024",
     "type": "movie"
   }

@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/emilia-perez/",
     "id": "emilia-perez",
-    "name": "Emilia Pérez (2024)",
+    "name": "Emilia Pérez",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/04/ks/7w/la/EmiliaPerez-1200-1200-675-675-crop-000000.jpg?v=417fe2842a",
     "releaseInfo": "2024",
     "type": "movie"
   }

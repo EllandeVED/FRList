@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/hunger/",
     "id": "hunger",
-    "name": "Hunger (2008)",
+    "name": "Hunger",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/6c/3t/q7/9h/hunger-1200-1200-675-675-crop-000000.jpg?v=77c464a1da",
     "releaseInfo": "2008",
     "type": "movie"
   }

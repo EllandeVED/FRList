@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/the-buriti-flower/",
     "id": "the-buriti-flower",
-    "name": "The Buriti Flower (2023)",
+    "name": "The Buriti Flower",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/v0/ez/a1/2g/TheBuritFlower-1200-1200-675-675-crop-000000.jpg?v=779bd1447e",
     "releaseInfo": "2023",
     "type": "movie"
   }

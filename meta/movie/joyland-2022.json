@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/joyland-2022/",
     "id": "joyland-2022",
-    "name": "Joyland (2022)",
+    "name": "Joyland",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/4r/dw/fq/g3/joyland-1200-1200-675-675-crop-000000.jpg?v=3c79ab43a2",
     "releaseInfo": "2022",
     "type": "movie"
   }

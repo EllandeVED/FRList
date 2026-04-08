@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/shoplifters/",
     "id": "shoplifters",
-    "name": "Shoplifters (2018)",
+    "name": "Shoplifters",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/vw/0l/yj/vn/2EF933A3-8FFD-4A14-9DD2-DF064AE7F026-1200-1200-675-675-crop-000000.jpg?v=6ebf58bcde",
     "releaseInfo": "2018",
     "type": "movie"
   }

@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/napoleon-2023/",
     "id": "napoleon-2023",
-    "name": "Napoleon (2023)",
+    "name": "Napoleon",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/we/7u/kj/bf/napoleon-2023-1200-1200-675-675-crop-000000.jpg?v=56ee0d66d7",
     "releaseInfo": "2023",
     "type": "movie"
   }

@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/close-2022/",
     "id": "close-2022",
-    "name": "Close (2022)",
+    "name": "Close",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/rp/8k/u1/to/close-1200-1200-675-675-crop-000000.jpg?v=846d9e3349",
     "releaseInfo": "2022",
     "type": "movie"
   }

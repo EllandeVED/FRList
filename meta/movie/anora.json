@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/anora/",
     "id": "anora",
-    "name": "Anora (2024)",
+    "name": "Anora",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/5d/nm/eu/bz/anora-1200-1200-675-675-crop-000000.jpg?v=220493ca2d",
     "releaseInfo": "2024",
     "type": "movie"
   }

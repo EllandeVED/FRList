@@ -2,7 +2,8 @@
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/fallen-leaves-2023/",
     "id": "fallen-leaves-2023",
-    "name": "Fallen Leaves (2023)",
+    "name": "Fallen Leaves",
+    "poster": "https://a.ltrbxd.com/resized/sm/upload/tx/j3/l3/9a/fallen-leaves-1200-1200-675-675-crop-000000.jpg?v=68ef586d8c",
     "releaseInfo": "2023",
     "type": "movie"
   }
