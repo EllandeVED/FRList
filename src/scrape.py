@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 import re
+from types import SimpleNamespace
 from typing import Any
 from urllib.parse import urljoin
 
@@ -30,8 +31,89 @@ def _get(session: Any, url: str, *, timeout: float) -> Any:
     return session.get(url, timeout=timeout, impersonate=CURL_IMPERSONATE)
 
 
+def _cf_interstitial(html: str) -> bool:
+    return "Just a moment" in html and "challenge-platform" in html
+
+
+def _playwright_fetch(url: str) -> str:
+    """Headless browser fetch for GitHub Actions when Cloudflare blocks curl_cffi."""
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError as e:
+        raise ScrapeError(
+            "Playwright is required when Letterboxd serves a Cloudflare challenge on CI. "
+            "Install: pip install playwright && playwright install chromium"
+        ) from e
+
+    _ua = (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    )
+    with sync_playwright() as p:
+        browser = p.chromium.launch(
+            headless=True,
+            args=[
+                "--disable-dev-shm-usage",
+                "--no-sandbox",
+                "--disable-blink-features=AutomationControlled",
+            ],
+        )
+        try:
+            context = browser.new_context(
+                user_agent=_ua,
+                viewport={"width": 1280, "height": 720},
+                locale="en-US",
+            )
+            context.add_init_script(
+                "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
+            )
+            page = context.new_page()
+            page.goto(url, wait_until="domcontentloaded", timeout=120000)
+            for _ in range(40):
+                page.wait_for_timeout(2000)
+                html = page.content()
+                if '[data-item-link="' in html and "/film/" in html:
+                    break
+            else:
+                html = page.content()
+            context.close()
+        finally:
+            browser.close()
+
+    if _cf_interstitial(html):
+        raise ScrapeError(
+            f"Cloudflare still blocked after Playwright fetch for {url!r}."
+        )
+    return html
+
+
+def _get_html_response(session: Any, url: str, *, timeout: float) -> Any:
+    """HTTP via curl_cffi; on GitHub Actions fall back to Playwright if CF interstitial."""
+    try:
+        r = _get(session, url, timeout=timeout)
+    except Exception as e:
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            html = _playwright_fetch(url)
+            return SimpleNamespace(status_code=200, text=html, ok=True)
+        raise ScrapeError(f"Network error fetching {url!r}: {e}") from e
+
+    if _cf_interstitial(r.text) and os.environ.get("GITHUB_ACTIONS") == "true":
+        html = _playwright_fetch(url)
+        return SimpleNamespace(status_code=200, text=html, ok=True)
+
+    _raise_if_blocked(r.text, url)
+    if r.status_code == 404:
+        return r
+    if not r.ok:
+        raise ScrapeError(
+            f"HTTP {r.status_code} when fetching {url!r}. "
+            "Letterboxd may be blocking automated access from this network."
+        )
+    return r
+
+
 def _raise_if_blocked(html: str, url: str) -> None:
-    if "Just a moment" in html and "challenge-platform" in html:
+    if _cf_interstitial(html):
         raise ScrapeError(
             f"Letterboxd returned a Cloudflare challenge for {url!r}. "
             "Retry later or run from a network that can complete the challenge."
@@ -192,20 +274,10 @@ def fetch_films_listing(session: Any) -> list[dict[str, Any]]:
     while True:
         path = FILMS_PATH if page == 1 else f"{FILMS_PATH.rstrip('/')}/page/{page}/"
         url = urljoin(BASE_URL, path)
-        try:
-            r = _get(session, url, timeout=60.0)
-        except Exception as e:
-            raise ScrapeError(f"Network error fetching {url!r}: {e}") from e
-
+        r = _get_html_response(session, url, timeout=60.0)
         html = r.text
-        _raise_if_blocked(html, url)
         if r.status_code == 404 and page > 1:
             break
-        if not r.ok:
-            raise ScrapeError(
-                f"HTTP {r.status_code} when fetching {url!r}. "
-                "Letterboxd may be blocking automated access from this network."
-            )
 
         page_films = _parse_films_from_listing(html, url, require_any=(page == 1))
         if not page_films:

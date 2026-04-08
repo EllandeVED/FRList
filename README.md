@@ -15,8 +15,8 @@ Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest*
 | --- | --- |
 | Current snapshot (films) | **190** |
 | Cumulative history (unique films) | **190** |
-| New since previous run | **190** |
-| Last successful update (UTC) | **2026-04-08T21:25:38Z** |
+| New since previous run | **0** |
+| Last successful update (UTC) | **2026-04-08T21:37:04Z** |
 | Manifest URL | `https://EllandeVED.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
@@ -35,7 +35,7 @@ Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest*
    - the **Generated status** table in this README  
 3. GitHub Actions runs the same command weekly and commits changes so GitHub Pages always serves fresh static JSON.
 
-Letterboxd sits behind **Cloudflare**. A local run may fail with a challenge or HTTP error even though the scheduled **GitHub-hosted** workflow usually receives normal HTML on a first fetch.
+Letterboxd sits behind **Cloudflare**. The scheduled workflow uses **curl_cffi** first, then **Playwright (Chromium)** on GitHub Actions only if the interstitial appears—so the same job can succeed on runners where plain HTTP gets blocked.
 
 ## Data files
 
