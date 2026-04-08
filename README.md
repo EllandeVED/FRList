@@ -8,11 +8,12 @@ It generates a **static Stremio addon** (catalog + meta only, no streams) and pu
 
 Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest**.
 
-### Stremio: posters, scores, and playback
+### Stremio: streams, scores, and posters
 
-- **Posters** come from each film’s Letterboxd page (`og:image`) when the grid only had lazy placeholders. Without that step, Stremio shows its generic icon.
-- **IMDb / Rotten Tomatoes bars** on the home row come from other addons (e.g. TMDB/Cinemeta) that match **`tt…` / TMDB-style ids**. This catalog uses **Letterboxd slugs** as `id`, so those addons usually **do not merge** ratings into these rows.
-- **“No addons were requested for this meta!”** is expected: this addon ships **catalog + meta only** (no `stream` resource). Open a title from a catalog that *does* provide streams, or use your usual streaming addons after finding the film elsewhere.
+- **Stream addons (Torrentio, etc.)** match movies by **IMDb-style ids** (`tt…`). Letterboxd **slugs** are invisible to them, so you get *“No addons were requested for this meta!”* unless each row uses a **`tt…` id**.
+- **Optional (recommended):** set a free **[TMDB API key](https://www.themoviedb.org/settings/api)** in **`TMDB_API_KEY`** (local env or GitHub **Settings → Secrets → Actions → `TMDB_API_KEY`**). The generator then resolves titles to **`tt…` + TMDB posters** in parallel (fast JSON). After that, your usual streaming addons can attach to the same meta.
+- **Without TMDB:** ids stay as Letterboxd slugs; the addon still lists films, but **streams / IMDb–style score bars** from other addons usually **won’t** hook in.
+- This addon still does **not** ship a **`stream`** resource itself—it only provides **catalog + meta**. With `tt…` ids, **other** addons supply streams.
 
 ## Generated status
 
@@ -33,13 +34,14 @@ Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest*
 ## How it works
 
 1. `src/scrape.py` fetches the Letterboxd HTML with **curl_cffi** (Chrome TLS impersonation so Cloudflare often allows GitHub-hosted runners) and parses it with **BeautifulSoup** (paginated `/films/` listing).
-2. `python -m src.generate_addon` writes:
+2. If **`TMDB_API_KEY`** is set, **`src/tmdb_resolve.py`** maps each film to **`tt…`** (and a TMDB poster) via the TMDB API (parallel requests).  
+3. `python -m src.generate_addon` writes:
    - `data/current.json` — latest full snapshot  
    - `data/history.json` — cumulative unique films ever seen  
-   - `data/new_since_last_run.json` — films in the new snapshot that were not in the previous `current.json`  
+   - `data/new_since_last_run.json` — new **Letterboxd URLs** since the previous snapshot  
    - `manifest.json`, `catalog/movie/franceinter.json`, and `meta/movie/<id>.json` for each film  
    - the **Generated status** table in this README  
-3. GitHub Actions runs the same command weekly and commits changes so GitHub Pages always serves fresh static JSON.
+4. GitHub Actions runs the same command weekly and commits changes so GitHub Pages always serves fresh static JSON. The workflow passes **`secrets.TMDB_API_KEY`** when configured.
 
 Letterboxd sits behind **Cloudflare**. The scheduled workflow uses **curl_cffi** first, then **Playwright (Chromium)** on GitHub Actions only if the interstitial appears—so the same job can succeed on runners where plain HTTP gets blocked.
 
@@ -48,8 +50,8 @@ Letterboxd sits behind **Cloudflare**. The scheduled workflow uses **curl_cffi**
 | File | Meaning |
 | --- | --- |
 | `data/current.json` | Latest scrape: full list of films from the watched page at run time. |
-| `data/history.json` | Union of all films ever seen across runs (by stable Letterboxd-derived id). |
-| `data/new_since_last_run.json` | Films that appear in the new snapshot but were not in the *previous* `current.json`. |
+| `data/history.json` | Union of all films ever seen across runs (keyed by **Letterboxd film URL** so ids can migrate to `tt…`). |
+| `data/new_since_last_run.json` | Films whose **Letterboxd URL** is new vs the previous snapshot (`previous_snapshot_had_letterboxd_urls`). |
 
 ## Local one-off run (optional)
 
@@ -58,6 +60,7 @@ cd /path/to/FRList
 python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+export TMDB_API_KEY='your_tmdb_v3_key'   # optional; enables tt… ids + TMDB posters
 python -m src.generate_addon
 ```
 
@@ -71,6 +74,12 @@ python -m src.generate_addon
 
 **Actions** → **Update Letterboxd data** → **Run workflow**.
 
+### TMDB secret (optional, for `tt…` ids / streams)
+
+1. Create a **TMDB** account → **Settings** → **API** → request an **API key (v3 auth)**.  
+2. Repo **Settings** → **Secrets and variables** → **Actions** → **New repository secret** → name **`TMDB_API_KEY`**, value your key.  
+3. Re-run the workflow. Catalog/meta ids become **`tt…`** where TMDB returns an IMDb id, so stream addons can attach.
+
 ## Enable GitHub Pages
 
 1. **Settings** → **Pages**.  
@@ -83,7 +92,7 @@ This repo includes **`.nojekyll`** so GitHub Pages does not process the site wit
 ## Requirements
 
 - Python **3.11**  
-- Dependencies: `curl-cffi`, `beautifulsoup4` (see `requirements.txt`)  
+- Dependencies: `curl-cffi`, `beautifulsoup4`, `playwright`, `requests` (see `requirements.txt`)  
 - No database, no Docker, no paid services, no local server — only static files and Actions.
 
 ## License

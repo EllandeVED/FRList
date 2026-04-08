@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import json
 import re
 import sys
@@ -9,6 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from src.scrape import ScrapeError, enrich_missing_posters, scrape_franceinter_films
+from src.tmdb_resolve import is_configured, resolve_movies_parallel
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -39,6 +41,23 @@ MANIFEST = {
     ],
     "behaviorHints": {"configurable": False, "configurationRequired": False},
 }
+
+
+def _letterboxd_key(m: dict) -> str:
+    return (m.get("letterboxd_url") or "").strip()
+
+
+def _manifest_for_catalog(movies: list[dict]) -> dict:
+    """When every row uses tt… ids, declare idPrefixes so Stremio/stream addons align."""
+    m = copy.deepcopy(MANIFEST)
+    ids = [str(x.get("id", "")) for x in movies]
+    if ids and all(x.startswith("tt") for x in ids):
+        m["idPrefixes"] = ["tt"]
+        m["resources"] = [
+            {"name": "catalog", "types": ["movie"], "idPrefixes": ["tt"]},
+            {"name": "meta", "types": ["movie"], "idPrefixes": ["tt"]},
+        ]
+    return m
 
 
 def _json_dump(path: Path, obj: object) -> None:
@@ -120,6 +139,8 @@ def _meta_payload(movie: dict) -> dict:
         meta["releaseInfo"] = str(year)
     if poster:
         meta["poster"] = poster
+    if movie.get("imdb_id"):
+        meta["imdb_id"] = movie["imdb_id"]
     return {"meta": meta}
 
 
@@ -144,16 +165,18 @@ def _write_catalog_and_meta(movies: list[dict]) -> None:
         if stem not in keep:
             p.unlink()
 
-    _json_dump(MANIFEST_PATH, MANIFEST)
+    _json_dump(MANIFEST_PATH, _manifest_for_catalog(movies))
 
 
 def run() -> None:
     DATA.mkdir(parents=True, exist_ok=True)
     prev_doc = _load_json(DATA / "current.json")
     prev_movies = _movies_from_data(prev_doc)
-    prev_ids = {m["id"] for m in prev_movies if m.get("id")}
+    prev_lb = {_letterboxd_key(m) for m in prev_movies if _letterboxd_key(m)}
 
     movies = scrape_franceinter_films(enrich=False)
+    if is_configured():
+        movies = resolve_movies_parallel(movies)
     movies = enrich_missing_posters(movies)
 
     now = _utc_now_iso()
@@ -164,17 +187,23 @@ def run() -> None:
     }
     _json_dump(DATA / "current.json", current_doc)
 
-    cur_ids = {m["id"] for m in movies}
-    new_ids = cur_ids - prev_ids if prev_ids else set(cur_ids)
+    cur_lb = {_letterboxd_key(m) for m in movies if _letterboxd_key(m)}
+    new_lb = cur_lb - prev_lb if prev_lb else set(cur_lb)
 
     hist_doc = _load_json(DATA / "history.json")
     hist_movies = _movies_from_data(hist_doc)
-    by_id: dict[str, dict] = {m["id"]: m for m in hist_movies if m.get("id")}
+    by_lb: dict[str, dict] = {}
+    for m in hist_movies:
+        k = _letterboxd_key(m)
+        if k:
+            by_lb[k] = m
     for m in movies:
-        by_id[m["id"]] = m
+        k = _letterboxd_key(m)
+        if k:
+            by_lb[k] = m
     history_list = sorted(
-        by_id.values(),
-        key=lambda x: (x["title"].lower(), x.get("year") or 0, x["id"]),
+        by_lb.values(),
+        key=lambda x: (x["title"].lower(), x.get("year") or 0, x.get("id", "")),
     )
     history_out = {
         "source": "https://letterboxd.com/franceinter/films/",
@@ -183,16 +212,16 @@ def run() -> None:
     }
     _json_dump(DATA / "history.json", history_out)
 
-    new_movies = [m for m in movies if m["id"] in new_ids]
+    new_movies = [m for m in movies if _letterboxd_key(m) in new_lb]
     new_movies.sort(
-        key=lambda x: (x["title"].lower(), x.get("year") or 0, x["id"])
+        key=lambda x: (x["title"].lower(), x.get("year") or 0, x.get("id", ""))
     )
     _json_dump(
         DATA / "new_since_last_run.json",
         {
             "source": "https://letterboxd.com/franceinter/films/",
             "generated_at_utc": now,
-            "previous_snapshot_had_ids": sorted(prev_ids),
+            "previous_snapshot_had_letterboxd_urls": sorted(prev_lb),
             "new_movies": new_movies,
         },
     )
