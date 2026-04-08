@@ -58,7 +58,7 @@ In **AIOMetadata**, use the **Trakt** catalog integration and pick this list—n
 | Current snapshot (films) | **190** |
 | Cumulative history (unique films) | **190** |
 | New since previous run | **0** |
-| Last successful update (UTC) | **2026-04-08T22:44:39Z** |
+| Last successful update (UTC) | **2026-04-08T23:12:40Z** |
 | Manifest URL | `https://EllandeVED.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
