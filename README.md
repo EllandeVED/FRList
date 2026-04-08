@@ -1,3 +1,5 @@
+_This project has been fully vibe coded, but hey, it works well. Use the following link as an add-on Stremio or directly inside AIOMetadata as a catalog. Feel free to read the generated README that explains in more detail. :)_ 
+
 # FRList
 
 Static **[Stremio](https://www.stremio.com/)** addon that mirrors the public **France Inter** watched-films list on Letterboxd:
