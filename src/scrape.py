@@ -69,12 +69,11 @@ def _playwright_fetch(url: str) -> str:
             )
             page = context.new_page()
             page.goto(url, wait_until="domcontentloaded", timeout=120000)
-            for _ in range(40):
-                page.wait_for_timeout(2000)
-                html = page.content()
+            html = page.content()
+            for _ in range(35):
                 if '[data-item-link="' in html and "/film/" in html:
                     break
-            else:
+                page.wait_for_timeout(1000)
                 html = page.content()
             context.close()
         finally:
@@ -333,14 +332,11 @@ def enrich_meta(session: Any, film: dict[str, Any]) -> dict[str, Any]:
     return film
 
 
-def _playwright_batch_posters(films: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """One Chromium session: open each film page and read og:image (for CI when listing had no real posters)."""
-    from playwright.sync_api import sync_playwright
-
-    result = [dict(m) for m in films]
-    idxs = [i for i, m in enumerate(result) if not m.get("poster")]
+def _playwright_batch_poster_indices(result: list[dict[str, Any]], idxs: list[int]) -> None:
+    """Fill posters for result[i] for i in idxs using one browser session."""
     if not idxs:
-        return result
+        return
+    from playwright.sync_api import sync_playwright
 
     _ua = (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -368,8 +364,8 @@ def _playwright_batch_posters(films: list[dict[str, Any]]) -> list[dict[str, Any
             for i in idxs:
                 url = result[i]["letterboxd_url"]
                 try:
-                    page.goto(url, wait_until="domcontentloaded", timeout=90000)
-                    page.wait_for_timeout(2500)
+                    page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                    page.wait_for_timeout(800)
                     soup = BeautifulSoup(page.content(), "html.parser")
                     pu = _poster_from_og(soup)
                     if pu:
@@ -380,8 +376,6 @@ def _playwright_batch_posters(films: list[dict[str, Any]]) -> list[dict[str, Any
         finally:
             browser.close()
 
-    return result
-
 
 def enrich_missing_posters(films: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Fill poster URLs from each film's Letterboxd page (og:image) when the listing only had placeholders."""
@@ -390,7 +384,15 @@ def enrich_missing_posters(films: list[dict[str, Any]]) -> list[dict[str, Any]]:
         return films
 
     if os.environ.get("GITHUB_ACTIONS") == "true":
-        return _playwright_batch_posters(films)
+        # Film pages often pass curl_cffi even when the /films/ grid needed Playwright; try HTTP first.
+        result = [dict(m) for m in films]
+        session = _session()
+        idxs = [i for i, m in enumerate(result) if not m.get("poster")]
+        for i in idxs:
+            enrich_meta(session, result[i])
+        still = [i for i in idxs if not result[i].get("poster")]
+        _playwright_batch_poster_indices(result, still)
+        return result
 
     session = _session()
     return [enrich_meta(session, dict(m)) if not m.get("poster") else dict(m) for m in films]
