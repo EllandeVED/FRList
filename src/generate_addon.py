@@ -26,8 +26,9 @@ README_END = "<!-- FRList:status:end -->"
 PAGES_OWNER = "EllandeVED"
 
 MANIFEST = {
-    "id": "franceinter-letterboxd-catalog",
-    "version": "1.0.0",
+    # Dot-separated id per Stremio addon SDK (better client compatibility).
+    "id": "org.franceinter.letterboxd",
+    "version": "1.1.0",
     "name": "France Inter Letterboxd",
     "description": "Auto-updated catalog from the France Inter watched films page on Letterboxd",
     "resources": ["catalog", "meta"],
@@ -47,16 +48,13 @@ def _letterboxd_key(m: dict) -> str:
     return (m.get("letterboxd_url") or "").strip()
 
 
-def _manifest_for_catalog(movies: list[dict]) -> dict:
-    """When every row uses tt… ids, declare idPrefixes so Stremio/stream addons align."""
+def _manifest_for_catalog(movies: list[dict], *, all_imdb_ids: bool) -> dict:
+    """If every catalog id is tt…, expose catalog only; Cinemeta supplies meta (Stremio protocol)."""
     m = copy.deepcopy(MANIFEST)
-    ids = [str(x.get("id", "")) for x in movies]
-    if ids and all(x.startswith("tt") for x in ids):
+    if all_imdb_ids:
+        # https://github.com/Stremio/stremio-addon-sdk/blob/master/docs/api/responses/manifest.md
         m["idPrefixes"] = ["tt"]
-        m["resources"] = [
-            {"name": "catalog", "types": ["movie"], "idPrefixes": ["tt"]},
-            {"name": "meta", "types": ["movie"], "idPrefixes": ["tt"]},
-        ]
+        m["resources"] = [{"name": "catalog", "types": ["movie"]}]
     return m
 
 
@@ -153,19 +151,25 @@ def _write_catalog_and_meta(movies: list[dict]) -> None:
         metas.append(entry)
     _json_dump(CATALOG_PATH, {"metas": metas})
 
+    ids = [str(x.get("id", "")) for x in movies]
+    all_imdb_ids = bool(ids) and all(x.startswith("tt") for x in ids)
+
     META_DIR.mkdir(parents=True, exist_ok=True)
-    keep: set[str] = set()
-    for m in movies:
-        mid = m["id"]
-        keep.add(mid)
-        _json_dump(META_DIR / f"{mid}.json", _meta_payload(m))
-
-    for p in META_DIR.glob("*.json"):
-        stem = p.stem
-        if stem not in keep:
+    if all_imdb_ids:
+        for p in META_DIR.glob("*.json"):
             p.unlink()
+    else:
+        keep: set[str] = set()
+        for m in movies:
+            mid = m["id"]
+            keep.add(mid)
+            _json_dump(META_DIR / f"{mid}.json", _meta_payload(m))
 
-    _json_dump(MANIFEST_PATH, _manifest_for_catalog(movies))
+        for p in META_DIR.glob("*.json"):
+            if p.stem not in keep:
+                p.unlink()
+
+    _json_dump(MANIFEST_PATH, _manifest_for_catalog(movies, all_imdb_ids=all_imdb_ids))
 
 
 def run() -> None:

@@ -6,14 +6,24 @@ This repository mirrors the public **watched films** list from Letterboxd:
 
 It generates a **static Stremio addon** (catalog + meta only, no streams) and publishes it with **GitHub Pages**. Updates run on a schedule in **GitHub Actions** using **GitHub-hosted runners** only — nothing recurring runs on your computer.
 
-Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest**.
+### AIOMetadata (custom catalog)
+
+AIOMetadata expects a normal **Stremio v2 manifest** served over **HTTPS**.
+
+1. Open your AIOMetadata instance → **Configure** → **Catalogs**.
+2. Add a **custom / external** catalog (UI labels vary) and paste **exactly** the manifest URL — it must end with **`manifest.json`**, e.g. `https://EllandeVED.github.io/FRList/manifest.json`. Do **not** use the repo homepage alone.
+3. **Save** the configuration, then refresh or reinstall the **AIOMetadata** addon in Stremio so the merged manifest picks up the new catalog.
+
+If the catalog still misbehaves, confirm **`TMDB_API_KEY`** is set on the repo so every row resolves to **`tt…`** ids (see below). With all-`tt` ids, FRList advertises **catalog only** and Stremio’s built-in Cinemeta layer supplies detail pages — that pattern matches the [Stremio addon manifest](https://github.com/Stremio/stremio-addon-sdk/blob/master/docs/api/responses/manifest.md) guidance for IMDb ids.
+
+**Standalone Stremio:** you can also paste the same manifest URL directly into Stremio as a community addon.
 
 ### Stremio: streams, scores, and posters
 
 - **Stream addons (Torrentio, etc.)** match movies by **IMDb-style ids** (`tt…`). Letterboxd **slugs** are invisible to them, so you get *“No addons were requested for this meta!”* unless each row uses a **`tt…` id**.
 - **Optional (recommended):** set a free **[TMDB API key](https://www.themoviedb.org/settings/api)** in **`TMDB_API_KEY`** (local env or GitHub **Settings → Secrets → Actions → `TMDB_API_KEY`**). The generator then resolves titles to **`tt…` + TMDB posters** in parallel (fast JSON). After that, your usual streaming addons can attach to the same meta.
 - **Without TMDB:** ids stay as Letterboxd slugs; the addon still lists films, but **streams / IMDb–style score bars** from other addons usually **won’t** hook in.
-- This addon still does **not** ship a **`stream`** resource itself—it only provides **catalog + meta**. With `tt…` ids, **other** addons supply streams.
+- This addon does **not** ship a **`stream`** resource. With **Letterboxd slug** ids it provides **catalog + meta**. When **every** id is **`tt…`** (TMDB resolution), it provides **catalog only** so Cinemeta can own meta and stream addons attach cleanly.
 
 ## Generated status
 
@@ -23,13 +33,15 @@ Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest*
 | Current snapshot (films) | **190** |
 | Cumulative history (unique films) | **190** |
 | New since previous run | **0** |
-| Last successful update (UTC) | **2026-04-08T22:20:53Z** |
+| Last successful update (UTC) | **2026-04-08T22:37:24Z** |
 | Manifest URL | `https://EllandeVED.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
 ## Manifest URL (after Pages is enabled)
 
 `https://EllandeVED.github.io/FRList/manifest.json`
+
+If you had an older install, remove the previous addon entry first: the addon **`id`** is now `org.franceinter.letterboxd` (Stremio SDK–style), not `franceinter-letterboxd-catalog`.
 
 ## How it works
 
@@ -39,7 +51,7 @@ Paste the manifest URL into **AIOMetadata** (or Stremio) as a **Custom Manifest*
    - `data/current.json` — latest full snapshot  
    - `data/history.json` — cumulative unique films ever seen  
    - `data/new_since_last_run.json` — new **Letterboxd URLs** since the previous snapshot  
-   - `manifest.json`, `catalog/movie/franceinter.json`, and `meta/movie/<id>.json` for each film  
+   - `manifest.json`, `catalog/movie/franceinter.json`, and (if any id is not `tt…`) `meta/movie/<id>.json` per film  
    - the **Generated status** table in this README  
 4. GitHub Actions runs the same command weekly and commits changes so GitHub Pages always serves fresh static JSON. The workflow passes **`secrets.TMDB_API_KEY`** when configured.
 
