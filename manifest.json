@@ -1,0 +1,24 @@
+{
+  "behaviorHints": {
+    "configurable": false,
+    "configurationRequired": false
+  },
+  "catalogs": [
+    {
+      "id": "franceinter",
+      "name": "France Inter",
+      "type": "movie"
+    }
+  ],
+  "description": "Auto-updated catalog from the France Inter watched films page on Letterboxd",
+  "id": "franceinter-letterboxd-catalog",
+  "name": "France Inter Letterboxd",
+  "resources": [
+    "catalog",
+    "meta"
+  ],
+  "types": [
+    "movie"
+  ],
+  "version": "1.0.0"
+}
