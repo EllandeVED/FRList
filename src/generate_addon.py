@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from src.scrape import ScrapeError, enrich_missing_posters, scrape_franceinter_films
+from src import trakt_sync
 from src.tmdb_resolve import is_configured, resolve_movies_parallel
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -137,8 +138,12 @@ def _meta_payload(movie: dict) -> dict:
         meta["releaseInfo"] = str(year)
     if poster:
         meta["poster"] = poster
-    if movie.get("imdb_id"):
-        meta["imdb_id"] = movie["imdb_id"]
+    # Stream addons (Torrentio, etc.) key off IMDb ids; Stremio merges meta more reliably when this is set.
+    imdb = (movie.get("imdb_id") or "").strip()
+    if mid.startswith("tt"):
+        meta["imdb_id"] = imdb if imdb else mid
+    elif imdb:
+        meta["imdb_id"] = imdb
     return {"meta": meta}
 
 
@@ -231,6 +236,22 @@ def run() -> None:
     )
 
     _write_catalog_and_meta(movies)
+
+    if trakt_sync.is_configured():
+        try:
+            stats = trakt_sync.sync_list(movies)
+            print(
+                "FRList Trakt: "
+                f"+{stats['added']} added, -{stats['removed']} removed, "
+                f"{stats['skipped_no_imdb']} skipped (no IMDb id)",
+                flush=True,
+            )
+        except Exception as e:
+            print(
+                f"FRList Trakt sync failed (Letterboxd data and addon still saved): {e}",
+                file=sys.stderr,
+            )
+
     _update_readme(
         current_n=len(movies),
         history_n=len(history_list),

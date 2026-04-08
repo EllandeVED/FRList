@@ -10,7 +10,7 @@ from typing import Any
 import requests
 
 TMDB_SEARCH = "https://api.themoviedb.org/3/search/movie"
-TMDB_EXTERNAL = "https://api.themoviedb.org/3/movie/{}/external_ids"
+TMDB_MOVIE = "https://api.themoviedb.org/3/movie/{}"
 TMDB_IMG = "https://image.tmdb.org/t/p/w500"
 
 _SESSION = requests.Session()
@@ -52,19 +52,27 @@ def _search_movie(api_key: str, query: str, year: int | None) -> dict | None:
     return _pick_result(data.get("results") or [], year)
 
 
-def _external_imdb(api_key: str, tmdb_id: int) -> str | None:
+def _norm_imdb(raw: str | None) -> str | None:
+    if not raw:
+        return None
+    s = str(raw).strip()
+    if not s:
+        return None
+    if s.startswith("tt"):
+        return s
+    if s.isdigit():
+        return f"tt{s}"
+    return None
+
+
+def _movie_detail(api_key: str, tmdb_id: int) -> dict[str, Any]:
     r = _SESSION.get(
-        TMDB_EXTERNAL.format(tmdb_id),
+        TMDB_MOVIE.format(tmdb_id),
         params={"api_key": api_key},
         timeout=20,
     )
     r.raise_for_status()
-    raw = (r.json().get("imdb_id") or "").strip()
-    if not raw:
-        return None
-    if raw.startswith("tt"):
-        return raw
-    return f"tt{raw}"
+    return r.json()
 
 
 def _resolve_one(api_key: str, m: dict[str, Any]) -> dict[str, Any]:
@@ -81,15 +89,19 @@ def _resolve_one(api_key: str, m: dict[str, Any]) -> dict[str, Any]:
         if not tid:
             return out
         tid = int(tid)
-        imdb = _external_imdb(api_key, tid)
-        pp = hit.get("poster_path")
+        detail = _movie_detail(api_key, tid)
+        imdb = _norm_imdb(detail.get("imdb_id"))
+        pp = detail.get("poster_path") or hit.get("poster_path")
+        # TMDB-hosted posters load reliably in Stremio; Letterboxd CDN often does not.
         poster = f"{TMDB_IMG}{pp}" if pp else out.get("poster")
         title = (
-            hit.get("title") or hit.get("original_title") or out.get("title") or ""
+            (detail.get("title") or detail.get("original_title") or "").strip()
+            or (hit.get("title") or hit.get("original_title") or "").strip()
+            or (out.get("title") or "")
         ).strip()
         if not title:
             return out
-        rd = hit.get("release_date") or ""
+        rd = (detail.get("release_date") or hit.get("release_date") or "") or ""
         y = int(rd[:4]) if len(rd) >= 4 and rd[:4].isdigit() else year
 
         if imdb:
@@ -100,6 +112,36 @@ def _resolve_one(api_key: str, m: dict[str, Any]) -> dict[str, Any]:
         out["year"] = y
         if poster:
             out["poster"] = poster
+    except (requests.RequestException, ValueError, KeyError, TypeError):
+        pass
+    return out
+
+
+def _backfill_slug_from_tmdb_id(api_key: str, m: dict[str, Any]) -> dict[str, Any]:
+    """If search missed IMDb but we already have a TMDB id (e.g. stale data), refresh from /movie/{id}."""
+    out = dict(m)
+    mid = str(out.get("id") or "")
+    if mid.startswith("tt"):
+        return out
+    tid = out.get("tmdb_id")
+    if not tid:
+        return out
+    try:
+        detail = _movie_detail(api_key, int(tid))
+        imdb = _norm_imdb(detail.get("imdb_id"))
+        pp = detail.get("poster_path")
+        if pp:
+            out["poster"] = f"{TMDB_IMG}{pp}"
+        if imdb:
+            out["id"] = imdb
+            out["imdb_id"] = imdb
+        t = (detail.get("title") or detail.get("original_title") or "").strip()
+        if t:
+            rd = (detail.get("release_date") or "")[:4]
+            y = int(rd) if rd.isdigit() else out.get("year")
+            out["title"] = f"{t} ({y})" if y else t
+            if y:
+                out["year"] = y
     except (requests.RequestException, ValueError, KeyError, TypeError):
         pass
     return out
@@ -130,7 +172,21 @@ def resolve_movies_parallel(movies: list[dict[str, Any]], *, max_workers: int = 
                 pass
 
     order = [m.get("letterboxd_url") or m["id"] for m in movies]
-    return [out_map[k] for k in order]
+    resolved = [out_map[k] for k in order]
+    # Second pass: slug id + tmdb_id (TMDB had no imdb on an older run, or search was off).
+    with ThreadPoolExecutor(max_workers=max_workers) as ex:
+        futs = {
+            ex.submit(_backfill_slug_from_tmdb_id, key, dict(m)): i
+            for i, m in enumerate(resolved)
+            if not str(m.get("id", "")).startswith("tt") and m.get("tmdb_id")
+        }
+        for fut in as_completed(futs):
+            i = futs[fut]
+            try:
+                resolved[i] = fut.result()
+            except Exception:
+                pass
+    return resolved
 
 
 def is_configured() -> bool:

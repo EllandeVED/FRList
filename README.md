@@ -18,12 +18,37 @@ If the catalog still misbehaves, confirm **`TMDB_API_KEY`** is set on the repo s
 
 **Standalone Stremio:** you can also paste the same manifest URL directly into Stremio as a community addon.
 
+### Trakt list (often easier than a custom manifest)
+
+If a **custom manifest** is awkward in **AIOMetadata**, you can mirror the same films to a **Trakt list**. After each run, Actions (or a local `generate_addon`) updates that list from the scraped data using **IMDb ids** (`tt…`), so it lines up with TMDB-powered metadata and stream addons.
+
+1. **Trakt OAuth app:** [trakt.tv/oauth/applications](https://trakt.tv/oauth/applications) → **New Application**. Set **Redirect uri** to `urn:ietf:wg:oauth:2.0:oob` (required for the PIN flow).
+2. **Empty list:** On Trakt, create a list (e.g. “France Inter — Letterboxd”) and note the **slug** in the URL: `trakt.tv/users/you/lists/<slug>`.
+3. **Refresh token (one-time, local):**
+   ```bash
+   export TRAKT_CLIENT_ID='…'
+   export TRAKT_CLIENT_SECRET='…'
+   python -m src.trakt_auth
+   ```
+   Open the printed link, approve, paste the PIN; put the printed **`TRAKT_REFRESH_TOKEN`** into GitHub **Actions secrets**.
+4. **Repo secrets:** `TRAKT_CLIENT_ID`, `TRAKT_CLIENT_SECRET`, `TRAKT_REFRESH_TOKEN`, **`TRAKT_LIST_SLUG`** (the list slug only, not the full URL).
+5. **`TMDB_API_KEY`** should also be set: films without a resolved **`tt…`** id are **skipped** for Trakt (same as for streams).
+
+Sync runs at the end of `generate_addon`. If Trakt returns an error, the workflow **still** saves Letterboxd data and the static addon; check the Actions log for `FRList Trakt sync failed`.
+
+In **AIOMetadata**, use the **Trakt** catalog integration and pick this list—no manifest URL needed for that path.
+
 ### Stremio: streams, scores, and posters
 
 - **Stream addons (Torrentio, etc.)** match movies by **IMDb-style ids** (`tt…`). Letterboxd **slugs** are invisible to them, so you get *“No addons were requested for this meta!”* unless each row uses a **`tt…` id**.
 - **Optional (recommended):** set a free **[TMDB API key](https://www.themoviedb.org/settings/api)** in **`TMDB_API_KEY`** (local env or GitHub **Settings → Secrets → Actions → `TMDB_API_KEY`**). The generator then resolves titles to **`tt…` + TMDB posters** in parallel (fast JSON). After that, your usual streaming addons can attach to the same meta.
 - **Without TMDB:** ids stay as Letterboxd slugs; the addon still lists films, but **streams / IMDb–style score bars** from other addons usually **won’t** hook in.
 - This addon does **not** ship a **`stream`** resource. With **Letterboxd slug** ids it provides **catalog + meta**. When **every** id is **`tt…`** (TMDB resolution), it provides **catalog only** so Cinemeta can own meta and stream addons attach cleanly.
+
+#### Troubleshooting: blank posters / no streams from this catalog
+
+- **Streams:** Addons like Torrentio only answer for **`tt…`** movie ids. Any title still using a **Letterboxd slug** will open a detail page those addons **ignore**. Keep **`TMDB_API_KEY`** set and re-run the workflow so TMDB can supply IMDb ids; you also need a **stream** addon installed in Stremio.
+- **Posters:** Stremio and AIOMetadata often **fail to load Letterboxd image URLs** (`ltrbxd.com`). The generator prefers **TMDB** `image.tmdb.org` posters when TMDB knows the film. If tiles stay empty inside **AIOMetadata**, its own artwork provider may override the catalog—try the **Trakt list** path or tune AIOMetadata’s movie artwork source.
 
 ## Generated status
 
@@ -53,7 +78,7 @@ If you had an older install, remove the previous addon entry first: the addon **
    - `data/new_since_last_run.json` — new **Letterboxd URLs** since the previous snapshot  
    - `manifest.json`, `catalog/movie/franceinter.json`, and (if any id is not `tt…`) `meta/movie/<id>.json` per film  
    - the **Generated status** table in this README  
-4. GitHub Actions runs the same command weekly and commits changes so GitHub Pages always serves fresh static JSON. The workflow passes **`secrets.TMDB_API_KEY`** when configured.
+4. GitHub Actions runs the same command weekly and commits changes so GitHub Pages always serves fresh static JSON. The workflow passes **`TMDB_API_KEY`** and optional **Trakt** secrets when configured; see **Trakt list** above.
 
 Letterboxd sits behind **Cloudflare**. The scheduled workflow uses **curl_cffi** first, then **Playwright (Chromium)** on GitHub Actions only if the interstitial appears—so the same job can succeed on runners where plain HTTP gets blocked.
 
@@ -73,6 +98,8 @@ python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 export TMDB_API_KEY='your_tmdb_v3_key'   # optional; enables tt… ids + TMDB posters
+# Optional Trakt mirror (same vars as GitHub secrets):
+# export TRAKT_CLIENT_ID=… TRAKT_CLIENT_SECRET=… TRAKT_REFRESH_TOKEN=… TRAKT_LIST_SLUG=…
 python -m src.generate_addon
 ```
 
@@ -91,6 +118,10 @@ python -m src.generate_addon
 1. Create a **TMDB** account → **Settings** → **API** → request an **API key (v3 auth)**.  
 2. Repo **Settings** → **Secrets and variables** → **Actions** → **New repository secret** → name **`TMDB_API_KEY`**, value your key.  
 3. Re-run the workflow. Catalog/meta ids become **`tt…`** where TMDB returns an IMDb id, so stream addons can attach.
+
+### Trakt secrets (optional)
+
+Add **`TRAKT_CLIENT_ID`**, **`TRAKT_CLIENT_SECRET`**, **`TRAKT_REFRESH_TOKEN`**, and **`TRAKT_LIST_SLUG`** under **Settings → Secrets and variables → Actions** (see **Trakt list** above). If any of these are missing, Trakt sync is skipped.
 
 ## Enable GitHub Pages
 
