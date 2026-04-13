@@ -1,6 +1,17 @@
 {
-  "generated_at_utc": "2026-04-08T23:24:21Z",
-  "new_movies": [],
+  "generated_at_utc": "2026-04-13T07:58:42Z",
+  "new_movies": [
+    {
+      "film_path": "/film/romeria/",
+      "id": "tt32538648",
+      "imdb_id": "tt32538648",
+      "letterboxd_url": "https://letterboxd.com/film/romeria/",
+      "poster": "https://image.tmdb.org/t/p/w500/6Wo9z9dvy0ns1Q84OLEHXemRpeh.jpg",
+      "title": "Romería (2025)",
+      "tmdb_id": 1182861,
+      "year": 2025
+    }
+  ],
   "previous_snapshot_had_letterboxd_urls": [
     "https://letterboxd.com/film/a-complete-unknown/",
     "https://letterboxd.com/film/a-family-2024/",
