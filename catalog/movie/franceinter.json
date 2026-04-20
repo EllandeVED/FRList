@@ -61,6 +61,12 @@
       "type": "movie"
     },
     {
+      "id": "tt35591633",
+      "name": "Alter Ego (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/sYOPEWwPz31cXNVPy4Q4SvdU8Kc.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt2870648",
       "name": "Amy (2015)",
       "poster": "https://image.tmdb.org/t/p/w500/qL0RepWSNUuZoeDXfyhqowVYhrn.jpg",
@@ -235,6 +241,12 @@
       "type": "movie"
     },
     {
+      "id": "tt32358921",
+      "name": "Dao (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/ehsdt10j3GBcQWlzUb00egBqHYh.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt0382628",
       "name": "Dark Water (2005)",
       "poster": "https://image.tmdb.org/t/p/w500/cm4M9xaBu78IjuAVNG4LCXdXsg.jpg",
@@ -397,6 +409,12 @@
       "type": "movie"
     },
     {
+      "id": "tt31514146",
+      "name": "I Swear (2025)",
+      "poster": "https://image.tmdb.org/t/p/w500/vUwyhNWBKkSwK8ELvEeBRwV724h.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt5104604",
       "name": "Isle of Dogs (2018)",
       "poster": "https://image.tmdb.org/t/p/w500/c0nUX6Q1ZB0P2t1Jo6EeFSVnOGQ.jpg",
@@ -439,6 +457,12 @@
       "type": "movie"
     },
     {
+      "id": "tt36842933",
+      "name": "Juste une illusion (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/my4QdEBuhYpYLR4M7AkJWJGcxxx.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt14137416",
       "name": "Kidnapped (2023)",
       "poster": "https://image.tmdb.org/t/p/w500/p0tanDacNHQhXPdu583UG3KS7fM.jpg",
@@ -454,6 +478,12 @@
       "id": "tt22408160",
       "name": "Kinds of Kindness (2024)",
       "poster": "https://image.tmdb.org/t/p/w500/50lPmjIpDs8gKfgK7fPIeKzpllh.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "tt37163509",
+      "name": "La Vénus électrique (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/srJFksTcU1yxs7bpWgsrMcogRVF.jpg",
       "type": "movie"
     },
     {
@@ -710,8 +740,8 @@
     },
     {
       "id": "savages-2024-1",
-      "name": "Savages (2024)",
-      "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/6/7/2/6/516726-savages-2024-1-0-70-0-105-crop.jpg?v=e1f2233e88",
+      "name": "Savages",
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/2k/r8/y1/gj/Sauvages-1200-1200-675-675-crop-000000.jpg?v=de606539ac",
       "type": "movie"
     },
     {
@@ -811,6 +841,12 @@
       "type": "movie"
     },
     {
+      "id": "tt40435390",
+      "name": "The Abandonment (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/kfUKP5IgzgLQyQD1MDt99yq9Af0.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt1924394",
       "name": "The Angels' Share (2012)",
       "poster": "https://image.tmdb.org/t/p/w500/bt9kJ8gwTMaDcmL0INlJYIZ887t.jpg",
@@ -841,9 +877,15 @@
       "type": "movie"
     },
     {
+      "id": "tt33451014",
+      "name": "The Beloved (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/bFYCaNsYmj4bOoHGIoqEthRxfRv.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt6587046",
       "name": "The Boy and the Heron (2023)",
-      "poster": "https://image.tmdb.org/t/p/w500/4GKye5dR4uJyYbcyTveSue1gATD.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/f4oZTcfGrVTXKTWg157AwikXqmP.jpg",
       "type": "movie"
     },
     {
@@ -961,6 +1003,12 @@
       "type": "movie"
     },
     {
+      "id": "tt36187539",
+      "name": "The Rays and Shadows (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/kZL29CVH0cYxN8IMtsj2jMpFJTj.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt29439114",
       "name": "The Room Next Door (2024)",
       "poster": "https://image.tmdb.org/t/p/w500/qMibLyArrlBJ87AoqQBeVaFeRXp.jpg",
@@ -1009,9 +1057,9 @@
       "type": "movie"
     },
     {
-      "id": "the-stranger-2025-1",
+      "id": "tt36243564",
       "name": "The Stranger (2025)",
-      "poster": "https://image.tmdb.org/t/p/w500/qJO8l0eyOmRlBfVuC9fGoXCGcXk.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/11lx7Isd86SIPeNuWlAPjYTfr57.jpg",
       "type": "movie"
     },
     {
@@ -1059,7 +1107,7 @@
     {
       "id": "tt32386654",
       "name": "The Wizard of the Kremlin (2026)",
-      "poster": "https://image.tmdb.org/t/p/w500/q2jCWxRVSycIJhZbf3XCN7ZrGTS.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/l8eEJ6iQPGLala7Oo43LTYb31fM.jpg",
       "type": "movie"
     },
     {

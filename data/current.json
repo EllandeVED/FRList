@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-04-13T07:58:42Z",
+  "generated_at_utc": "2026-04-20T08:02:24Z",
   "movies": [
     {
       "film_path": "/film/a-complete-unknown/",
@@ -100,6 +100,16 @@
       "title": "All Your Faces (2023)",
       "tmdb_id": 1000492,
       "year": 2023
+    },
+    {
+      "film_path": "/film/alter-ego-2026/",
+      "id": "tt35591633",
+      "imdb_id": "tt35591633",
+      "letterboxd_url": "https://letterboxd.com/film/alter-ego-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/sYOPEWwPz31cXNVPy4Q4SvdU8Kc.jpg",
+      "title": "Alter Ego (2026)",
+      "tmdb_id": 1266791,
+      "year": 2026
     },
     {
       "film_path": "/film/amy-2015/",
@@ -392,6 +402,16 @@
       "year": 2022
     },
     {
+      "film_path": "/film/dao-2026/",
+      "id": "tt32358921",
+      "imdb_id": "tt32358921",
+      "letterboxd_url": "https://letterboxd.com/film/dao-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/ehsdt10j3GBcQWlzUb00egBqHYh.jpg",
+      "title": "Dao (2026)",
+      "tmdb_id": 1135582,
+      "year": 2026
+    },
+    {
       "film_path": "/film/dark-water-2005/",
       "id": "tt0382628",
       "imdb_id": "tt0382628",
@@ -662,6 +682,16 @@
       "year": 2019
     },
     {
+      "film_path": "/film/i-swear/",
+      "id": "tt31514146",
+      "imdb_id": "tt31514146",
+      "letterboxd_url": "https://letterboxd.com/film/i-swear/",
+      "poster": "https://image.tmdb.org/t/p/w500/vUwyhNWBKkSwK8ELvEeBRwV724h.jpg",
+      "title": "I Swear (2025)",
+      "tmdb_id": 1317149,
+      "year": 2025
+    },
+    {
       "film_path": "/film/isle-of-dogs-2018/",
       "id": "tt5104604",
       "imdb_id": "tt5104604",
@@ -732,6 +762,16 @@
       "year": 2016
     },
     {
+      "film_path": "/film/juste-une-illusion-2026/",
+      "id": "tt36842933",
+      "imdb_id": "tt36842933",
+      "letterboxd_url": "https://letterboxd.com/film/juste-une-illusion-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/my4QdEBuhYpYLR4M7AkJWJGcxxx.jpg",
+      "title": "Juste une illusion (2026)",
+      "tmdb_id": 1404684,
+      "year": 2026
+    },
+    {
       "film_path": "/film/kidnapped-2023/",
       "id": "tt14137416",
       "imdb_id": "tt14137416",
@@ -760,6 +800,16 @@
       "title": "Kinds of Kindness (2024)",
       "tmdb_id": 1029955,
       "year": 2024
+    },
+    {
+      "film_path": "/film/la-venus-electrique/",
+      "id": "tt37163509",
+      "imdb_id": "tt37163509",
+      "letterboxd_url": "https://letterboxd.com/film/la-venus-electrique/",
+      "poster": "https://image.tmdb.org/t/p/w500/srJFksTcU1yxs7bpWgsrMcogRVF.jpg",
+      "title": "La Vénus électrique (2026)",
+      "tmdb_id": 1442669,
+      "year": 2026
     },
     {
       "film_path": "/film/labyrinth-of-lies-2014/",
@@ -1185,8 +1235,8 @@
       "film_path": "/film/savages-2024-1/",
       "id": "savages-2024-1",
       "letterboxd_url": "https://letterboxd.com/film/savages-2024-1/",
-      "poster": "https://a.ltrbxd.com/resized/film-poster/5/1/6/7/2/6/516726-savages-2024-1-0-70-0-105-crop.jpg?v=e1f2233e88",
-      "title": "Savages (2024)",
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/2k/r8/y1/gj/Sauvages-1200-1200-675-675-crop-000000.jpg?v=de606539ac",
+      "title": "Savages",
       "tmdb_id": 1262835,
       "year": 2024
     },
@@ -1351,6 +1401,16 @@
       "year": 2022
     },
     {
+      "film_path": "/film/the-abandonment/",
+      "id": "tt40435390",
+      "imdb_id": "tt40435390",
+      "letterboxd_url": "https://letterboxd.com/film/the-abandonment/",
+      "poster": "https://image.tmdb.org/t/p/w500/kfUKP5IgzgLQyQD1MDt99yq9Af0.jpg",
+      "title": "The Abandonment (2026)",
+      "tmdb_id": 1645368,
+      "year": 2026
+    },
+    {
       "film_path": "/film/the-angels-share/",
       "id": "tt1924394",
       "imdb_id": "tt1924394",
@@ -1401,11 +1461,21 @@
       "year": 2022
     },
     {
+      "film_path": "/film/the-beloved-2026/",
+      "id": "tt33451014",
+      "imdb_id": "tt33451014",
+      "letterboxd_url": "https://letterboxd.com/film/the-beloved-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/bFYCaNsYmj4bOoHGIoqEthRxfRv.jpg",
+      "title": "The Beloved (2026)",
+      "tmdb_id": 1074074,
+      "year": 2026
+    },
+    {
       "film_path": "/film/the-boy-and-the-heron/",
       "id": "tt6587046",
       "imdb_id": "tt6587046",
       "letterboxd_url": "https://letterboxd.com/film/the-boy-and-the-heron/",
-      "poster": "https://image.tmdb.org/t/p/w500/4GKye5dR4uJyYbcyTveSue1gATD.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/f4oZTcfGrVTXKTWg157AwikXqmP.jpg",
       "title": "The Boy and the Heron (2023)",
       "tmdb_id": 508883,
       "year": 2023
@@ -1600,6 +1670,16 @@
       "year": 2025
     },
     {
+      "film_path": "/film/the-rays-and-shadows/",
+      "id": "tt36187539",
+      "imdb_id": "tt36187539",
+      "letterboxd_url": "https://letterboxd.com/film/the-rays-and-shadows/",
+      "poster": "https://image.tmdb.org/t/p/w500/kZL29CVH0cYxN8IMtsj2jMpFJTj.jpg",
+      "title": "The Rays and Shadows (2026)",
+      "tmdb_id": 1318335,
+      "year": 2026
+    },
+    {
       "film_path": "/film/the-room-next-door-2024/",
       "id": "tt29439114",
       "imdb_id": "tt29439114",
@@ -1681,11 +1761,12 @@
     },
     {
       "film_path": "/film/the-stranger-2025-1/",
-      "id": "the-stranger-2025-1",
+      "id": "tt36243564",
+      "imdb_id": "tt36243564",
       "letterboxd_url": "https://letterboxd.com/film/the-stranger-2025-1/",
-      "poster": "https://image.tmdb.org/t/p/w500/qJO8l0eyOmRlBfVuC9fGoXCGcXk.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/11lx7Isd86SIPeNuWlAPjYTfr57.jpg",
       "title": "The Stranger (2025)",
-      "tmdb_id": 1605730,
+      "tmdb_id": 1429348,
       "year": 2025
     },
     {
@@ -1762,7 +1843,7 @@
       "id": "tt32386654",
       "imdb_id": "tt32386654",
       "letterboxd_url": "https://letterboxd.com/film/the-wizard-of-the-kremlin/",
-      "poster": "https://image.tmdb.org/t/p/w500/q2jCWxRVSycIJhZbf3XCN7ZrGTS.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/l8eEJ6iQPGLala7Oo43LTYb31fM.jpg",
       "title": "The Wizard of the Kremlin (2026)",
       "tmdb_id": 1291659,
       "year": 2026

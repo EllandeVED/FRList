@@ -1,15 +1,85 @@
 {
-  "generated_at_utc": "2026-04-13T07:58:42Z",
+  "generated_at_utc": "2026-04-20T08:02:24Z",
   "new_movies": [
     {
-      "film_path": "/film/romeria/",
-      "id": "tt32538648",
-      "imdb_id": "tt32538648",
-      "letterboxd_url": "https://letterboxd.com/film/romeria/",
-      "poster": "https://image.tmdb.org/t/p/w500/6Wo9z9dvy0ns1Q84OLEHXemRpeh.jpg",
-      "title": "Romería (2025)",
-      "tmdb_id": 1182861,
+      "film_path": "/film/alter-ego-2026/",
+      "id": "tt35591633",
+      "imdb_id": "tt35591633",
+      "letterboxd_url": "https://letterboxd.com/film/alter-ego-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/sYOPEWwPz31cXNVPy4Q4SvdU8Kc.jpg",
+      "title": "Alter Ego (2026)",
+      "tmdb_id": 1266791,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/dao-2026/",
+      "id": "tt32358921",
+      "imdb_id": "tt32358921",
+      "letterboxd_url": "https://letterboxd.com/film/dao-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/ehsdt10j3GBcQWlzUb00egBqHYh.jpg",
+      "title": "Dao (2026)",
+      "tmdb_id": 1135582,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/i-swear/",
+      "id": "tt31514146",
+      "imdb_id": "tt31514146",
+      "letterboxd_url": "https://letterboxd.com/film/i-swear/",
+      "poster": "https://image.tmdb.org/t/p/w500/vUwyhNWBKkSwK8ELvEeBRwV724h.jpg",
+      "title": "I Swear (2025)",
+      "tmdb_id": 1317149,
       "year": 2025
+    },
+    {
+      "film_path": "/film/juste-une-illusion-2026/",
+      "id": "tt36842933",
+      "imdb_id": "tt36842933",
+      "letterboxd_url": "https://letterboxd.com/film/juste-une-illusion-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/my4QdEBuhYpYLR4M7AkJWJGcxxx.jpg",
+      "title": "Juste une illusion (2026)",
+      "tmdb_id": 1404684,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/la-venus-electrique/",
+      "id": "tt37163509",
+      "imdb_id": "tt37163509",
+      "letterboxd_url": "https://letterboxd.com/film/la-venus-electrique/",
+      "poster": "https://image.tmdb.org/t/p/w500/srJFksTcU1yxs7bpWgsrMcogRVF.jpg",
+      "title": "La Vénus électrique (2026)",
+      "tmdb_id": 1442669,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/the-abandonment/",
+      "id": "tt40435390",
+      "imdb_id": "tt40435390",
+      "letterboxd_url": "https://letterboxd.com/film/the-abandonment/",
+      "poster": "https://image.tmdb.org/t/p/w500/kfUKP5IgzgLQyQD1MDt99yq9Af0.jpg",
+      "title": "The Abandonment (2026)",
+      "tmdb_id": 1645368,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/the-beloved-2026/",
+      "id": "tt33451014",
+      "imdb_id": "tt33451014",
+      "letterboxd_url": "https://letterboxd.com/film/the-beloved-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/bFYCaNsYmj4bOoHGIoqEthRxfRv.jpg",
+      "title": "The Beloved (2026)",
+      "tmdb_id": 1074074,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/the-rays-and-shadows/",
+      "id": "tt36187539",
+      "imdb_id": "tt36187539",
+      "letterboxd_url": "https://letterboxd.com/film/the-rays-and-shadows/",
+      "poster": "https://image.tmdb.org/t/p/w500/kZL29CVH0cYxN8IMtsj2jMpFJTj.jpg",
+      "title": "The Rays and Shadows (2026)",
+      "tmdb_id": 1318335,
+      "year": 2026
     }
   ],
   "previous_snapshot_had_letterboxd_urls": [
@@ -129,6 +199,7 @@
     "https://letterboxd.com/film/promises-2021-1/",
     "https://letterboxd.com/film/ride-away-2024/",
     "https://letterboxd.com/film/robot-dreams/",
+    "https://letterboxd.com/film/romeria/",
     "https://letterboxd.com/film/sailing-home-2024/",
     "https://letterboxd.com/film/savages-2024-1/",
     "https://letterboxd.com/film/school-of-babel/",

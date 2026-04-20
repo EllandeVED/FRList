@@ -1,9 +1,10 @@
 {
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/the-stranger-2025-1/",
-    "id": "the-stranger-2025-1",
+    "id": "tt36243564",
+    "imdb_id": "tt36243564",
     "name": "The Stranger (2025)",
-    "poster": "https://image.tmdb.org/t/p/w500/qJO8l0eyOmRlBfVuC9fGoXCGcXk.jpg",
+    "poster": "https://image.tmdb.org/t/p/w500/11lx7Isd86SIPeNuWlAPjYTfr57.jpg",
     "releaseInfo": "2025",
     "type": "movie"
   }
