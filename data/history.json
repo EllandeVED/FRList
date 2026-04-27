@@ -11,6 +11,16 @@
       "year": 2024
     },
     {
+      "film_path": "/film/a-family-2024/",
+      "id": "tt21051906",
+      "imdb_id": "tt21051906",
+      "letterboxd_url": "https://letterboxd.com/film/a-family-2024/",
+      "poster": "https://image.tmdb.org/t/p/w500/l0CaVyqnTsWwNd4hWsrLNEk1Wjd.jpg",
+      "title": "A Family Affair (2024)",
+      "tmdb_id": 987686,
+      "year": 2024
+    },
+    {
       "film_path": "/film/a-most-violent-year/",
       "id": "tt2937898",
       "imdb_id": "tt2937898",
@@ -19,16 +29,6 @@
       "title": "A Most Violent Year (2014)",
       "tmdb_id": 241239,
       "year": 2014
-    },
-    {
-      "film_path": "/film/a-family-2024/",
-      "id": "tt28488187",
-      "imdb_id": "tt28488187",
-      "letterboxd_url": "https://letterboxd.com/film/a-family-2024/",
-      "poster": "https://image.tmdb.org/t/p/w500/6oKxIHM08TRkv7QCpi9cqHU1q9F.jpg",
-      "title": "A Normal Family (2024)",
-      "tmdb_id": 973628,
-      "year": 2024
     },
     {
       "film_path": "/film/a-touch-of-sin/",
@@ -302,12 +302,12 @@
     },
     {
       "film_path": "/film/burning-2018/",
-      "id": "tt9071180",
-      "imdb_id": "tt9071180",
+      "id": "tt7282468",
+      "imdb_id": "tt7282468",
       "letterboxd_url": "https://letterboxd.com/film/burning-2018/",
-      "poster": "https://image.tmdb.org/t/p/w500/hxGv1O2W5SOJTmiBc45CL842mrx.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/kXiF80o74fE9gf3Utf9moAI7ar0.jpg",
       "title": "Burning (2018)",
-      "tmdb_id": 813106,
+      "tmdb_id": 491584,
       "year": 2018
     },
     {
@@ -601,6 +601,26 @@
       "year": 2021
     },
     {
+      "film_path": "/film/girl-2018/",
+      "id": "tt4103724",
+      "imdb_id": "tt4103724",
+      "letterboxd_url": "https://letterboxd.com/film/girl-2018/",
+      "poster": "https://image.tmdb.org/t/p/w500/bKqdggnIPeOI15VqtBZTkvh4hA9.jpg",
+      "title": "Forever My Girl (2018)",
+      "tmdb_id": 417261,
+      "year": 2018
+    },
+    {
+      "film_path": "/film/forsaken-2026/",
+      "id": "tt40435390",
+      "imdb_id": "tt40435390",
+      "letterboxd_url": "https://letterboxd.com/film/forsaken-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/kfUKP5IgzgLQyQD1MDt99yq9Af0.jpg",
+      "title": "Forsaken (2026)",
+      "tmdb_id": 1645368,
+      "year": 2026
+    },
+    {
       "film_path": "/film/another-world-2021/",
       "id": "tt14445716",
       "imdb_id": "tt14445716",
@@ -619,16 +639,6 @@
       "title": "Ghost Trail (2024)",
       "tmdb_id": 1001292,
       "year": 2024
-    },
-    {
-      "film_path": "/film/girl-2018/",
-      "id": "tt8254556",
-      "imdb_id": "tt8254556",
-      "letterboxd_url": "https://letterboxd.com/film/girl-2018/",
-      "poster": "https://image.tmdb.org/t/p/w500/a6WKjZ1eHrKV8u1DYqjW4yUPuC.jpg",
-      "title": "Girl (2018)",
-      "tmdb_id": 515916,
-      "year": 2018
     },
     {
       "film_path": "/film/happy-as-lazzaro/",
@@ -1021,15 +1031,6 @@
       "year": 2014
     },
     {
-      "film_path": "/film/the-legendaries/",
-      "id": "the-legendaries",
-      "letterboxd_url": "https://letterboxd.com/film/the-legendaries/",
-      "poster": "https://image.tmdb.org/t/p/w500/eZl8j7oJyGgcoLL1SZnBonrJESx.jpg",
-      "title": "Musical Revue 『TARKIE ~ Legendary Women ~』 (2025)",
-      "tmdb_id": 1539975,
-      "year": 2025
-    },
-    {
       "film_path": "/film/napoleon-2023/",
       "id": "tt13287846",
       "imdb_id": "tt13287846",
@@ -1241,11 +1242,12 @@
     },
     {
       "film_path": "/film/savages-2024-1/",
-      "id": "savages-2024-1",
+      "id": "tt10695672",
+      "imdb_id": "tt10695672",
       "letterboxd_url": "https://letterboxd.com/film/savages-2024-1/",
-      "poster": "https://a.ltrbxd.com/resized/sm/upload/2k/r8/y1/gj/Sauvages-1200-1200-675-675-crop-000000.jpg?v=de606539ac",
-      "title": "Savages",
-      "tmdb_id": 1262835,
+      "poster": "https://image.tmdb.org/t/p/w500/qC6yrKvmIEnkFVjpp0U7u02SiDQ.jpg",
+      "title": "Savages (2024)",
+      "tmdb_id": 589018,
       "year": 2024
     },
     {
@@ -1569,6 +1571,16 @@
       "year": 2014
     },
     {
+      "film_path": "/film/the-swarm-2020/",
+      "id": "tt13329384",
+      "imdb_id": "tt13329384",
+      "letterboxd_url": "https://letterboxd.com/film/the-swarm-2020/",
+      "poster": "https://image.tmdb.org/t/p/w500/2TGAR1JK11RMBCPxkjoLhqsYp9b.jpg",
+      "title": "The Hive (2020)",
+      "tmdb_id": 760484,
+      "year": 2020
+    },
+    {
       "film_path": "/film/the-human-voice-2020/",
       "id": "tt11760792",
       "imdb_id": "tt11760792",
@@ -1587,6 +1599,16 @@
       "title": "The Innocent (2022)",
       "tmdb_id": 919573,
       "year": 2022
+    },
+    {
+      "film_path": "/film/the-legendaries/",
+      "id": "tt35659725",
+      "imdb_id": "tt35659725",
+      "letterboxd_url": "https://letterboxd.com/film/the-legendaries/",
+      "poster": "https://image.tmdb.org/t/p/w500/plDx1dcPE8U2Ukj8zOOYKLTdp7T.jpg",
+      "title": "The Legendaries (2026)",
+      "tmdb_id": 677561,
+      "year": 2026
     },
     {
       "film_path": "/film/the-mastermind-2025/",
@@ -1789,15 +1811,6 @@
       "year": 2021
     },
     {
-      "film_path": "/film/the-swarm-2020/",
-      "id": "the-swarm-2020",
-      "letterboxd_url": "https://letterboxd.com/film/the-swarm-2020/",
-      "poster": "https://a.ltrbxd.com/resized/sm/upload/71/rx/fd/j9/swarm-1200-1200-675-675-crop-000000.jpg?v=f1efbbb210",
-      "title": "The Swarm",
-      "tmdb_id": 1661137,
-      "year": 2020
-    },
-    {
       "film_path": "/film/the-ties-that-bind-us/",
       "id": "tt33030403",
       "imdb_id": "tt33030403",
@@ -1989,5 +2002,5 @@
     }
   ],
   "source": "https://letterboxd.com/franceinter/films/",
-  "updated_at_utc": "2026-04-20T08:02:24Z"
+  "updated_at_utc": "2026-04-27T08:17:14Z"
 }

@@ -7,9 +7,9 @@
       "type": "movie"
     },
     {
-      "id": "tt28488187",
-      "name": "A Normal Family (2024)",
-      "poster": "https://image.tmdb.org/t/p/w500/6oKxIHM08TRkv7QCpi9cqHU1q9F.jpg",
+      "id": "tt21051906",
+      "name": "A Family Affair (2024)",
+      "poster": "https://image.tmdb.org/t/p/w500/l0CaVyqnTsWwNd4hWsrLNEk1Wjd.jpg",
       "type": "movie"
     },
     {
@@ -193,9 +193,9 @@
       "type": "movie"
     },
     {
-      "id": "tt9071180",
+      "id": "tt7282468",
       "name": "Burning (2018)",
-      "poster": "https://image.tmdb.org/t/p/w500/hxGv1O2W5SOJTmiBc45CL842mrx.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/kXiF80o74fE9gf3Utf9moAI7ar0.jpg",
       "type": "movie"
     },
     {
@@ -367,15 +367,21 @@
       "type": "movie"
     },
     {
+      "id": "tt40435390",
+      "name": "Forsaken (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/kfUKP5IgzgLQyQD1MDt99yq9Af0.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt30135174",
       "name": "Ghost Trail (2024)",
       "poster": "https://image.tmdb.org/t/p/w500/qO0ZWq3w6uvb06YleIAIGtoGnku.jpg",
       "type": "movie"
     },
     {
-      "id": "tt8254556",
-      "name": "Girl (2018)",
-      "poster": "https://image.tmdb.org/t/p/w500/a6WKjZ1eHrKV8u1DYqjW4yUPuC.jpg",
+      "id": "tt4103724",
+      "name": "Forever My Girl (2018)",
+      "poster": "https://image.tmdb.org/t/p/w500/bKqdggnIPeOI15VqtBZTkvh4hA9.jpg",
       "type": "movie"
     },
     {
@@ -739,9 +745,9 @@
       "type": "movie"
     },
     {
-      "id": "savages-2024-1",
-      "name": "Savages",
-      "poster": "https://a.ltrbxd.com/resized/sm/upload/2k/r8/y1/gj/Sauvages-1200-1200-675-675-crop-000000.jpg?v=de606539ac",
+      "id": "tt10695672",
+      "name": "Savages (2024)",
+      "poster": "https://image.tmdb.org/t/p/w500/qC6yrKvmIEnkFVjpp0U7u02SiDQ.jpg",
       "type": "movie"
     },
     {
@@ -838,12 +844,6 @@
       "id": "tt17538510",
       "name": "Tchaikovsky's Wife (2022)",
       "poster": "https://image.tmdb.org/t/p/w500/3SHL9l0gCACJExESoYUP4Rlr7tL.jpg",
-      "type": "movie"
-    },
-    {
-      "id": "tt40435390",
-      "name": "The Abandonment (2026)",
-      "poster": "https://image.tmdb.org/t/p/w500/kfUKP5IgzgLQyQD1MDt99yq9Af0.jpg",
       "type": "movie"
     },
     {
@@ -955,9 +955,9 @@
       "type": "movie"
     },
     {
-      "id": "the-legendaries",
-      "name": "Musical Revue 『TARKIE ~ Legendary Women ~』 (2025)",
-      "poster": "https://image.tmdb.org/t/p/w500/eZl8j7oJyGgcoLL1SZnBonrJESx.jpg",
+      "id": "tt35659725",
+      "name": "The Legendaries (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/plDx1dcPE8U2Ukj8zOOYKLTdp7T.jpg",
       "type": "movie"
     },
     {
@@ -1075,9 +1075,9 @@
       "type": "movie"
     },
     {
-      "id": "the-swarm-2020",
-      "name": "The Swarm",
-      "poster": "https://a.ltrbxd.com/resized/sm/upload/71/rx/fd/j9/swarm-1200-1200-675-675-crop-000000.jpg?v=f1efbbb210",
+      "id": "tt13329384",
+      "name": "The Hive (2020)",
+      "poster": "https://image.tmdb.org/t/p/w500/2TGAR1JK11RMBCPxkjoLhqsYp9b.jpg",
       "type": "movie"
     },
     {
