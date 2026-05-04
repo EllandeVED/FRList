@@ -1,17 +1,6 @@
 {
-  "generated_at_utc": "2026-04-27T08:17:14Z",
-  "new_movies": [
-    {
-      "film_path": "/film/forsaken-2026/",
-      "id": "tt40435390",
-      "imdb_id": "tt40435390",
-      "letterboxd_url": "https://letterboxd.com/film/forsaken-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/kfUKP5IgzgLQyQD1MDt99yq9Af0.jpg",
-      "title": "Forsaken (2026)",
-      "tmdb_id": 1645368,
-      "year": 2026
-    }
-  ],
+  "generated_at_utc": "2026-05-04T08:27:13Z",
+  "new_movies": [],
   "previous_snapshot_had_letterboxd_urls": [
     "https://letterboxd.com/film/a-complete-unknown/",
     "https://letterboxd.com/film/a-family-2024/",
@@ -74,6 +63,7 @@
     "https://letterboxd.com/film/fallen-leaves-2023/",
     "https://letterboxd.com/film/family-resemblances/",
     "https://letterboxd.com/film/flee-2021/",
+    "https://letterboxd.com/film/forsaken-2026/",
     "https://letterboxd.com/film/ghost-trail/",
     "https://letterboxd.com/film/girl-2018/",
     "https://letterboxd.com/film/happy-as-lazzaro/",
@@ -153,7 +143,6 @@
     "https://letterboxd.com/film/sundays-2025/",
     "https://letterboxd.com/film/suzume/",
     "https://letterboxd.com/film/tchaikovskys-wife/",
-    "https://letterboxd.com/film/the-abandonment/",
     "https://letterboxd.com/film/the-angels-share/",
     "https://letterboxd.com/film/the-animal-kingdom-2023/",
     "https://letterboxd.com/film/the-apparition-2018/",
