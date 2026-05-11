@@ -12,17 +12,10 @@
   ],
   "description": "Auto-updated catalog from the France Inter watched films page on Letterboxd",
   "id": "org.franceinter.letterboxd",
-  "idPrefixes": [
-    "tt"
-  ],
   "name": "France Inter Letterboxd",
   "resources": [
-    {
-      "name": "catalog",
-      "types": [
-        "movie"
-      ]
-    }
+    "catalog",
+    "meta"
   ],
   "types": [
     "movie"

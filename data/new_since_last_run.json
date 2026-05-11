@@ -1,6 +1,15 @@
 {
-  "generated_at_utc": "2026-05-04T08:27:13Z",
-  "new_movies": [],
+  "generated_at_utc": "2026-05-11T09:34:16Z",
+  "new_movies": [
+    {
+      "film_path": "/film/just-an-illusion-2026/",
+      "id": "just-an-illusion-2026",
+      "letterboxd_url": "https://letterboxd.com/film/just-an-illusion-2026/",
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/n1/4r/kd/lt/just%20a-1200-1200-675-675-crop-000000.jpg?v=f95e6cce8a",
+      "title": "Just an Illusion",
+      "year": 2026
+    }
+  ],
   "previous_snapshot_had_letterboxd_urls": [
     "https://letterboxd.com/film/a-complete-unknown/",
     "https://letterboxd.com/film/a-family-2024/",
