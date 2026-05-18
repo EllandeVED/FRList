@@ -1,15 +1,6 @@
 {
-  "generated_at_utc": "2026-05-11T09:34:16Z",
-  "new_movies": [
-    {
-      "film_path": "/film/just-an-illusion-2026/",
-      "id": "just-an-illusion-2026",
-      "letterboxd_url": "https://letterboxd.com/film/just-an-illusion-2026/",
-      "poster": "https://a.ltrbxd.com/resized/sm/upload/n1/4r/kd/lt/just%20a-1200-1200-675-675-crop-000000.jpg?v=f95e6cce8a",
-      "title": "Just an Illusion",
-      "year": 2026
-    }
-  ],
+  "generated_at_utc": "2026-05-18T09:55:03Z",
+  "new_movies": [],
   "previous_snapshot_had_letterboxd_urls": [
     "https://letterboxd.com/film/a-complete-unknown/",
     "https://letterboxd.com/film/a-family-2024/",
@@ -88,7 +79,7 @@
     "https://letterboxd.com/film/jims-story/",
     "https://letterboxd.com/film/joyland-2022/",
     "https://letterboxd.com/film/julieta/",
-    "https://letterboxd.com/film/juste-une-illusion-2026/",
+    "https://letterboxd.com/film/just-an-illusion-2026/",
     "https://letterboxd.com/film/kidnapped-2023/",
     "https://letterboxd.com/film/killers-of-the-flower-moon/",
     "https://letterboxd.com/film/kinds-of-kindness/",
