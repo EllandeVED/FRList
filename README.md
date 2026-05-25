@@ -35,7 +35,7 @@ This addon exposes **catalog** and (when needed) **meta** only. It does **not** 
 | Current snapshot (films) | **199** |
 | Cumulative history (unique films) | **201** |
 | New since previous run | **0** |
-| Last successful update (UTC) | **2026-05-18T09:55:03Z** |
+| Last successful update (UTC) | **2026-05-25T09:59:06Z** |
 | Manifest URL | `https://<github-username>.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-05-18T09:55:03Z",
+  "generated_at_utc": "2026-05-25T09:59:06Z",
   "movies": [
     {
       "film_path": "/film/a-complete-unknown/",
@@ -563,52 +563,42 @@
     },
     {
       "film_path": "/film/evil-does-not-exist/",
-      "id": "tt28490044",
-      "imdb_id": "tt28490044",
+      "id": "evil-does-not-exist",
       "letterboxd_url": "https://letterboxd.com/film/evil-does-not-exist/",
-      "poster": "https://image.tmdb.org/t/p/w500/nC7MgPceKAEPWYq6aswrNzG8WAM.jpg",
-      "title": "Evil Does Not Exist (2023)",
-      "tmdb_id": 1156125,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/cb/v9/65/wl/evil-1200-1200-675-675-crop-000000.jpg?v=3811fd94d9",
+      "title": "Evil Does Not Exist",
       "year": 2023
     },
     {
       "film_path": "/film/falcon-lake/",
-      "id": "tt11448830",
-      "imdb_id": "tt11448830",
+      "id": "falcon-lake",
       "letterboxd_url": "https://letterboxd.com/film/falcon-lake/",
-      "poster": "https://image.tmdb.org/t/p/w500/cEqBxAdTroLJqrLHCQQV4mkOFld.jpg",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/8/5/0/8/0/7/850807-falcon-lake-0-70-0-105-crop.jpg?v=fd6d1ca1c1",
       "title": "Falcon Lake (2022)",
-      "tmdb_id": 946127,
       "year": 2022
     },
     {
       "film_path": "/film/fallen-leaves-2023/",
-      "id": "tt21027780",
-      "imdb_id": "tt21027780",
+      "id": "fallen-leaves-2023",
       "letterboxd_url": "https://letterboxd.com/film/fallen-leaves-2023/",
-      "poster": "https://image.tmdb.org/t/p/w500/9ayYOpeqHhxfHHUoyt3kXzznECO.jpg",
-      "title": "Fallen Leaves (2023)",
-      "tmdb_id": 986280,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/tx/j3/l3/9a/fallen-leaves-1200-1200-675-675-crop-000000.jpg?v=68ef586d8c",
+      "title": "Fallen Leaves",
       "year": 2023
     },
     {
       "film_path": "/film/family-resemblances/",
-      "id": "tt0118015",
-      "imdb_id": "tt0118015",
+      "id": "family-resemblances",
       "letterboxd_url": "https://letterboxd.com/film/family-resemblances/",
-      "poster": "https://image.tmdb.org/t/p/w500/eKGcispYwnZdC4FPctDAtFXLkyu.jpg",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/4/2/9/2/3/42923-family-resemblances-0-70-0-105-crop.jpg?v=685bd8e4e5",
       "title": "Family Resemblances (1996)",
-      "tmdb_id": 14646,
       "year": 1996
     },
     {
       "film_path": "/film/flee-2021/",
-      "id": "tt8430054",
-      "imdb_id": "tt8430054",
+      "id": "flee-2021",
       "letterboxd_url": "https://letterboxd.com/film/flee-2021/",
-      "poster": "https://image.tmdb.org/t/p/w500/vlMIbqOpYG553J1kOJXA7mwQvE6.jpg",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/6/0/5/1/9/3/605193-flee-0-70-0-105-crop.jpg?v=b0a4141ffb",
       "title": "Flee (2021)",
-      "tmdb_id": 680813,
       "year": 2021
     },
     {
@@ -621,22 +611,18 @@
     },
     {
       "film_path": "/film/ghost-trail/",
-      "id": "tt30135174",
-      "imdb_id": "tt30135174",
+      "id": "ghost-trail",
       "letterboxd_url": "https://letterboxd.com/film/ghost-trail/",
-      "poster": "https://image.tmdb.org/t/p/w500/qO0ZWq3w6uvb06YleIAIGtoGnku.jpg",
-      "title": "Ghost Trail (2024)",
-      "tmdb_id": 1001292,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/0j/82/j0/11/wqzw99irCwz8IfXrUvdOepXySm0-1200-1200-675-675-crop-000000.jpg?v=b30f6e459b",
+      "title": "Ghost Trail",
       "year": 2024
     },
     {
       "film_path": "/film/girl-2018/",
-      "id": "tt4103724",
-      "imdb_id": "tt4103724",
+      "id": "girl-2018",
       "letterboxd_url": "https://letterboxd.com/film/girl-2018/",
-      "poster": "https://image.tmdb.org/t/p/w500/bKqdggnIPeOI15VqtBZTkvh4hA9.jpg",
-      "title": "Forever My Girl (2018)",
-      "tmdb_id": 417261,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/4/4/5/4/8/3/445483-girl-0-70-0-105-crop.jpg?v=7d248a987b",
+      "title": "Girl (2018)",
       "year": 2018
     },
     {
@@ -659,22 +645,18 @@
     },
     {
       "film_path": "/film/holy-cow-2024/",
-      "id": "tt32086034",
-      "imdb_id": "tt32086034",
+      "id": "holy-cow-2024",
       "letterboxd_url": "https://letterboxd.com/film/holy-cow-2024/",
-      "poster": "https://image.tmdb.org/t/p/w500/A3C3TbcB5hIm4aPPU3eZJrMxBYc.jpg",
-      "title": "Holy Cow (2024)",
-      "tmdb_id": 1079310,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/oj/lm/ul/hy/9RtMpWZOSKfbAIyknzhW6wJjys3-1200-1200-675-675-crop-000000.jpg?v=b6c4aa67f7",
+      "title": "Holy Cow",
       "year": 2024
     },
     {
       "film_path": "/film/hunger/",
-      "id": "tt0986233",
-      "imdb_id": "tt0986233",
+      "id": "hunger",
       "letterboxd_url": "https://letterboxd.com/film/hunger/",
-      "poster": "https://image.tmdb.org/t/p/w500/84HdTM39G2MzyTl8N9R0wVU9I5b.jpg",
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/4j/78/8b/43/vgy1KZe6trb6Ul2OZAdw2DcW38D-0-70-0-105-crop.jpg?v=1de7d32b89",
       "title": "Hunger (2008)",
-      "tmdb_id": 10360,
       "year": 2008
     },
     {
@@ -745,12 +727,10 @@
     },
     {
       "film_path": "/film/julieta/",
-      "id": "tt4326444",
-      "imdb_id": "tt4326444",
+      "id": "julieta",
       "letterboxd_url": "https://letterboxd.com/film/julieta/",
-      "poster": "https://image.tmdb.org/t/p/w500/z4aErD1RQQ3alpu3PoUu408HEVc.jpg",
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/8u/3x/br/ac/mwG0YDtmDtEw7371WLIBxmU0xXT-0-70-0-105-crop.jpg?v=4a96c0d7dd",
       "title": "Julieta (2016)",
-      "tmdb_id": 332872,
       "year": 2016
     },
     {
@@ -763,12 +743,10 @@
     },
     {
       "film_path": "/film/kidnapped-2023/",
-      "id": "tt14137416",
-      "imdb_id": "tt14137416",
+      "id": "kidnapped-2023",
       "letterboxd_url": "https://letterboxd.com/film/kidnapped-2023/",
-      "poster": "https://image.tmdb.org/t/p/w500/p0tanDacNHQhXPdu583UG3KS7fM.jpg",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/7/1/8/6/4/3/718643-kidnapped-0-70-0-105-crop.jpg?v=4815fb9cbc",
       "title": "Kidnapped (2023)",
-      "tmdb_id": 801112,
       "year": 2023
     },
     {
@@ -781,12 +759,10 @@
     },
     {
       "film_path": "/film/kinds-of-kindness/",
-      "id": "tt22408160",
-      "imdb_id": "tt22408160",
+      "id": "kinds-of-kindness",
       "letterboxd_url": "https://letterboxd.com/film/kinds-of-kindness/",
-      "poster": "https://image.tmdb.org/t/p/w500/50lPmjIpDs8gKfgK7fPIeKzpllh.jpg",
-      "title": "Kinds of Kindness (2024)",
-      "tmdb_id": 1029955,
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/c0/uk/5z/mx/kinds-1200-1200-675-675-crop-000000.jpg?v=7fe566c98b",
+      "title": "Kinds of Kindness",
       "year": 2024
     },
     {
@@ -1231,12 +1207,10 @@
     },
     {
       "film_path": "/film/strange-way-of-life/",
-      "id": "tt13055264",
-      "imdb_id": "tt13055264",
+      "id": "strange-way-of-life",
       "letterboxd_url": "https://letterboxd.com/film/strange-way-of-life/",
-      "poster": "https://image.tmdb.org/t/p/w500/uKOSFVplHUtvjtDEE5N4x8Hs9vL.jpg",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/8/6/7/3/4/6/867346-strange-way-of-life-0-70-0-105-crop.jpg?v=fcc9e02244",
       "title": "Strange Way of Life (2023)",
-      "tmdb_id": 963765,
       "year": 2023
     },
     {
@@ -1337,11 +1311,13 @@
     },
     {
       "film_path": "/film/the-buriti-flower/",
-      "id": "the-buriti-flower",
+      "id": "tt27502245",
+      "imdb_id": "tt27502245",
       "letterboxd_url": "https://letterboxd.com/film/the-buriti-flower/",
-      "poster": "https://a.ltrbxd.com/resized/film-poster/1/0/0/2/9/3/9/1002939-the-buriti-flower-0-70-0-105-crop.jpg?v=0dbde136ca",
-      "title": "The Buriti Flower (2023)",
-      "year": 2023
+      "poster": "https://image.tmdb.org/t/p/w500/7OFgwFKCOZbCFVc64QydfVxEr1N.jpg",
+      "title": "The Buriti Flower (2024)",
+      "tmdb_id": 1112543,
+      "year": 2024
     },
     {
       "film_path": "/film/the-crime-is-mine/",
@@ -1393,12 +1369,10 @@
     },
     {
       "film_path": "/film/the-grand-budapest-hotel/",
-      "id": "tt2278388",
-      "imdb_id": "tt2278388",
+      "id": "the-grand-budapest-hotel",
       "letterboxd_url": "https://letterboxd.com/film/the-grand-budapest-hotel/",
-      "poster": "https://image.tmdb.org/t/p/w500/eWdyYQreja6JGCzqHWXpWHDrrPo.jpg",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/9/5/1/1/3/95113-the-grand-budapest-hotel-0-70-0-105-crop.jpg?v=6ac71cf4ba",
       "title": "The Grand Budapest Hotel (2014)",
-      "tmdb_id": 120467,
       "year": 2014
     },
     {
@@ -1531,12 +1505,10 @@
     },
     {
       "film_path": "/film/the-shape-of-water/",
-      "id": "tt5580390",
-      "imdb_id": "tt5580390",
+      "id": "the-shape-of-water",
       "letterboxd_url": "https://letterboxd.com/film/the-shape-of-water/",
-      "poster": "https://image.tmdb.org/t/p/w500/9zfwPffUXpBrEP26yp0q1ckXDcj.jpg",
+      "poster": "https://a.ltrbxd.com/resized/sm/upload/f0/2f/4e/am/bxVvUHI1A9PWoVfEBZko6FZPv5A-0-70-0-105-crop.jpg?v=b150ad168f",
       "title": "The Shape of Water (2017)",
-      "tmdb_id": 399055,
       "year": 2017
     },
     {
@@ -1565,10 +1537,12 @@
     },
     {
       "film_path": "/film/the-substance/",
-      "id": "the-substance",
+      "id": "tt17526714",
+      "imdb_id": "tt17526714",
       "letterboxd_url": "https://letterboxd.com/film/the-substance/",
-      "poster": "https://a.ltrbxd.com/resized/sm/upload/ju/7r/z4/9i/xfSVZf7naMoGuqoHaQhbvfPrfWs-1200-1200-675-675-crop-000000.jpg?v=adde104f43",
-      "title": "The Substance",
+      "poster": "https://image.tmdb.org/t/p/w500/lqoMzCcZYEFK729d6qzt349fB4o.jpg",
+      "title": "The Substance (2024)",
+      "tmdb_id": 933260,
       "year": 2024
     },
     {
@@ -1645,10 +1619,12 @@
     },
     {
       "film_path": "/film/the-zone-of-interest/",
-      "id": "the-zone-of-interest",
+      "id": "tt7160372",
+      "imdb_id": "tt7160372",
       "letterboxd_url": "https://letterboxd.com/film/the-zone-of-interest/",
-      "poster": "https://a.ltrbxd.com/resized/film-poster/3/9/8/8/0/0/398800-the-zone-of-interest-0-70-0-105-crop.jpg?v=0514f658e1",
+      "poster": "https://image.tmdb.org/t/p/w500/hUu9zyZmDd8VZegKi1iK1Vk0RYS.jpg",
       "title": "The Zone of Interest (2023)",
+      "tmdb_id": 467244,
       "year": 2023
     },
     {
@@ -1685,12 +1661,10 @@
     },
     {
       "film_path": "/film/under-the-rainbow-2013/",
-      "id": "tt2241691",
-      "imdb_id": "tt2241691",
+      "id": "under-the-rainbow-2013",
       "letterboxd_url": "https://letterboxd.com/film/under-the-rainbow-2013/",
-      "poster": "https://image.tmdb.org/t/p/w500/lB1kVizjYAT1x44JdDZMWCR9Kkb.jpg",
+      "poster": "https://a.ltrbxd.com/resized/film-poster/1/1/9/4/7/6/119476-under-the-rainbow-0-70-0-105-crop.jpg?v=3b37d08bf9",
       "title": "Under the Rainbow (2013)",
-      "tmdb_id": 160564,
       "year": 2013
     },
     {

@@ -1,10 +1,9 @@
 {
   "meta": {
     "description": "Letterboxd: https://letterboxd.com/film/strange-way-of-life/",
-    "id": "tt13055264",
-    "imdb_id": "tt13055264",
+    "id": "strange-way-of-life",
     "name": "Strange Way of Life (2023)",
-    "poster": "https://image.tmdb.org/t/p/w500/uKOSFVplHUtvjtDEE5N4x8Hs9vL.jpg",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/8/6/7/3/4/6/867346-strange-way-of-life-0-70-0-105-crop.jpg?v=fcc9e02244",
     "releaseInfo": "2023",
     "type": "movie"
   }
