@@ -1,14 +1,33 @@
 {
-  "generated_at_utc": "2026-06-29T10:49:37Z",
+  "generated_at_utc": "2026-07-06T10:10:13Z",
   "new_movies": [
     {
-      "film_path": "/film/ulysse-2026/",
-      "id": "tt42007282",
-      "imdb_id": "tt42007282",
-      "letterboxd_url": "https://letterboxd.com/film/ulysse-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/tS0Xwa7Uqd8nlT41Y1KrumHtLeU.jpg",
-      "title": "Ulysse (2026)",
-      "tmdb_id": 1383287,
+      "film_path": "/film/comedie-francaise/",
+      "id": "tt37846373",
+      "imdb_id": "tt37846373",
+      "letterboxd_url": "https://letterboxd.com/film/comedie-francaise/",
+      "poster": "https://image.tmdb.org/t/p/w500/3ykToOKrgIlKBOkxpRscXNAkzET.jpg",
+      "title": "Comédie-Française (2026)",
+      "tmdb_id": 1496491,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/in-waves/",
+      "id": "tt27672817",
+      "imdb_id": "tt27672817",
+      "letterboxd_url": "https://letterboxd.com/film/in-waves/",
+      "poster": "https://image.tmdb.org/t/p/w500/3z3gZ6faikQ81EM19zTX4lHfpwL.jpg",
+      "title": "In Waves (2026)",
+      "tmdb_id": 947502,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/la-chaleur-2026/",
+      "id": "la-chaleur-2026",
+      "letterboxd_url": "https://letterboxd.com/film/la-chaleur-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/8IcgFgUKHWnVamGPSXQQ8cLHjew.jpg",
+      "title": "La chaleur (2026)",
+      "tmdb_id": 1492288,
       "year": 2026
     }
   ],
@@ -205,6 +224,7 @@
     "https://letterboxd.com/film/three-billboards-outside-ebbing-missouri/",
     "https://letterboxd.com/film/thunder-road-2018/",
     "https://letterboxd.com/film/timbuktu-2014/",
+    "https://letterboxd.com/film/ulysse-2026/",
     "https://letterboxd.com/film/under-the-rainbow-2013/",
     "https://letterboxd.com/film/vice-2018/",
     "https://letterboxd.com/film/west-side-story-2021/",

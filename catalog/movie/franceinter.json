@@ -229,9 +229,15 @@
       "type": "movie"
     },
     {
+      "id": "tt37846373",
+      "name": "Comédie-Française (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/3ykToOKrgIlKBOkxpRscXNAkzET.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt8649186",
       "name": "Corpus Christi (2019)",
-      "poster": "https://image.tmdb.org/t/p/w500/aUM9CZLwvbgTMiYducW3rBoqDyd.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/6VZlm8sEwxkE3L5nXxz17QLj1sF.jpg",
       "type": "movie"
     },
     {
@@ -421,6 +427,12 @@
       "type": "movie"
     },
     {
+      "id": "tt27672817",
+      "name": "In Waves (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/3z3gZ6faikQ81EM19zTX4lHfpwL.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt5104604",
       "name": "Isle of Dogs (2018)",
       "poster": "https://image.tmdb.org/t/p/w500/c0nUX6Q1ZB0P2t1Jo6EeFSVnOGQ.jpg",
@@ -484,6 +496,12 @@
       "id": "tt22408160",
       "name": "Kinds of Kindness (2024)",
       "poster": "https://image.tmdb.org/t/p/w500/50lPmjIpDs8gKfgK7fPIeKzpllh.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "la-chaleur-2026",
+      "name": "La chaleur (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/8IcgFgUKHWnVamGPSXQQ8cLHjew.jpg",
       "type": "movie"
     },
     {
@@ -651,7 +669,7 @@
     {
       "id": "tt9770150",
       "name": "Nomadland (2021)",
-      "poster": "https://image.tmdb.org/t/p/w500/dKT8rGDR55cM1vGn7QZLA9Tg9YC.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/8Vc5EOUEIF1EUXuX9eLFf7BvN3P.jpg",
       "type": "movie"
     },
     {
@@ -939,7 +957,7 @@
     {
       "id": "tt2278388",
       "name": "The Grand Budapest Hotel (2014)",
-      "poster": "https://image.tmdb.org/t/p/w500/eWdyYQreja6JGCzqHWXpWHDrrPo.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/zOVCqKUzjFKqa1eDMcOzvXwthY4.jpg",
       "type": "movie"
     },
     {

@@ -32,10 +32,10 @@ This addon exposes **catalog** and (when needed) **meta** only. It does **not** 
 <!-- FRList:status:start -->
 | Metric | Value |
 | --- | --- |
-| Current snapshot (films) | **200** |
-| Cumulative history (unique films) | **202** |
-| New since previous run | **1** |
-| Last successful update (UTC) | **2026-06-29T10:49:37Z** |
+| Current snapshot (films) | **203** |
+| Cumulative history (unique films) | **205** |
+| New since previous run | **3** |
+| Last successful update (UTC) | **2026-07-06T10:10:13Z** |
 | Manifest URL | `https://<github-username>.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
