@@ -36,7 +36,7 @@ This addon exposes **catalog** and (when needed) **meta** only. It does **not** 
 | Cumulative history (unique films) | **208** |
 | New since previous run | **3** |
 | Last successful update (UTC) | **2026-08-03T09:35:48Z** |
-| Manifest URL | `https://<github-username>.github.io/FRList/manifest.json` |
+| Manifest URL | `https://ellandeved.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
 *Counts and timestamps are updated when the update workflow runs. The manifest URL row stays a generic pattern—substitute your GitHub username (and repo name if you renamed the fork).*
@@ -47,7 +47,7 @@ This addon exposes **catalog** and (when needed) **meta** only. It does **not** 
 
 1. **Fork** this repository (keep the name **`FRList`** if you want the default Pages path `…/FRList/`).
 2. **Actions:** allow workflows for the fork (**Settings → Actions → General**).
-3. **Pages:** **Settings → Pages** → deploy from branch **`main`** (or your default) at **`/` (root)**. The site will be `https://<username>.github.io/FRList/`.
+3. **Pages:** **Settings → Pages** → deploy from branch **`main`** (or your default) at **`/` (root)**. The site will be `https://ellandeved.github.io/FRList/`.
 4. **Secrets (optional):** **Settings → Secrets and variables → Actions** → add **`TMDB_API_KEY`** ([TMDB API](https://www.themoviedb.org/settings/api)) so ids and posters improve.
 5. Run **Actions → Update Letterboxd data → Run workflow**, or wait for the weekly schedule (Mondays **06:00 UTC**).
 
