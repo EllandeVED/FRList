@@ -34,9 +34,9 @@ This addon exposes **catalog** and (when needed) **meta** only. It does **not** 
 | --- | --- |
 | Current snapshot (films) | **206** |
 | Cumulative history (unique films) | **208** |
-| New since previous run | **3** |
-| Last successful update (UTC) | **2026-08-03T09:35:48Z** |
-| Manifest URL | `https://ellandeved.github.io/FRList/manifest.json` |
+| New since previous run | **0** |
+| Last successful update (UTC) | **2026-08-17T06:44:32Z** |
+| Manifest URL | `https://<github-username>.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
 *Counts and timestamps are updated when the update workflow runs. The manifest URL row stays a generic pattern—substitute your GitHub username (and repo name if you renamed the fork).*
