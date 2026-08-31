@@ -345,7 +345,7 @@
       "id": "tt34794183",
       "imdb_id": "tt34794183",
       "letterboxd_url": "https://letterboxd.com/film/case-137-2025/",
-      "poster": "https://image.tmdb.org/t/p/w500/t93h1ptV098Q6vzl9gfEymJQ6Qp.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/4QL4LcsYX8mdNktst0CnyHQDRLg.jpg",
       "title": "Case 137 (2025)",
       "tmdb_id": 1294698,
       "year": 2025
@@ -375,7 +375,7 @@
       "id": "tt37846373",
       "imdb_id": "tt37846373",
       "letterboxd_url": "https://letterboxd.com/film/comedie-francaise/",
-      "poster": "https://image.tmdb.org/t/p/w500/bfjG4eH78KOnpVNlEH8wneMHXLv.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/1RYOtCOlAV2Xeztv7nUnbFSYGpr.jpg",
       "title": "Comédie-Française (2026)",
       "tmdb_id": 1496491,
       "year": 2026
@@ -565,7 +565,7 @@
       "id": "tt28490044",
       "imdb_id": "tt28490044",
       "letterboxd_url": "https://letterboxd.com/film/evil-does-not-exist/",
-      "poster": "https://image.tmdb.org/t/p/w500/nC7MgPceKAEPWYq6aswrNzG8WAM.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/lvJflmoOKkb8NLJz7VwFEzmd4d7.jpg",
       "title": "Evil Does Not Exist (2023)",
       "tmdb_id": 1156125,
       "year": 2023
@@ -615,7 +615,7 @@
       "id": "tt35410859",
       "imdb_id": "tt35410859",
       "letterboxd_url": "https://letterboxd.com/film/fjord-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/9jXtRN8qCcoBjj2GGSJcyHMI8Id.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/3PPPIeSdeivjUn3O9RahGiaJ9b8.jpg",
       "title": "Fjord (2026)",
       "tmdb_id": 1401459,
       "year": 2026
@@ -629,16 +629,6 @@
       "title": "Flee (2021)",
       "tmdb_id": 680813,
       "year": 2021
-    },
-    {
-      "film_path": "/film/girl-2018/",
-      "id": "tt4103724",
-      "imdb_id": "tt4103724",
-      "letterboxd_url": "https://letterboxd.com/film/girl-2018/",
-      "poster": "https://image.tmdb.org/t/p/w500/bKqdggnIPeOI15VqtBZTkvh4hA9.jpg",
-      "title": "Forever My Girl (2018)",
-      "tmdb_id": 417261,
-      "year": 2018
     },
     {
       "film_path": "/film/forsaken-2026/",
@@ -671,6 +661,16 @@
       "year": 2024
     },
     {
+      "film_path": "/film/girl-2018/",
+      "id": "tt7944094",
+      "imdb_id": "tt7944094",
+      "letterboxd_url": "https://letterboxd.com/film/girl-2018/",
+      "poster": "https://image.tmdb.org/t/p/w500/OKtXyFe0BwIlZ0BKXxFbez67sy.jpg",
+      "title": "Girl in the Bunker (2018)",
+      "tmdb_id": 501624,
+      "year": 2018
+    },
+    {
       "film_path": "/film/happy-as-lazzaro/",
       "id": "tt6752992",
       "imdb_id": "tt6752992",
@@ -682,12 +682,11 @@
     },
     {
       "film_path": "/film/hit-the-road-2021/",
-      "id": "tt14812782",
-      "imdb_id": "tt14812782",
+      "id": "hit-the-road-2021",
       "letterboxd_url": "https://letterboxd.com/film/hit-the-road-2021/",
-      "poster": "https://image.tmdb.org/t/p/w500/vJziqfgyEmY1kimb1vbMqEJdYKI.jpg",
-      "title": "Hit the Road (2021)",
-      "tmdb_id": 838154,
+      "poster": "https://a.ltrbxd.com/resized/film-poster/7/5/3/3/9/8/753398-hit-the-road-0-70-0-105-crop.jpg?v=9019e358bd",
+      "title": "Hit The Road, Egg! (2021)",
+      "tmdb_id": 994862,
       "year": 2021
     },
     {
@@ -835,7 +834,7 @@
       "id": "tt14137416",
       "imdb_id": "tt14137416",
       "letterboxd_url": "https://letterboxd.com/film/kidnapped-2023/",
-      "poster": "https://image.tmdb.org/t/p/w500/p0tanDacNHQhXPdu583UG3KS7fM.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/3CJDRs0NxJXqG2jnlsJOwrADYQM.jpg",
       "title": "Kidnapped (2023)",
       "tmdb_id": 801112,
       "year": 2023
@@ -1151,12 +1150,11 @@
     },
     {
       "film_path": "/film/nostalgia-2022-1/",
-      "id": "tt14034614",
-      "imdb_id": "tt14034614",
+      "id": "nostalgia-2022-1",
       "letterboxd_url": "https://letterboxd.com/film/nostalgia-2022-1/",
-      "poster": "https://image.tmdb.org/t/p/w500/t0xCqVcXlq1rPpsF6M4kzpzKypR.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/nJ2Q1vamOl4FoBsQoUgWLuNBQto.jpg",
       "title": "Nostalgia (2022)",
-      "tmdb_id": 541724,
+      "tmdb_id": 1088097,
       "year": 2022
     },
     {
@@ -1334,7 +1332,7 @@
       "id": "tt27714581",
       "imdb_id": "tt27714581",
       "letterboxd_url": "https://letterboxd.com/film/sentimental-value-2025/",
-      "poster": "https://image.tmdb.org/t/p/w500/pz9NCWxxOk3o0W3v1Zkhawrwb4i.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/AcbS8VMysrTpG9r4dgK1oyLsKYn.jpg",
       "title": "Sentimental Value (2025)",
       "tmdb_id": 1124566,
       "year": 2025
@@ -1744,7 +1742,7 @@
       "id": "tt36187539",
       "imdb_id": "tt36187539",
       "letterboxd_url": "https://letterboxd.com/film/the-rays-and-shadows/",
-      "poster": "https://image.tmdb.org/t/p/w500/TPo1gsNCswrgyxrqdGN44OmPuH.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/cSWYnBFJroVGtf6QeDLAeqhojiS.jpg",
       "title": "The Rays and Shadows (2026)",
       "tmdb_id": 1318335,
       "year": 2026
@@ -1854,7 +1852,7 @@
       "id": "tt17526714",
       "imdb_id": "tt17526714",
       "letterboxd_url": "https://letterboxd.com/film/the-substance/",
-      "poster": "https://image.tmdb.org/t/p/w500/uYJvxMWMb9W4zIY3cbM50sj3dpC.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/lqoMzCcZYEFK729d6qzt349fB4o.jpg",
       "title": "The Substance (2024)",
       "tmdb_id": 933260,
       "year": 2024
@@ -1944,7 +1942,7 @@
       "id": "tt1125849",
       "imdb_id": "tt1125849",
       "letterboxd_url": "https://letterboxd.com/film/the-wrestler/",
-      "poster": "https://image.tmdb.org/t/p/w500/6OTR8dSoNGjWohJNo3UhIGd3Tj.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/7QH5p5BF582k6qHufCKjftfkqWH.jpg",
       "title": "The Wrestler (2008)",
       "tmdb_id": 12163,
       "year": 2008
@@ -2081,5 +2079,5 @@
     }
   ],
   "source": "https://letterboxd.com/franceinter/films/",
-  "updated_at_utc": "2026-08-17T06:44:32Z"
+  "updated_at_utc": "2026-08-31T12:31:02Z"
 }
