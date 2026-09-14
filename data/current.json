@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-31T12:31:02Z",
+  "generated_at_utc": "2026-09-14T11:35:20Z",
   "movies": [
     {
       "film_path": "/film/a-complete-unknown/",
@@ -745,7 +745,7 @@
       "id": "tt5104604",
       "imdb_id": "tt5104604",
       "letterboxd_url": "https://letterboxd.com/film/isle-of-dogs-2018/",
-      "poster": "https://image.tmdb.org/t/p/w500/c0nUX6Q1ZB0P2t1Jo6EeFSVnOGQ.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/4C7ZHv5LUPq7XzxC3nq8mBr77sP.jpg",
       "title": "Isle of Dogs (2018)",
       "tmdb_id": 399174,
       "year": 2018
@@ -865,7 +865,7 @@
       "id": "tt37163509",
       "imdb_id": "tt37163509",
       "letterboxd_url": "https://letterboxd.com/film/la-venus-electrique/",
-      "poster": "https://image.tmdb.org/t/p/w500/bpaCAvxvqCNQdoRAjr88MA42YfI.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/AggflwFPVo6RL7HDLUVnDmJZxCC.jpg",
       "title": "La Vénus électrique (2026)",
       "tmdb_id": 1442669,
       "year": 2026
@@ -892,11 +892,12 @@
     },
     {
       "film_path": "/film/les-miserables-2019/",
-      "id": "les-miserables-2019",
+      "id": "tt10199590",
+      "imdb_id": "tt10199590",
       "letterboxd_url": "https://letterboxd.com/film/les-miserables-2019/",
-      "poster": "https://image.tmdb.org/t/p/w500/zukKDWk6iZqfioSYyEsE9NFIa3R.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/2ZQV9rPFXF0iFfKbsAvVIweQ1yM.jpg",
       "title": "Les Misérables (2019)",
-      "tmdb_id": 601553,
+      "tmdb_id": 586863,
       "year": 2019
     },
     {
@@ -1323,7 +1324,7 @@
       "id": "tt27714581",
       "imdb_id": "tt27714581",
       "letterboxd_url": "https://letterboxd.com/film/sentimental-value-2025/",
-      "poster": "https://image.tmdb.org/t/p/w500/AcbS8VMysrTpG9r4dgK1oyLsKYn.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/pz9NCWxxOk3o0W3v1Zkhawrwb4i.jpg",
       "title": "Sentimental Value (2025)",
       "tmdb_id": 1124566,
       "year": 2025
@@ -1763,7 +1764,7 @@
       "id": "tt27847051",
       "imdb_id": "tt27847051",
       "letterboxd_url": "https://letterboxd.com/film/the-secret-agent-2025/",
-      "poster": "https://image.tmdb.org/t/p/w500/iLE2YOmeboeTDC7GlOp1dzh1VFo.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/rZqolYhxMEe6TZZTjSmFw9crDTD.jpg",
       "title": "The Secret Agent (2025)",
       "tmdb_id": 1220564,
       "year": 2025
