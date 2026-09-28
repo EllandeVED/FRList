@@ -65,7 +65,7 @@
       "id": "tt36834996",
       "imdb_id": "tt36834996",
       "letterboxd_url": "https://letterboxd.com/film/all-of-a-sudden-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/uJkX6VUQbgoDO2LCt7X6wdAXvZj.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/kFD1vl6FPt8heIIgFiAyIbZqrYh.jpg",
       "title": "All of a Sudden (2026)",
       "tmdb_id": 1476614,
       "year": 2026
@@ -125,7 +125,7 @@
       "id": "tt17009710",
       "imdb_id": "tt17009710",
       "letterboxd_url": "https://letterboxd.com/film/anatomy-of-a-fall/",
-      "poster": "https://image.tmdb.org/t/p/w500/1ho0d4LNZw3Y0voeKmSvPSgJOJ2.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/kQs6keheMwCxJxrzV83VUwFtHkB.jpg",
       "title": "Anatomy of a Fall (2023)",
       "tmdb_id": 915935,
       "year": 2023
@@ -682,11 +682,12 @@
     },
     {
       "film_path": "/film/hit-the-road-2021/",
-      "id": "hit-the-road-2021",
+      "id": "tt14812782",
+      "imdb_id": "tt14812782",
       "letterboxd_url": "https://letterboxd.com/film/hit-the-road-2021/",
-      "poster": "https://a.ltrbxd.com/resized/film-poster/7/5/3/3/9/8/753398-hit-the-road-0-70-0-105-crop.jpg?v=9019e358bd",
-      "title": "Hit The Road, Egg! (2021)",
-      "tmdb_id": 994862,
+      "poster": "https://image.tmdb.org/t/p/w500/vJziqfgyEmY1kimb1vbMqEJdYKI.jpg",
+      "title": "Hit the Road (2021)",
+      "tmdb_id": 838154,
       "year": 2021
     },
     {
@@ -814,7 +815,7 @@
       "id": "tt36842933",
       "imdb_id": "tt36842933",
       "letterboxd_url": "https://letterboxd.com/film/just-an-illusion-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/eWPq3wSvJEMakESTXzaBECUNBYr.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/41e4AhleyWXcbtoEX72udO5Fifp.jpg",
       "title": "Just an Illusion (2026)",
       "tmdb_id": 1404684,
       "year": 2026
@@ -874,7 +875,7 @@
       "id": "tt37163509",
       "imdb_id": "tt37163509",
       "letterboxd_url": "https://letterboxd.com/film/la-venus-electrique/",
-      "poster": "https://image.tmdb.org/t/p/w500/AggflwFPVo6RL7HDLUVnDmJZxCC.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/6mGCyYnuGpxGT3Wx4xuRMV20EEi.jpg",
       "title": "La Vénus électrique (2026)",
       "tmdb_id": 1442669,
       "year": 2026
@@ -981,12 +982,12 @@
     },
     {
       "film_path": "/film/marguerite/",
-      "id": "tt4428800",
-      "imdb_id": "tt4428800",
+      "id": "tt4428788",
+      "imdb_id": "tt4428788",
       "letterboxd_url": "https://letterboxd.com/film/marguerite/",
-      "poster": "https://image.tmdb.org/t/p/w500/yUUJ8gTY4wJGTKHgQqQe9fM4fLP.jpg",
-      "title": "Marguerite & Julien (2015)",
-      "tmdb_id": 330294,
+      "poster": "https://image.tmdb.org/t/p/w500/lfIleyisIzYfvUNXTLIfJjHiJz6.jpg",
+      "title": "Marguerite (2015)",
+      "tmdb_id": 352157,
       "year": 2015
     },
     {
@@ -1233,7 +1234,7 @@
       "id": "tt8613070",
       "imdb_id": "tt8613070",
       "letterboxd_url": "https://letterboxd.com/film/portrait-of-a-lady-on-fire/",
-      "poster": "https://image.tmdb.org/t/p/w500/rUDuOKpkKBHxx41BScqKej72iT3.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/2LquGwEhbg3soxSCs9VNyh5VJd9.jpg",
       "title": "Portrait of a Lady on Fire (2019)",
       "tmdb_id": 531428,
       "year": 2019
@@ -1723,7 +1724,7 @@
       "id": "tt30840798",
       "imdb_id": "tt30840798",
       "letterboxd_url": "https://letterboxd.com/film/the-phoenician-scheme/",
-      "poster": "https://image.tmdb.org/t/p/w500/u2jxeYLXTYfu0bqJmnLGIgZswib.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/iXxIUVqpQAlyy98UjUlzjkMYuj6.jpg",
       "title": "The Phoenician Scheme (2025)",
       "tmdb_id": 1137350,
       "year": 2025
@@ -1773,7 +1774,7 @@
       "id": "tt31566788",
       "imdb_id": "tt31566788",
       "letterboxd_url": "https://letterboxd.com/film/the-safe-house-2025/",
-      "poster": "https://image.tmdb.org/t/p/w500/r9xf19feljoQSQrTFmcrikID4Kq.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/eJNtuAp38xxFv7s0Ix7PABaFZus.jpg",
       "title": "The Safe House (2025)",
       "tmdb_id": 1266809,
       "year": 2025
@@ -2080,5 +2081,5 @@
     }
   ],
   "source": "https://letterboxd.com/franceinter/films/",
-  "updated_at_utc": "2026-09-14T11:35:20Z"
+  "updated_at_utc": "2026-09-28T12:44:15Z"
 }
