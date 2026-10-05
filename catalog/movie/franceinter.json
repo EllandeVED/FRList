@@ -13,15 +13,33 @@
       "type": "movie"
     },
     {
+      "id": "tt41593304",
+      "name": "A Man of His Time (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/tFzSSetNzvdaxms6RLfr2pyu9sM.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt2937898",
       "name": "A Most Violent Year (2014)",
       "poster": "https://image.tmdb.org/t/p/w500/gYTUNxLcFomCdXe3D4Hq8OLwgv0.jpg",
       "type": "movie"
     },
     {
+      "id": "tt42826707",
+      "name": "A Place to Heal (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/nmIQQG8IDy0WYQy79Z0N7PhRNHg.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt2852400",
       "name": "A Touch of Sin (2013)",
       "poster": "https://image.tmdb.org/t/p/w500/yZKem3DGUiM3664otaSfuGacjiz.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "tt39299437",
+      "name": "A Woman's Life (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/9xAYLvWZGASDKJZjt5XgvD7ugsn.jpg",
       "type": "movie"
     },
     {
@@ -81,7 +99,7 @@
     {
       "id": "tt17009710",
       "name": "Anatomy of a Fall (2023)",
-      "poster": "https://image.tmdb.org/t/p/w500/kQs6keheMwCxJxrzV83VUwFtHkB.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/1ho0d4LNZw3Y0voeKmSvPSgJOJ2.jpg",
       "type": "movie"
     },
     {
@@ -195,7 +213,7 @@
     {
       "id": "tt12300742",
       "name": "Bugonia (2025)",
-      "poster": "https://image.tmdb.org/t/p/w500/rSdOua3wKMEaFWDcKAYWRjXQWOt.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/18Kbb0qeCxwzna0W6a9gEMZuizF.jpg",
       "type": "movie"
     },
     {
@@ -301,6 +319,12 @@
       "type": "movie"
     },
     {
+      "id": "tt31450459",
+      "name": "Digger (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/1ATXKrIPJyKNwnJ6lcG088Sa6zi.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt6768578",
       "name": "Dogman (2018)",
       "poster": "https://image.tmdb.org/t/p/w500/eaZq1G8sJHv9f9a5IzioQlS3REX.jpg",
@@ -375,7 +399,7 @@
     {
       "id": "tt35410859",
       "name": "Fjord (2026)",
-      "poster": "https://image.tmdb.org/t/p/w500/3PPPIeSdeivjUn3O9RahGiaJ9b8.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/rhKlzjAJCEKUjxEk1qwr4bgbXlG.jpg",
       "type": "movie"
     },
     {
@@ -445,6 +469,12 @@
       "type": "movie"
     },
     {
+      "id": "tt36639956",
+      "name": "Iron Boy (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/aXNm7mgW22mxCSwSV7i7GHjy6Ga.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt5104604",
       "name": "Isle of Dogs (2018)",
       "poster": "https://image.tmdb.org/t/p/w500/4C7ZHv5LUPq7XzxC3nq8mBr77sP.jpg",
@@ -489,7 +519,7 @@
     {
       "id": "tt36842933",
       "name": "Just an Illusion (2026)",
-      "poster": "https://image.tmdb.org/t/p/w500/41e4AhleyWXcbtoEX72udO5Fifp.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/eWPq3wSvJEMakESTXzaBECUNBYr.jpg",
       "type": "movie"
     },
     {
@@ -511,9 +541,21 @@
       "type": "movie"
     },
     {
+      "id": "tt35511966",
+      "name": "La bola negra (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/l76qrRUs1e1Th4CNeQIQ10TjHOl.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt43136887",
       "name": "La chaleur (2026)",
       "poster": "https://image.tmdb.org/t/p/w500/8IcgFgUKHWnVamGPSXQQ8cLHjew.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "tt36107185",
+      "name": "La Gradiva (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/y6AkOgTEPM9nTJUOeyvHqlf6Bgp.jpg",
       "type": "movie"
     },
     {
@@ -568,6 +610,12 @@
       "id": "tt6304162",
       "name": "Loveless (2017)",
       "poster": "https://image.tmdb.org/t/p/w500/oBUsLGZoGuLKMuHj19mjG9iCDoq.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "tt10569744",
+      "name": "Lucy Lost (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/rEYuls7G6UqCgJKvPgKCyW407gm.jpg",
       "type": "movie"
     },
     {
@@ -643,9 +691,21 @@
       "type": "movie"
     },
     {
+      "id": "tt37118301",
+      "name": "Minotaur (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/bM37B5CuMWrPyGPpNsKzTGict4Q.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt3612616",
       "name": "Mommy (2014)",
       "poster": "https://image.tmdb.org/t/p/w500/uPDP0cHGOpkr47rdCdHWo4CyiPj.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "tt36899180",
+      "name": "Moulin (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/f3yopLJXRBcPvgkfRji1jloDrxd.jpg",
       "type": "movie"
     },
     {
@@ -694,6 +754,12 @@
       "id": "tt1451762",
       "name": "On Tour (2010)",
       "poster": "https://image.tmdb.org/t/p/w500/75pDH2mQRduyq8RUI48Ni8QlguF.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "tt34385689",
+      "name": "Paper Tiger (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/zVYm9mNSyr9EYhUUI72DOGgYRZH.jpg",
       "type": "movie"
     },
     {
@@ -795,7 +861,7 @@
     {
       "id": "tt27714581",
       "name": "Sentimental Value (2025)",
-      "poster": "https://image.tmdb.org/t/p/w500/pz9NCWxxOk3o0W3v1Zkhawrwb4i.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/AcbS8VMysrTpG9r4dgK1oyLsKYn.jpg",
       "type": "movie"
     },
     {
@@ -910,6 +976,12 @@
       "id": "tt33451014",
       "name": "The Beloved (2026)",
       "poster": "https://image.tmdb.org/t/p/w500/whk02IOeEHz8KCYZGm3fF92zg0v.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "tt33269988",
+      "name": "The Birthday Party (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/sXN4IvB4hM2AYYx9BhdzhokrjvH.jpg",
       "type": "movie"
     },
     {
@@ -1222,6 +1294,12 @@
       "id": "tt4218572",
       "name": "Widows (2018)",
       "poster": "https://image.tmdb.org/t/p/w500/d31SGJSaX29ba5ZUbZcesGoDE7I.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "tt15799564",
+      "name": "Wild Horse Nine (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/dNJFRtVg3xLQ7dbNIQ55cmmIniD.jpg",
       "type": "movie"
     },
     {

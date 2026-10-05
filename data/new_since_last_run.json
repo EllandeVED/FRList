@@ -1,6 +1,137 @@
 {
-  "generated_at_utc": "2026-09-28T12:44:15Z",
-  "new_movies": [],
+  "generated_at_utc": "2026-10-05T13:25:55Z",
+  "new_movies": [
+    {
+      "film_path": "/film/a-man-of-his-time/",
+      "id": "tt41593304",
+      "imdb_id": "tt41593304",
+      "letterboxd_url": "https://letterboxd.com/film/a-man-of-his-time/",
+      "poster": "https://image.tmdb.org/t/p/w500/tFzSSetNzvdaxms6RLfr2pyu9sM.jpg",
+      "title": "A Man of His Time (2026)",
+      "tmdb_id": 1318864,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/a-place-to-heal/",
+      "id": "tt42826707",
+      "imdb_id": "tt42826707",
+      "letterboxd_url": "https://letterboxd.com/film/a-place-to-heal/",
+      "poster": "https://image.tmdb.org/t/p/w500/nmIQQG8IDy0WYQy79Z0N7PhRNHg.jpg",
+      "title": "A Place to Heal (2026)",
+      "tmdb_id": 1429602,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/a-womans-life-2026/",
+      "id": "tt39299437",
+      "imdb_id": "tt39299437",
+      "letterboxd_url": "https://letterboxd.com/film/a-womans-life-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/9xAYLvWZGASDKJZjt5XgvD7ugsn.jpg",
+      "title": "A Woman's Life (2026)",
+      "tmdb_id": 1258181,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/digger-2026/",
+      "id": "tt31450459",
+      "imdb_id": "tt31450459",
+      "letterboxd_url": "https://letterboxd.com/film/digger-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/1ATXKrIPJyKNwnJ6lcG088Sa6zi.jpg",
+      "title": "Digger (2026)",
+      "tmdb_id": 1248832,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/iron-boy/",
+      "id": "tt36639956",
+      "imdb_id": "tt36639956",
+      "letterboxd_url": "https://letterboxd.com/film/iron-boy/",
+      "poster": "https://image.tmdb.org/t/p/w500/aXNm7mgW22mxCSwSV7i7GHjy6Ga.jpg",
+      "title": "Iron Boy (2026)",
+      "tmdb_id": 947493,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/la-bola-negra/",
+      "id": "tt35511966",
+      "imdb_id": "tt35511966",
+      "letterboxd_url": "https://letterboxd.com/film/la-bola-negra/",
+      "poster": "https://image.tmdb.org/t/p/w500/l76qrRUs1e1Th4CNeQIQ10TjHOl.jpg",
+      "title": "La bola negra (2026)",
+      "tmdb_id": 1422041,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/la-gradiva/",
+      "id": "tt36107185",
+      "imdb_id": "tt36107185",
+      "letterboxd_url": "https://letterboxd.com/film/la-gradiva/",
+      "poster": "https://image.tmdb.org/t/p/w500/y6AkOgTEPM9nTJUOeyvHqlf6Bgp.jpg",
+      "title": "La Gradiva (2026)",
+      "tmdb_id": 1154730,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/lucy-lost/",
+      "id": "tt10569744",
+      "imdb_id": "tt10569744",
+      "letterboxd_url": "https://letterboxd.com/film/lucy-lost/",
+      "poster": "https://image.tmdb.org/t/p/w500/rEYuls7G6UqCgJKvPgKCyW407gm.jpg",
+      "title": "Lucy Lost (2026)",
+      "tmdb_id": 1217954,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/minotaur-2026/",
+      "id": "tt37118301",
+      "imdb_id": "tt37118301",
+      "letterboxd_url": "https://letterboxd.com/film/minotaur-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/bM37B5CuMWrPyGPpNsKzTGict4Q.jpg",
+      "title": "Minotaur (2026)",
+      "tmdb_id": 848700,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/moulin/",
+      "id": "tt36899180",
+      "imdb_id": "tt36899180",
+      "letterboxd_url": "https://letterboxd.com/film/moulin/",
+      "poster": "https://image.tmdb.org/t/p/w500/f3yopLJXRBcPvgkfRji1jloDrxd.jpg",
+      "title": "Moulin (2026)",
+      "tmdb_id": 1437925,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/paper-tiger-2026/",
+      "id": "tt34385689",
+      "imdb_id": "tt34385689",
+      "letterboxd_url": "https://letterboxd.com/film/paper-tiger-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/zVYm9mNSyr9EYhUUI72DOGgYRZH.jpg",
+      "title": "Paper Tiger (2026)",
+      "tmdb_id": 1381273,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/the-birthday-party-2026/",
+      "id": "tt33269988",
+      "imdb_id": "tt33269988",
+      "letterboxd_url": "https://letterboxd.com/film/the-birthday-party-2026/",
+      "poster": "https://image.tmdb.org/t/p/w500/sXN4IvB4hM2AYYx9BhdzhokrjvH.jpg",
+      "title": "The Birthday Party (2026)",
+      "tmdb_id": 1339175,
+      "year": 2026
+    },
+    {
+      "film_path": "/film/wild-horse-nine/",
+      "id": "tt15799564",
+      "imdb_id": "tt15799564",
+      "letterboxd_url": "https://letterboxd.com/film/wild-horse-nine/",
+      "poster": "https://image.tmdb.org/t/p/w500/dNJFRtVg3xLQ7dbNIQ55cmmIniD.jpg",
+      "title": "Wild Horse Nine (2026)",
+      "tmdb_id": 891621,
+      "year": 2026
+    }
+  ],
   "previous_snapshot_had_letterboxd_urls": [
     "https://letterboxd.com/film/a-complete-unknown/",
     "https://letterboxd.com/film/a-family-2024/",
