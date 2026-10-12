@@ -49,12 +49,6 @@
       "type": "movie"
     },
     {
-      "id": "tt36861174",
-      "name": "The Real Adolescence: Our Killer Kids (2025)",
-      "poster": "https://image.tmdb.org/t/p/w500/gyasYg4xhmmVfbsS96x4CCm6a30.jpg",
-      "type": "movie"
-    },
-    {
       "id": "tt19770238",
       "name": "Aftersun (2022)",
       "poster": "https://image.tmdb.org/t/p/w500/evKz85EKouVbIr51zy5fOtpNRPg.jpg",
@@ -124,12 +118,6 @@
       "id": "tt10288566",
       "name": "Another Round (2020)",
       "poster": "https://image.tmdb.org/t/p/w500/aDcIt4NHURLKnAEu7gow51Yd00Q.jpg",
-      "type": "movie"
-    },
-    {
-      "id": "tt14445716",
-      "name": "Fragments from Another World (2021)",
-      "poster": "https://image.tmdb.org/t/p/w500/43xippin6BaLRHvM4HZgsdlgBtv.jpg",
       "type": "movie"
     },
     {
@@ -397,6 +385,12 @@
       "type": "movie"
     },
     {
+      "id": "tt4123432",
+      "name": "Fantastic Beasts: The Secrets of Dumbledore (2022)",
+      "poster": "https://image.tmdb.org/t/p/w500/3c5GNLB4yRSLBby0trHoA1DSQxQ.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt35410859",
       "name": "Fjord (2026)",
       "poster": "https://image.tmdb.org/t/p/w500/rhKlzjAJCEKUjxEk1qwr4bgbXlG.jpg",
@@ -412,6 +406,12 @@
       "id": "tt40435390",
       "name": "Forsaken (2026)",
       "poster": "https://image.tmdb.org/t/p/w500/kfUKP5IgzgLQyQD1MDt99yq9Af0.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "tt14445716",
+      "name": "Fragments from Another World (2021)",
+      "poster": "https://image.tmdb.org/t/p/w500/43xippin6BaLRHvM4HZgsdlgBtv.jpg",
       "type": "movie"
     },
     {
@@ -542,14 +542,14 @@
     },
     {
       "id": "tt35511966",
-      "name": "La bola negra (2026)",
-      "poster": "https://image.tmdb.org/t/p/w500/l76qrRUs1e1Th4CNeQIQ10TjHOl.jpg",
+      "name": "LA BOLA NEGRA (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/dbpyc3Zo0m4E15XcQ7tTwlLBEtE.jpg",
       "type": "movie"
     },
     {
       "id": "tt43136887",
       "name": "La chaleur (2026)",
-      "poster": "https://image.tmdb.org/t/p/w500/8IcgFgUKHWnVamGPSXQQ8cLHjew.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/42uouj30D7oPf8sPY6ids5QDf55.jpg",
       "type": "movie"
     },
     {
@@ -745,9 +745,9 @@
       "type": "movie"
     },
     {
-      "id": "nostalgia-2022-1",
+      "id": "tt14034614",
       "name": "Nostalgia (2022)",
-      "poster": "https://image.tmdb.org/t/p/w500/nJ2Q1vamOl4FoBsQoUgWLuNBQto.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/t0xCqVcXlq1rPpsF6M4kzpzKypR.jpg",
       "type": "movie"
     },
     {
@@ -831,7 +831,7 @@
     {
       "id": "tt32538648",
       "name": "Romería (2025)",
-      "poster": "https://image.tmdb.org/t/p/w500/6Wo9z9dvy0ns1Q84OLEHXemRpeh.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/rkCHBDGgc6UW9ETyTWZ0RiEiten.jpg",
       "type": "movie"
     },
     {
@@ -967,12 +967,6 @@
       "type": "movie"
     },
     {
-      "id": "tt4123432",
-      "name": "Fantastic Beasts: The Secrets of Dumbledore (2022)",
-      "poster": "https://image.tmdb.org/t/p/w500/3c5GNLB4yRSLBby0trHoA1DSQxQ.jpg",
-      "type": "movie"
-    },
-    {
       "id": "tt33451014",
       "name": "The Beloved (2026)",
       "poster": "https://image.tmdb.org/t/p/w500/whk02IOeEHz8KCYZGm3fF92zg0v.jpg",
@@ -1045,6 +1039,12 @@
       "type": "movie"
     },
     {
+      "id": "tt13329384",
+      "name": "The Hive (2020)",
+      "poster": "https://image.tmdb.org/t/p/w500/2TGAR1JK11RMBCPxkjoLhqsYp9b.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt11760792",
       "name": "The Human Voice (2020)",
       "poster": "https://image.tmdb.org/t/p/w500/1ExeKYF7ryDKImnPg2LkDfcYizg.jpg",
@@ -1108,6 +1108,12 @@
       "id": "tt36187539",
       "name": "The Rays and Shadows (2026)",
       "poster": "https://image.tmdb.org/t/p/w500/cSWYnBFJroVGtf6QeDLAeqhojiS.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "tt36861174",
+      "name": "The Real Adolescence: Our Killer Kids (2025)",
+      "poster": "https://image.tmdb.org/t/p/w500/gyasYg4xhmmVfbsS96x4CCm6a30.jpg",
       "type": "movie"
     },
     {
@@ -1177,12 +1183,6 @@
       "type": "movie"
     },
     {
-      "id": "tt13329384",
-      "name": "The Hive (2020)",
-      "poster": "https://image.tmdb.org/t/p/w500/2TGAR1JK11RMBCPxkjoLhqsYp9b.jpg",
-      "type": "movie"
-    },
-    {
       "id": "tt33030403",
       "name": "The Ties That Bind Us (2025)",
       "poster": "https://image.tmdb.org/t/p/w500/tRLvA1kqbII1IuFDaRncQUkDLqW.jpg",
@@ -1203,7 +1203,7 @@
     {
       "id": "tt32359586",
       "name": "The Unknown (2026)",
-      "poster": "https://image.tmdb.org/t/p/w500/888ksoUkfKSBJHxKp6M9sYpJhv2.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/cUp9YRHmqRsWiebGHP3T06nY68t.jpg",
       "type": "movie"
     },
     {

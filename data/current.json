@@ -1,5 +1,6 @@
 {
-  "generated_at_utc": "2026-10-05T13:25:55Z",
+  "fetch_mode": "rss+previous",
+  "generated_at_utc": "2026-10-12T19:48:13Z",
   "movies": [
     {
       "film_path": "/film/a-complete-unknown/",
@@ -80,16 +81,6 @@
       "title": "About Dry Grasses (2023)",
       "tmdb_id": 665733,
       "year": 2023
-    },
-    {
-      "film_path": "/film/adolescence-2025/",
-      "id": "tt36861174",
-      "imdb_id": "tt36861174",
-      "letterboxd_url": "https://letterboxd.com/film/adolescence-2025/",
-      "poster": "https://image.tmdb.org/t/p/w500/gyasYg4xhmmVfbsS96x4CCm6a30.jpg",
-      "title": "The Real Adolescence: Our Killer Kids (2025)",
-      "tmdb_id": 1478143,
-      "year": 2025
     },
     {
       "film_path": "/film/aftersun/",
@@ -210,16 +201,6 @@
       "title": "Another Round (2020)",
       "tmdb_id": 580175,
       "year": 2020
-    },
-    {
-      "film_path": "/film/another-world-2021/",
-      "id": "tt14445716",
-      "imdb_id": "tt14445716",
-      "letterboxd_url": "https://letterboxd.com/film/another-world-2021/",
-      "poster": "https://image.tmdb.org/t/p/w500/43xippin6BaLRHvM4HZgsdlgBtv.jpg",
-      "title": "Fragments from Another World (2021)",
-      "tmdb_id": 825872,
-      "year": 2021
     },
     {
       "film_path": "/film/arco/",
@@ -662,6 +643,16 @@
       "year": 1996
     },
     {
+      "film_path": "/film/the-beasts-2022/",
+      "id": "tt4123432",
+      "imdb_id": "tt4123432",
+      "letterboxd_url": "https://letterboxd.com/film/the-beasts-2022/",
+      "poster": "https://image.tmdb.org/t/p/w500/3c5GNLB4yRSLBby0trHoA1DSQxQ.jpg",
+      "title": "Fantastic Beasts: The Secrets of Dumbledore (2022)",
+      "tmdb_id": 338953,
+      "year": 2022
+    },
+    {
       "film_path": "/film/fjord-2026/",
       "id": "tt35410859",
       "imdb_id": "tt35410859",
@@ -690,6 +681,16 @@
       "title": "Forsaken (2026)",
       "tmdb_id": 1645368,
       "year": 2026
+    },
+    {
+      "film_path": "/film/another-world-2021/",
+      "id": "tt14445716",
+      "imdb_id": "tt14445716",
+      "letterboxd_url": "https://letterboxd.com/film/another-world-2021/",
+      "poster": "https://image.tmdb.org/t/p/w500/43xippin6BaLRHvM4HZgsdlgBtv.jpg",
+      "title": "Fragments from Another World (2021)",
+      "tmdb_id": 825872,
+      "year": 2021
     },
     {
       "film_path": "/film/ghost-trail/",
@@ -906,8 +907,8 @@
       "id": "tt35511966",
       "imdb_id": "tt35511966",
       "letterboxd_url": "https://letterboxd.com/film/la-bola-negra/",
-      "poster": "https://image.tmdb.org/t/p/w500/l76qrRUs1e1Th4CNeQIQ10TjHOl.jpg",
-      "title": "La bola negra (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/dbpyc3Zo0m4E15XcQ7tTwlLBEtE.jpg",
+      "title": "LA BOLA NEGRA (2026)",
       "tmdb_id": 1422041,
       "year": 2026
     },
@@ -916,7 +917,7 @@
       "id": "tt43136887",
       "imdb_id": "tt43136887",
       "letterboxd_url": "https://letterboxd.com/film/la-chaleur-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/8IcgFgUKHWnVamGPSXQQ8cLHjew.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/42uouj30D7oPf8sPY6ids5QDf55.jpg",
       "title": "La chaleur (2026)",
       "tmdb_id": 1492288,
       "year": 2026
@@ -1243,11 +1244,12 @@
     },
     {
       "film_path": "/film/nostalgia-2022-1/",
-      "id": "nostalgia-2022-1",
+      "id": "tt14034614",
+      "imdb_id": "tt14034614",
       "letterboxd_url": "https://letterboxd.com/film/nostalgia-2022-1/",
-      "poster": "https://image.tmdb.org/t/p/w500/nJ2Q1vamOl4FoBsQoUgWLuNBQto.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/t0xCqVcXlq1rPpsF6M4kzpzKypR.jpg",
       "title": "Nostalgia (2022)",
-      "tmdb_id": 1088097,
+      "tmdb_id": 541724,
       "year": 2022
     },
     {
@@ -1385,7 +1387,7 @@
       "id": "tt32538648",
       "imdb_id": "tt32538648",
       "letterboxd_url": "https://letterboxd.com/film/romeria/",
-      "poster": "https://image.tmdb.org/t/p/w500/6Wo9z9dvy0ns1Q84OLEHXemRpeh.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/rkCHBDGgc6UW9ETyTWZ0RiEiten.jpg",
       "title": "Romería (2025)",
       "tmdb_id": 1182861,
       "year": 2025
@@ -1611,16 +1613,6 @@
       "year": 2020
     },
     {
-      "film_path": "/film/the-beasts-2022/",
-      "id": "tt4123432",
-      "imdb_id": "tt4123432",
-      "letterboxd_url": "https://letterboxd.com/film/the-beasts-2022/",
-      "poster": "https://image.tmdb.org/t/p/w500/3c5GNLB4yRSLBby0trHoA1DSQxQ.jpg",
-      "title": "Fantastic Beasts: The Secrets of Dumbledore (2022)",
-      "tmdb_id": 338953,
-      "year": 2022
-    },
-    {
       "film_path": "/film/the-beloved-2026/",
       "id": "tt33451014",
       "imdb_id": "tt33451014",
@@ -1741,6 +1733,16 @@
       "year": 2014
     },
     {
+      "film_path": "/film/the-swarm-2020/",
+      "id": "tt13329384",
+      "imdb_id": "tt13329384",
+      "letterboxd_url": "https://letterboxd.com/film/the-swarm-2020/",
+      "poster": "https://image.tmdb.org/t/p/w500/2TGAR1JK11RMBCPxkjoLhqsYp9b.jpg",
+      "title": "The Hive (2020)",
+      "tmdb_id": 760484,
+      "year": 2020
+    },
+    {
       "film_path": "/film/the-human-voice-2020/",
       "id": "tt11760792",
       "imdb_id": "tt11760792",
@@ -1849,6 +1851,16 @@
       "title": "The Rays and Shadows (2026)",
       "tmdb_id": 1318335,
       "year": 2026
+    },
+    {
+      "film_path": "/film/adolescence-2025/",
+      "id": "tt36861174",
+      "imdb_id": "tt36861174",
+      "letterboxd_url": "https://letterboxd.com/film/adolescence-2025/",
+      "poster": "https://image.tmdb.org/t/p/w500/gyasYg4xhmmVfbsS96x4CCm6a30.jpg",
+      "title": "The Real Adolescence: Our Killer Kids (2025)",
+      "tmdb_id": 1478143,
+      "year": 2025
     },
     {
       "film_path": "/film/the-room-next-door-2024/",
@@ -1961,16 +1973,6 @@
       "year": 2021
     },
     {
-      "film_path": "/film/the-swarm-2020/",
-      "id": "tt13329384",
-      "imdb_id": "tt13329384",
-      "letterboxd_url": "https://letterboxd.com/film/the-swarm-2020/",
-      "poster": "https://image.tmdb.org/t/p/w500/2TGAR1JK11RMBCPxkjoLhqsYp9b.jpg",
-      "title": "The Hive (2020)",
-      "tmdb_id": 760484,
-      "year": 2020
-    },
-    {
       "film_path": "/film/the-ties-that-bind-us/",
       "id": "tt33030403",
       "imdb_id": "tt33030403",
@@ -2005,9 +2007,9 @@
       "id": "tt32359586",
       "imdb_id": "tt32359586",
       "letterboxd_url": "https://letterboxd.com/film/the-unknown-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/888ksoUkfKSBJHxKp6M9sYpJhv2.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/cUp9YRHmqRsWiebGHP3T06nY68t.jpg",
       "title": "The Unknown (2026)",
-      "tmdb_id": 1182935,
+      "tmdb_id": 1667643,
       "year": 2026
     },
     {

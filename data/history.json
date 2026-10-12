@@ -915,8 +915,8 @@
       "id": "tt35511966",
       "imdb_id": "tt35511966",
       "letterboxd_url": "https://letterboxd.com/film/la-bola-negra/",
-      "poster": "https://image.tmdb.org/t/p/w500/l76qrRUs1e1Th4CNeQIQ10TjHOl.jpg",
-      "title": "La bola negra (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/dbpyc3Zo0m4E15XcQ7tTwlLBEtE.jpg",
+      "title": "LA BOLA NEGRA (2026)",
       "tmdb_id": 1422041,
       "year": 2026
     },
@@ -925,7 +925,7 @@
       "id": "tt43136887",
       "imdb_id": "tt43136887",
       "letterboxd_url": "https://letterboxd.com/film/la-chaleur-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/8IcgFgUKHWnVamGPSXQQ8cLHjew.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/42uouj30D7oPf8sPY6ids5QDf55.jpg",
       "title": "La chaleur (2026)",
       "tmdb_id": 1492288,
       "year": 2026
@@ -1252,11 +1252,12 @@
     },
     {
       "film_path": "/film/nostalgia-2022-1/",
-      "id": "nostalgia-2022-1",
+      "id": "tt14034614",
+      "imdb_id": "tt14034614",
       "letterboxd_url": "https://letterboxd.com/film/nostalgia-2022-1/",
-      "poster": "https://image.tmdb.org/t/p/w500/nJ2Q1vamOl4FoBsQoUgWLuNBQto.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/t0xCqVcXlq1rPpsF6M4kzpzKypR.jpg",
       "title": "Nostalgia (2022)",
-      "tmdb_id": 1088097,
+      "tmdb_id": 541724,
       "year": 2022
     },
     {
@@ -1394,7 +1395,7 @@
       "id": "tt32538648",
       "imdb_id": "tt32538648",
       "letterboxd_url": "https://letterboxd.com/film/romeria/",
-      "poster": "https://image.tmdb.org/t/p/w500/6Wo9z9dvy0ns1Q84OLEHXemRpeh.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/rkCHBDGgc6UW9ETyTWZ0RiEiten.jpg",
       "title": "Romería (2025)",
       "tmdb_id": 1182861,
       "year": 2025
@@ -2024,9 +2025,9 @@
       "id": "tt32359586",
       "imdb_id": "tt32359586",
       "letterboxd_url": "https://letterboxd.com/film/the-unknown-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/888ksoUkfKSBJHxKp6M9sYpJhv2.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/cUp9YRHmqRsWiebGHP3T06nY68t.jpg",
       "title": "The Unknown (2026)",
-      "tmdb_id": 1182935,
+      "tmdb_id": 1667643,
       "year": 2026
     },
     {
@@ -2211,5 +2212,5 @@
     }
   ],
   "source": "https://letterboxd.com/franceinter/films/",
-  "updated_at_utc": "2026-10-05T13:25:55Z"
+  "updated_at_utc": "2026-10-12T19:48:13Z"
 }
