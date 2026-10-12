@@ -2,7 +2,9 @@ name: Update Letterboxd data
 
 on:
   schedule:
+    # Twice a week — Letterboxd/Cloudflare sometimes blocks GitHub runner IPs.
     - cron: "0 6 * * 1"
+    - cron: "0 18 * * 4"
   workflow_dispatch:
 
 concurrency:
@@ -18,6 +20,9 @@ jobs:
     env:
       # Opt into Node 24 for JS-based actions (checkout/setup-python); see GitHub changelog.
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      FRList_SCRAPE_ATTEMPTS: "3"
+      FRList_SCRAPE_PAUSE: "25"
+      FRList_HEADED: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,13 +36,19 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Install Playwright Chromium
-        run: python -m playwright install chromium --with-deps
+      - name: Install Playwright Chromium + xvfb
+        run: |
+          python -m playwright install chromium --with-deps
+          sudo apt-get update
+          sudo apt-get install -y xvfb
 
       - name: Generate addon and data
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-        run: python -m src.generate_addon
+        # Headed Chromium under xvfb clears Cloudflare managed challenges more
+        # reliably than headless mode on datacenter IPs. Cookies are then reused
+        # by curl_cffi for pagination.
+        run: xvfb-run -a python -m src.generate_addon
 
       - name: Commit and push if changed
         run: |

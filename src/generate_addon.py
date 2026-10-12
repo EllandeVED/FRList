@@ -4,12 +4,18 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from src.scrape import ScrapeError, enrich_missing_posters, scrape_franceinter_films
+from src.scrape import (
+    ScrapeError,
+    enrich_missing_posters,
+    fetch_films_from_rss,
+    scrape_with_retries,
+)
 from src.tmdb_resolve import is_configured, resolve_movies_parallel
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +27,16 @@ README_PATH = ROOT / "README.md"
 
 README_START = "<!-- FRList:status:start -->"
 README_END = "<!-- FRList:status:end -->"
+
+
+def _pages_manifest_url() -> str:
+    owner = (
+        os.environ.get("FRList_PAGES_OWNER")
+        or os.environ.get("GITHUB_REPOSITORY_OWNER")
+        or "EllandeVED"
+    )
+    repo = os.environ.get("GITHUB_REPOSITORY", "EllandeVED/FRList").split("/")[-1]
+    return f"https://{owner.lower()}.github.io/{repo}/manifest.json"
 
 MANIFEST = {
     # Dot-separated id per Stremio addon SDK (better client compatibility).
@@ -95,6 +111,7 @@ def _update_readme(
     if not README_PATH.is_file():
         return
     text = README_PATH.read_text(encoding="utf-8")
+    manifest_url = _pages_manifest_url()
     block = f"""{README_START}
 | Metric | Value |
 | --- | --- |
@@ -102,7 +119,7 @@ def _update_readme(
 | Cumulative history (unique films) | **{history_n}** |
 | New since previous run | **{new_n}** |
 | Last successful update (UTC) | **{last_run_utc}** |
-| Manifest URL | `https://<github-username>.github.io/FRList/manifest.json` |
+| Manifest URL | `{manifest_url}` |
 {README_END}"""
     if README_START in text and README_END in text:
         text = re.sub(
@@ -173,20 +190,71 @@ def _write_catalog_and_meta(movies: list[dict]) -> None:
     _json_dump(MANIFEST_PATH, _manifest_for_catalog(movies, all_imdb_ids=all_imdb_ids))
 
 
+def _merge_by_letterboxd(base: list[dict], extra: list[dict]) -> list[dict]:
+    by_lb: dict[str, dict] = {}
+    for m in base:
+        k = _letterboxd_key(m)
+        if k:
+            by_lb[k] = dict(m)
+    for m in extra:
+        k = _letterboxd_key(m)
+        if not k:
+            continue
+        if k in by_lb:
+            merged = dict(by_lb[k])
+            for field in ("title", "year", "poster", "tmdb_id", "imdb_id", "id"):
+                if m.get(field) and not merged.get(field):
+                    merged[field] = m[field]
+            by_lb[k] = merged
+        else:
+            by_lb[k] = dict(m)
+    return sorted(
+        by_lb.values(),
+        key=lambda x: (x["title"].lower(), x.get("year") or 0, x.get("id", "")),
+    )
+
+
 def run() -> None:
     DATA.mkdir(parents=True, exist_ok=True)
     prev_doc = _load_json(DATA / "current.json")
     prev_movies = _movies_from_data(prev_doc)
     prev_lb = {_letterboxd_key(m) for m in prev_movies if _letterboxd_key(m)}
 
-    movies = scrape_franceinter_films(enrich=False)
+    source = "listing"
+    try:
+        movies = scrape_with_retries()
+    except ScrapeError as e:
+        # Full /films/ grid is what Cloudflare blocks on GitHub runner IPs.
+        # Fall back to RSS + previous snapshot so new watches still land in the catalog.
+        print(f"FRList: full scrape failed ({e}); trying RSS fallback.", flush=True)
+        try:
+            rss_movies = fetch_films_from_rss()
+        except ScrapeError as rss_err:
+            raise ScrapeError(
+                f"Full scrape failed ({e}) and RSS fallback also failed ({rss_err})."
+            ) from rss_err
+        if not prev_movies and not rss_movies:
+            raise ScrapeError(
+                f"Full scrape failed ({e}) and there is no previous snapshot to keep."
+            ) from e
+        movies = _merge_by_letterboxd(prev_movies, rss_movies)
+        source = "rss+previous"
+        print(
+            f"FRList: RSS fallback kept {len(movies)} films "
+            f"({len(rss_movies)} from RSS, {len(prev_movies)} from previous snapshot).",
+            flush=True,
+        )
+
     if is_configured():
         movies = resolve_movies_parallel(movies)
-    movies = enrich_missing_posters(movies)
+    # Skip slow per-film Letterboxd poster fetches on the soft-fallback path.
+    if source == "listing":
+        movies = enrich_missing_posters(movies)
 
     now = _utc_now_iso()
     current_doc = {
         "source": "https://letterboxd.com/franceinter/films/",
+        "fetch_mode": source,
         "generated_at_utc": now,
         "movies": movies,
     }

@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import os
 import re
+import time
+import xml.etree.ElementTree as ET
 from types import SimpleNamespace
 from typing import Any
 from urllib.parse import urljoin
@@ -13,10 +15,20 @@ from curl_cffi import requests as curl_requests
 
 BASE_URL = "https://letterboxd.com"
 FILMS_PATH = "/franceinter/films/"
-# TLS fingerprint impersonation helps pass Letterboxd/Cloudflare on CI runners.
-CURL_IMPERSONATE = os.environ.get("FRList_CURL_IMPERSONATE", "chrome124")
+RSS_PATH = "/franceinter/rss/"
+# Prefer the rolling "chrome" profile; pin via env if a runner breaks on latest.
+CURL_IMPERSONATE = os.environ.get("FRList_CURL_IMPERSONATE", "chrome")
 FILM_HREF_RE = re.compile(r"^/film/([^/]+)/$")
 YEAR_FROM_SLUG_RE = re.compile(r"-(\d{4})$")
+LB_NS = "https://letterboxd.com"
+TMDB_NS = "https://themoviedb.org"
+
+_STEALTH_JS = """
+Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
+Object.defineProperty(navigator, 'languages', {get: () => ['en-US', 'en']});
+Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]});
+window.chrome = window.chrome || { runtime: {} };
+"""
 
 
 class ScrapeError(RuntimeError):
@@ -27,88 +39,17 @@ def _session() -> Any:
     return curl_requests.Session()
 
 
-def _get(session: Any, url: str, *, timeout: float) -> Any:
-    return session.get(url, timeout=timeout, impersonate=CURL_IMPERSONATE)
-
-
 def _cf_interstitial(html: str) -> bool:
-    return "Just a moment" in html and "challenge-platform" in html
-
-
-def _playwright_fetch(url: str) -> str:
-    """Headless browser fetch for GitHub Actions when Cloudflare blocks curl_cffi."""
-    try:
-        from playwright.sync_api import sync_playwright
-    except ImportError as e:
-        raise ScrapeError(
-            "Playwright is required when Letterboxd serves a Cloudflare challenge on CI. "
-            "Install: pip install playwright && playwright install chromium"
-        ) from e
-
-    _ua = (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    low = html[:8000]
+    return (
+        ("Just a moment" in low and "challenge-platform" in low)
+        or "cf-mitigated" in low
+        or ("Enable JavaScript and cookies to continue" in low and len(html) < 20000)
     )
-    with sync_playwright() as p:
-        browser = p.chromium.launch(
-            headless=True,
-            args=[
-                "--disable-dev-shm-usage",
-                "--no-sandbox",
-                "--disable-blink-features=AutomationControlled",
-            ],
-        )
-        try:
-            context = browser.new_context(
-                user_agent=_ua,
-                viewport={"width": 1280, "height": 720},
-                locale="en-US",
-            )
-            context.add_init_script(
-                "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
-            )
-            page = context.new_page()
-            page.goto(url, wait_until="domcontentloaded", timeout=120000)
-            html = page.content()
-            for _ in range(35):
-                if '[data-item-link="' in html and "/film/" in html:
-                    break
-                page.wait_for_timeout(1000)
-                html = page.content()
-            context.close()
-        finally:
-            browser.close()
-
-    if _cf_interstitial(html):
-        raise ScrapeError(
-            f"Cloudflare still blocked after Playwright fetch for {url!r}."
-        )
-    return html
 
 
-def _get_html_response(session: Any, url: str, *, timeout: float) -> Any:
-    """HTTP via curl_cffi; on GitHub Actions fall back to Playwright if CF interstitial."""
-    try:
-        r = _get(session, url, timeout=timeout)
-    except Exception as e:
-        if os.environ.get("GITHUB_ACTIONS") == "true":
-            html = _playwright_fetch(url)
-            return SimpleNamespace(status_code=200, text=html, ok=True)
-        raise ScrapeError(f"Network error fetching {url!r}: {e}") from e
-
-    if _cf_interstitial(r.text) and os.environ.get("GITHUB_ACTIONS") == "true":
-        html = _playwright_fetch(url)
-        return SimpleNamespace(status_code=200, text=html, ok=True)
-
-    _raise_if_blocked(r.text, url)
-    if r.status_code == 404:
-        return r
-    if not r.ok:
-        raise ScrapeError(
-            f"HTTP {r.status_code} when fetching {url!r}. "
-            "Letterboxd may be blocking automated access from this network."
-        )
-    return r
+def _has_film_grid(html: str) -> bool:
+    return 'data-item-link="/film/' in html or 'href="/film/' in html
 
 
 def _raise_if_blocked(html: str, url: str) -> None:
@@ -119,6 +60,180 @@ def _raise_if_blocked(html: str, url: str) -> None:
         )
     if len(html) < 5000 and "Enable JavaScript and cookies" in html:
         raise ScrapeError(f"Unexpected challenge or blocked response for {url!r}.")
+
+
+def _playwright_available() -> bool:
+    try:
+        import playwright  # noqa: F401
+
+        return True
+    except ImportError:
+        return False
+
+
+def _page_looks_ready(html: str, url: str) -> bool:
+    if _cf_interstitial(html):
+        return False
+    if "/rss" in url or url.rstrip("/").endswith("rss"):
+        return "<item>" in html or "<rss" in html
+    if "/film/" in url and "/films/" not in url:
+        return len(html) > 5000
+    return _has_film_grid(html)
+
+
+def _browser_bootstrap(url: str) -> tuple[str, list[dict[str, Any]]]:
+    """
+    Open Letterboxd in Chromium, wait out Cloudflare if needed, return HTML + cookies.
+    On CI we prefer headed mode under xvfb — headless Chromium is flagged more often.
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError as e:
+        raise ScrapeError(
+            "Playwright is required when Letterboxd serves a Cloudflare challenge. "
+            "Install: pip install playwright && playwright install chromium"
+        ) from e
+
+    headed = os.environ.get("FRList_HEADED", "").lower() in {"1", "true", "yes"}
+    if os.environ.get("GITHUB_ACTIONS") == "true" and "FRList_HEADED" not in os.environ:
+        # Default to headed on Actions when a display (xvfb) is available.
+        headed = bool(os.environ.get("DISPLAY"))
+
+    ua = (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    )
+    launch_args = [
+        "--disable-dev-shm-usage",
+        "--no-sandbox",
+        "--disable-blink-features=AutomationControlled",
+    ]
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=not headed, args=launch_args)
+        try:
+            context = browser.new_context(
+                user_agent=ua,
+                viewport={"width": 1365, "height": 900},
+                locale="en-US",
+                timezone_id="Europe/Paris",
+                color_scheme="light",
+            )
+            context.add_init_script(_STEALTH_JS)
+            page = context.new_page()
+            page.goto(url, wait_until="domcontentloaded", timeout=120_000)
+
+            html = page.content()
+            deadline = time.time() + 90
+            while time.time() < deadline:
+                if _page_looks_ready(html, url):
+                    break
+                page.wait_for_timeout(1500)
+                # Nudge the page — some managed challenges settle after interaction.
+                try:
+                    page.mouse.move(120, 160)
+                except Exception:
+                    pass
+                html = page.content()
+
+            cookies = context.cookies()
+            context.close()
+        finally:
+            browser.close()
+
+    if not _page_looks_ready(html, url):
+        raise ScrapeError(
+            f"Cloudflare still blocked after browser fetch for {url!r}."
+        )
+    return html, cookies
+
+
+def _apply_cookies(session: Any, cookies: list[dict[str, Any]]) -> None:
+    for c in cookies:
+        name = c.get("name")
+        value = c.get("value")
+        if not name or value is None:
+            continue
+        try:
+            session.cookies.set(
+                name,
+                value,
+                domain=c.get("domain") or ".letterboxd.com",
+                path=c.get("path") or "/",
+            )
+        except Exception:
+            try:
+                session.cookies.set(name, value)
+            except Exception:
+                continue
+
+
+class LetterboxdClient:
+    """HTTP client that bootstraps past Cloudflare once, then reuses the session."""
+
+    def __init__(self) -> None:
+        self.session = _session()
+        self._bootstrapped = False
+
+    def _curl_get(self, url: str, *, timeout: float) -> Any:
+        return self.session.get(
+            url,
+            timeout=timeout,
+            impersonate=CURL_IMPERSONATE,
+            headers={
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.9,fr;q=0.8",
+                "Cache-Control": "no-cache",
+                "Pragma": "no-cache",
+                "Upgrade-Insecure-Requests": "1",
+            },
+        )
+
+    def ensure_access(self, url: str, *, timeout: float = 60.0) -> str:
+        """Return HTML for url, bootstrapping a browser session when CF challenges."""
+        try:
+            r = self._curl_get(url, timeout=timeout)
+            html = r.text
+            if r.status_code == 404:
+                return html
+            if r.ok and not _cf_interstitial(html):
+                self._bootstrapped = True
+                return html
+        except Exception as e:
+            if not _playwright_available():
+                raise ScrapeError(f"Network error fetching {url!r}: {e}") from e
+
+        # Browser path (CI or when curl is challenged).
+        html, cookies = _browser_bootstrap(url)
+        _apply_cookies(self.session, cookies)
+        self._bootstrapped = True
+        return html
+
+    def get_html(self, url: str, *, timeout: float = 60.0) -> Any:
+        if not self._bootstrapped:
+            html = self.ensure_access(url, timeout=timeout)
+            return SimpleNamespace(status_code=200, text=html, ok=True)
+
+        try:
+            r = self._curl_get(url, timeout=timeout)
+        except Exception as e:
+            raise ScrapeError(f"Network error fetching {url!r}: {e}") from e
+
+        if _cf_interstitial(r.text):
+            # Session expired — re-bootstrap and retry once.
+            html, cookies = _browser_bootstrap(url)
+            _apply_cookies(self.session, cookies)
+            return SimpleNamespace(status_code=200, text=html, ok=True)
+
+        if r.status_code == 404:
+            return r
+        if not r.ok:
+            raise ScrapeError(
+                f"HTTP {r.status_code} when fetching {url!r}. "
+                "Letterboxd may be blocking automated access from this network."
+            )
+        _raise_if_blocked(r.text, url)
+        return r
 
 
 def _poster_from_og(soup: BeautifulSoup) -> str | None:
@@ -184,6 +299,7 @@ def _movie_from_slug_href(
     *,
     title_hint: str | None,
     poster_hint: str | None,
+    tmdb_id: int | None = None,
 ) -> dict[str, Any]:
     sid = _slug_to_id(slug)
     title = (title_hint or "").strip() or None
@@ -204,7 +320,7 @@ def _movie_from_slug_href(
     film_path = f"/film/{slug}/"
     letterboxd_url = urljoin(BASE_URL, film_path)
 
-    return {
+    out: dict[str, Any] = {
         "id": sid,
         "title": title,
         "year": year,
@@ -212,6 +328,9 @@ def _movie_from_slug_href(
         "poster": poster,
         "film_path": film_path,
     }
+    if tmdb_id is not None:
+        out["tmdb_id"] = tmdb_id
+    return out
 
 
 def _parse_films_from_listing(
@@ -233,7 +352,9 @@ def _parse_films_from_listing(
             continue
         seen_slugs.add(sid)
 
-        title = (el.get("data-item-full-display-name") or el.get("data-item-name") or "").strip() or None
+        title = (
+            el.get("data-item-full-display-name") or el.get("data-item-name") or ""
+        ).strip() or None
         img = el.find("img")
         poster = img.get("src") if img else None
         out.append(_movie_from_slug_href(slug, title_hint=title, poster_hint=poster))
@@ -275,15 +396,16 @@ def _parse_films_from_listing(
     return out
 
 
-def fetch_films_listing(session: Any) -> list[dict[str, Any]]:
+def fetch_films_listing(client: LetterboxdClient | None = None) -> list[dict[str, Any]]:
     """Fetch all films from paginated /films/ listing."""
+    client = client or LetterboxdClient()
     by_id: dict[str, dict[str, Any]] = {}
     page = 1
 
     while True:
         path = FILMS_PATH if page == 1 else f"{FILMS_PATH.rstrip('/')}/page/{page}/"
         url = urljoin(BASE_URL, path)
-        r = _get_html_response(session, url, timeout=60.0)
+        r = client.get_html(url, timeout=60.0)
         html = r.text
         if r.status_code == 404 and page > 1:
             break
@@ -301,18 +423,73 @@ def fetch_films_listing(session: Any) -> list[dict[str, Any]]:
         page += 1
         if page > 500:
             raise ScrapeError("Pagination exceeded 500 pages; aborting.")
+        # Small pause between pages — looks less like a burst from a datacenter IP.
+        time.sleep(0.6)
 
     return list(by_id.values())
 
 
-def enrich_meta(session: Any, film: dict[str, Any]) -> dict[str, Any]:
-    """Fetch film page for og:image poster and optional title/year (local / curl-friendly paths)."""
+def fetch_films_from_rss(client: LetterboxdClient | None = None) -> list[dict[str, Any]]:
+    """
+    Recent watches from the public profile RSS feed.
+    Cloudflare rarely challenges this endpoint; it only covers ~recent activity,
+    not the full watched history.
+    """
+    client = client or LetterboxdClient()
+    url = urljoin(BASE_URL, RSS_PATH)
+    # Prefer plain curl first; RSS is usually allowed without a browser bootstrap.
+    try:
+        r = client.session.get(url, timeout=45.0, impersonate=CURL_IMPERSONATE)
+        html = r.text
+        if not r.ok or _cf_interstitial(html) or "<item>" not in html:
+            html = client.ensure_access(url, timeout=60.0)
+    except Exception:
+        html = client.ensure_access(url, timeout=60.0)
+
+    if _cf_interstitial(html) or "<item>" not in html:
+        raise ScrapeError(f"Could not read Letterboxd RSS at {url!r}.")
+
+    try:
+        root = ET.fromstring(html)
+    except ET.ParseError as e:
+        raise ScrapeError(f"Invalid RSS XML from {url!r}: {e}") from e
+
+    by_id: dict[str, dict[str, Any]] = {}
+    for item in root.findall("./channel/item"):
+        link = (item.findtext("link") or "").strip()
+        # https://letterboxd.com/franceinter/film/<slug>/
+        m = re.search(r"/film/([^/]+)/?", link)
+        if not m:
+            continue
+        slug = m.group(1)
+        title = (
+            item.findtext(f"{{{LB_NS}}}filmTitle")
+            or item.findtext("title")
+            or ""
+        ).strip()
+        year_raw = item.findtext(f"{{{LB_NS}}}filmYear")
+        year = int(year_raw) if year_raw and year_raw.isdigit() else _year_from_slug(slug)
+        if title and year and not re.search(r"\(\d{4}\)\s*$", title):
+            title = f"{title} ({year})"
+        tmdb_raw = item.findtext(f"{{{TMDB_NS}}}movieId")
+        tmdb_id = int(tmdb_raw) if tmdb_raw and tmdb_raw.isdigit() else None
+        movie = _movie_from_slug_href(
+            slug, title_hint=title or None, poster_hint=None, tmdb_id=tmdb_id
+        )
+        by_id[movie["id"]] = movie
+
+    return list(by_id.values())
+
+
+def enrich_meta(client: LetterboxdClient, film: dict[str, Any]) -> dict[str, Any]:
+    """Fetch film page for og:image poster and optional title/year."""
     if film.get("poster"):
         return film
     url = film["letterboxd_url"]
     try:
-        r = _get(session, url, timeout=45.0)
-        r.raise_for_status()
+        r = client.get_html(url, timeout=45.0)
+        if not getattr(r, "ok", True):
+            return film
     except Exception:
         return film
     html = r.text
@@ -338,13 +515,14 @@ def _playwright_batch_poster_indices(result: list[dict[str, Any]], idxs: list[in
         return
     from playwright.sync_api import sync_playwright
 
-    _ua = (
+    ua = (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
         "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
     )
+    headed = bool(os.environ.get("DISPLAY")) and os.environ.get("GITHUB_ACTIONS") == "true"
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=True,
+            headless=not headed,
             args=[
                 "--disable-dev-shm-usage",
                 "--no-sandbox",
@@ -353,18 +531,16 @@ def _playwright_batch_poster_indices(result: list[dict[str, Any]], idxs: list[in
         )
         try:
             context = browser.new_context(
-                user_agent=_ua,
+                user_agent=ua,
                 viewport={"width": 1280, "height": 720},
                 locale="en-US",
             )
-            context.add_init_script(
-                "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
-            )
+            context.add_init_script(_STEALTH_JS)
             page = context.new_page()
             for i in idxs:
                 url = result[i]["letterboxd_url"]
                 try:
-                    page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                    page.goto(url, wait_until="domcontentloaded", timeout=60_000)
                     page.wait_for_timeout(800)
                     soup = BeautifulSoup(page.content(), "html.parser")
                     pu = _poster_from_og(soup)
@@ -378,42 +554,36 @@ def _playwright_batch_poster_indices(result: list[dict[str, Any]], idxs: list[in
 
 
 def enrich_missing_posters(films: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Fill poster URLs from each film's Letterboxd page (og:image) when the listing only had placeholders."""
+    """Fill poster URLs from each film's Letterboxd page when the listing had placeholders."""
     missing = [m for m in films if not m.get("poster")]
     if not missing:
         return films
 
-    if os.environ.get("GITHUB_ACTIONS") == "true":
-        # Film pages often pass curl_cffi even when the /films/ grid needed Playwright; try HTTP first.
-        result = [dict(m) for m in films]
-        session = _session()
-        idxs = [i for i, m in enumerate(result) if not m.get("poster")]
-        for i in idxs:
-            enrich_meta(session, result[i])
-        still = [i for i in idxs if not result[i].get("poster")]
+    client = LetterboxdClient()
+    result = [dict(m) for m in films]
+    idxs = [i for i, m in enumerate(result) if not m.get("poster")]
+
+    # Warm the session on the listing page first (sets CSRF / clearance when possible).
+    try:
+        client.ensure_access(urljoin(BASE_URL, FILMS_PATH), timeout=60.0)
+    except Exception:
+        pass
+
+    for i in idxs:
+        enrich_meta(client, result[i])
+
+    still = [i for i in idxs if not result[i].get("poster")]
+    if still and (
+        os.environ.get("GITHUB_ACTIONS") == "true" or os.environ.get("FRList_BROWSER_POSTERS")
+    ):
         _playwright_batch_poster_indices(result, still)
-        return result
-
-    session = _session()
-    return [enrich_meta(session, dict(m)) if not m.get("poster") else dict(m) for m in films]
+    return result
 
 
-def scrape_franceinter_films(*, enrich: bool = False) -> list[dict[str, Any]]:
-    """
-    Scrape https://letterboxd.com/franceinter/films/ (all pages).
-    When enrich=True, GET each film page once to improve poster/title/year.
-    """
-    session = _session()
-    films = fetch_films_listing(session)
-    films.sort(key=lambda m: (m["title"].lower(), m.get("year") or 0, m["id"]))
-
-    if enrich:
-        enriched = []
-        for m in films:
-            enriched.append(enrich_meta(session, dict(m)))
-        films = enriched
-        films.sort(key=lambda x: (x["title"].lower(), x.get("year") or 0, x["id"]))
-
+def _dedupe_sort(films: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    films = sorted(
+        films, key=lambda m: (m["title"].lower(), m.get("year") or 0, m["id"])
+    )
     seen: set[str] = set()
     deduped: list[dict[str, Any]] = []
     for m in films:
@@ -421,5 +591,45 @@ def scrape_franceinter_films(*, enrich: bool = False) -> list[dict[str, Any]]:
             continue
         seen.add(m["id"])
         deduped.append(m)
-
     return deduped
+
+
+def scrape_franceinter_films(*, enrich: bool = False) -> list[dict[str, Any]]:
+    """
+    Scrape https://letterboxd.com/franceinter/films/ (all pages).
+    When enrich=True, GET each film page once to improve poster/title/year.
+    """
+    client = LetterboxdClient()
+    films = fetch_films_listing(client)
+    films = _dedupe_sort(films)
+
+    if enrich:
+        enriched = []
+        for m in films:
+            enriched.append(enrich_meta(client, dict(m)))
+        films = _dedupe_sort(enriched)
+
+    return films
+
+
+def scrape_with_retries(
+    *,
+    attempts: int | None = None,
+    pause_sec: float | None = None,
+) -> list[dict[str, Any]]:
+    """Full listing scrape with retries (useful on flaky CI IPs)."""
+    attempts = attempts or int(os.environ.get("FRList_SCRAPE_ATTEMPTS", "3"))
+    pause_sec = pause_sec if pause_sec is not None else float(
+        os.environ.get("FRList_SCRAPE_PAUSE", "20")
+    )
+    last: Exception | None = None
+    for i in range(1, max(1, attempts) + 1):
+        try:
+            return scrape_franceinter_films(enrich=False)
+        except ScrapeError as e:
+            last = e
+            print(f"FRList: scrape attempt {i}/{attempts} failed: {e}", flush=True)
+            if i < attempts:
+                time.sleep(pause_sec)
+    assert last is not None
+    raise last
