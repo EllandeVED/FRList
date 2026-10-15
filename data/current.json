@@ -1,6 +1,6 @@
 {
   "fetch_mode": "rss+previous",
-  "generated_at_utc": "2026-10-12T19:48:13Z",
+  "generated_at_utc": "2026-10-15T21:02:24Z",
   "movies": [
     {
       "film_path": "/film/a-complete-unknown/",
@@ -97,7 +97,7 @@
       "id": "tt36834996",
       "imdb_id": "tt36834996",
       "letterboxd_url": "https://letterboxd.com/film/all-of-a-sudden-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/kFD1vl6FPt8heIIgFiAyIbZqrYh.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/fgxhBo4elwt89J5k9wzhHSXGQmY.jpg",
       "title": "All of a Sudden (2026)",
       "tmdb_id": 1476614,
       "year": 2026
@@ -337,7 +337,7 @@
       "id": "tt12300742",
       "imdb_id": "tt12300742",
       "letterboxd_url": "https://letterboxd.com/film/bugonia/",
-      "poster": "https://image.tmdb.org/t/p/w500/18Kbb0qeCxwzna0W6a9gEMZuizF.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/rSdOua3wKMEaFWDcKAYWRjXQWOt.jpg",
       "title": "Bugonia (2025)",
       "tmdb_id": 701387,
       "year": 2025
@@ -907,8 +907,8 @@
       "id": "tt35511966",
       "imdb_id": "tt35511966",
       "letterboxd_url": "https://letterboxd.com/film/la-bola-negra/",
-      "poster": "https://image.tmdb.org/t/p/w500/dbpyc3Zo0m4E15XcQ7tTwlLBEtE.jpg",
-      "title": "LA BOLA NEGRA (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/jT5SR5qc9KvVg7HUEmjMWEUYMce.jpg",
+      "title": "La bola negra (2026)",
       "tmdb_id": 1422041,
       "year": 2026
     },
@@ -1267,7 +1267,7 @@
       "id": "tt34385689",
       "imdb_id": "tt34385689",
       "letterboxd_url": "https://letterboxd.com/film/paper-tiger-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/zVYm9mNSyr9EYhUUI72DOGgYRZH.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/p6oLmq5KmuWY6uRXBQBL2q30jia.jpg",
       "title": "Paper Tiger (2026)",
       "tmdb_id": 1381273,
       "year": 2026
