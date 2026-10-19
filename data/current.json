@@ -1,6 +1,6 @@
 {
   "fetch_mode": "rss+previous",
-  "generated_at_utc": "2026-10-15T21:02:24Z",
+  "generated_at_utc": "2026-10-19T11:59:11Z",
   "movies": [
     {
       "film_path": "/film/a-complete-unknown/",
@@ -97,7 +97,7 @@
       "id": "tt36834996",
       "imdb_id": "tt36834996",
       "letterboxd_url": "https://letterboxd.com/film/all-of-a-sudden-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/fgxhBo4elwt89J5k9wzhHSXGQmY.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/kFD1vl6FPt8heIIgFiAyIbZqrYh.jpg",
       "title": "All of a Sudden (2026)",
       "tmdb_id": 1476614,
       "year": 2026
@@ -657,7 +657,7 @@
       "id": "tt35410859",
       "imdb_id": "tt35410859",
       "letterboxd_url": "https://letterboxd.com/film/fjord-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/rhKlzjAJCEKUjxEk1qwr4bgbXlG.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/3PPPIeSdeivjUn3O9RahGiaJ9b8.jpg",
       "title": "Fjord (2026)",
       "tmdb_id": 1401459,
       "year": 2026
@@ -1668,7 +1668,7 @@
       "imdb_id": "tt20330434",
       "letterboxd_url": "https://letterboxd.com/film/the-crime-is-mine/",
       "poster": "https://image.tmdb.org/t/p/w500/hcvhE2JWsidOxHL7yXk3MXs4vyt.jpg",
-      "title": "The Crime Is Mine (2023)",
+      "title": "The Crime is Mine (2023)",
       "tmdb_id": 977506,
       "year": 2023
     },
