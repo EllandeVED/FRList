@@ -1,6 +1,6 @@
 {
   "fetch_mode": "rss+previous",
-  "generated_at_utc": "2026-10-19T11:59:11Z",
+  "generated_at_utc": "2026-10-22T21:27:18Z",
   "movies": [
     {
       "film_path": "/film/a-complete-unknown/",
@@ -657,7 +657,7 @@
       "id": "tt35410859",
       "imdb_id": "tt35410859",
       "letterboxd_url": "https://letterboxd.com/film/fjord-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/3PPPIeSdeivjUn3O9RahGiaJ9b8.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/rhKlzjAJCEKUjxEk1qwr4bgbXlG.jpg",
       "title": "Fjord (2026)",
       "tmdb_id": 1401459,
       "year": 2026
