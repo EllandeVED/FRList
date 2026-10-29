@@ -1,6 +1,6 @@
 {
   "fetch_mode": "rss+previous",
-  "generated_at_utc": "2026-10-26T12:17:13Z",
+  "generated_at_utc": "2026-10-29T22:32:21Z",
   "movies": [
     {
       "film_path": "/film/a-complete-unknown/",
@@ -907,7 +907,7 @@
       "id": "tt35511966",
       "imdb_id": "tt35511966",
       "letterboxd_url": "https://letterboxd.com/film/la-bola-negra/",
-      "poster": "https://image.tmdb.org/t/p/w500/t1azKLExwUxKj6v6m2L535evuRa.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/jT5SR5qc9KvVg7HUEmjMWEUYMce.jpg",
       "title": "LA BOLA NEGRA (2026)",
       "tmdb_id": 1422041,
       "year": 2026
