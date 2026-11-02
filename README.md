@@ -14,7 +14,7 @@ The list is scraped on a schedule, titles are matched to IMDb ids via TMDB when 
 | Current snapshot (films) | **219** |
 | Cumulative history (unique films) | **221** |
 | New since previous run | **0** |
-| Last successful update (UTC) | **2026-10-29T22:32:21Z** |
+| Last successful update (UTC) | **2026-11-02T14:39:31Z** |
 | Manifest URL | `https://ellandeved.github.io/FRList/manifest.json` |
 <!-- FRList:status:end -->
 
