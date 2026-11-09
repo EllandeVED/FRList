@@ -915,8 +915,8 @@
       "id": "tt35511966",
       "imdb_id": "tt35511966",
       "letterboxd_url": "https://letterboxd.com/film/la-bola-negra/",
-      "poster": "https://image.tmdb.org/t/p/w500/jT5SR5qc9KvVg7HUEmjMWEUYMce.jpg",
-      "title": "LA BOLA NEGRA (2026)",
+      "poster": "https://image.tmdb.org/t/p/w500/7HwFQTMghL6HOvzEnXYUvyuZXeh.jpg",
+      "title": "La Bola Negra (2026)",
       "tmdb_id": 1422041,
       "year": 2026
     },
@@ -935,7 +935,7 @@
       "id": "tt36107185",
       "imdb_id": "tt36107185",
       "letterboxd_url": "https://letterboxd.com/film/la-gradiva/",
-      "poster": "https://image.tmdb.org/t/p/w500/y6AkOgTEPM9nTJUOeyvHqlf6Bgp.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/zeljn7gQgGbRcdGmsvQXwh0b7Fp.jpg",
       "title": "La Gradiva (2026)",
       "tmdb_id": 1154730,
       "year": 2026
@@ -1345,7 +1345,7 @@
       "id": "tt8613070",
       "imdb_id": "tt8613070",
       "letterboxd_url": "https://letterboxd.com/film/portrait-of-a-lady-on-fire/",
-      "poster": "https://image.tmdb.org/t/p/w500/2LquGwEhbg3soxSCs9VNyh5VJd9.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/rUDuOKpkKBHxx41BScqKej72iT3.jpg",
       "title": "Portrait of a Lady on Fire (2019)",
       "tmdb_id": 531428,
       "year": 2019
@@ -1655,7 +1655,7 @@
       "id": "tt6587046",
       "imdb_id": "tt6587046",
       "letterboxd_url": "https://letterboxd.com/film/the-boy-and-the-heron/",
-      "poster": "https://image.tmdb.org/t/p/w500/f4oZTcfGrVTXKTWg157AwikXqmP.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/4GKye5dR4uJyYbcyTveSue1gATD.jpg",
       "title": "The Boy and the Heron (2023)",
       "tmdb_id": 508883,
       "year": 2023
@@ -2212,5 +2212,5 @@
     }
   ],
   "source": "https://letterboxd.com/franceinter/films/",
-  "updated_at_utc": "2026-11-02T14:39:31Z"
+  "updated_at_utc": "2026-11-09T15:03:19Z"
 }
