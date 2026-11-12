@@ -655,7 +655,7 @@
       "id": "tt35410859",
       "imdb_id": "tt35410859",
       "letterboxd_url": "https://letterboxd.com/film/fjord-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/rhKlzjAJCEKUjxEk1qwr4bgbXlG.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/bD6ynFDUP3PZvdIBjPi9VGhyi5a.jpg",
       "title": "Fjord (2026)",
       "tmdb_id": 1401459,
       "year": 2026
@@ -702,12 +702,12 @@
     },
     {
       "film_path": "/film/girl-2018/",
-      "id": "tt7944094",
-      "imdb_id": "tt7944094",
+      "id": "tt8254556",
+      "imdb_id": "tt8254556",
       "letterboxd_url": "https://letterboxd.com/film/girl-2018/",
-      "poster": "https://image.tmdb.org/t/p/w500/OKtXyFe0BwIlZ0BKXxFbez67sy.jpg",
-      "title": "Girl in the Bunker (2018)",
-      "tmdb_id": 501624,
+      "poster": "https://image.tmdb.org/t/p/w500/a6WKjZ1eHrKV8u1DYqjW4yUPuC.jpg",
+      "title": "Girl (2018)",
+      "tmdb_id": 515916,
       "year": 2018
     },
     {
@@ -935,7 +935,7 @@
       "id": "tt36107185",
       "imdb_id": "tt36107185",
       "letterboxd_url": "https://letterboxd.com/film/la-gradiva/",
-      "poster": "https://image.tmdb.org/t/p/w500/zeljn7gQgGbRcdGmsvQXwh0b7Fp.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/y6AkOgTEPM9nTJUOeyvHqlf6Bgp.jpg",
       "title": "La Gradiva (2026)",
       "tmdb_id": 1154730,
       "year": 2026
@@ -1915,7 +1915,7 @@
       "id": "tt27847051",
       "imdb_id": "tt27847051",
       "letterboxd_url": "https://letterboxd.com/film/the-secret-agent-2025/",
-      "poster": "https://image.tmdb.org/t/p/w500/rZqolYhxMEe6TZZTjSmFw9crDTD.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/iLE2YOmeboeTDC7GlOp1dzh1VFo.jpg",
       "title": "The Secret Agent (2025)",
       "tmdb_id": 1220564,
       "year": 2025
@@ -2025,9 +2025,9 @@
       "id": "tt32359586",
       "imdb_id": "tt32359586",
       "letterboxd_url": "https://letterboxd.com/film/the-unknown-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/cUp9YRHmqRsWiebGHP3T06nY68t.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/888ksoUkfKSBJHxKp6M9sYpJhv2.jpg",
       "title": "The Unknown (2026)",
-      "tmdb_id": 1667643,
+      "tmdb_id": 1182935,
       "year": 2026
     },
     {
@@ -2212,5 +2212,5 @@
     }
   ],
   "source": "https://letterboxd.com/franceinter/films/",
-  "updated_at_utc": "2026-11-09T15:03:19Z"
+  "updated_at_utc": "2026-11-12T23:18:12Z"
 }
