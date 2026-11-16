@@ -1,6 +1,6 @@
 {
-  "fetch_mode": "listing",
-  "generated_at_utc": "2026-11-12T23:18:12Z",
+  "fetch_mode": "rss+previous",
+  "generated_at_utc": "2026-11-16T14:40:26Z",
   "movies": [
     {
       "film_path": "/film/a-complete-unknown/",
@@ -83,16 +83,6 @@
       "year": 2023
     },
     {
-      "film_path": "/film/adolescence-2025/",
-      "id": "tt36861174",
-      "imdb_id": "tt36861174",
-      "letterboxd_url": "https://letterboxd.com/film/adolescence-2025/",
-      "poster": "https://image.tmdb.org/t/p/w500/gyasYg4xhmmVfbsS96x4CCm6a30.jpg",
-      "title": "The Real Adolescence: Our Killer Kids (2025)",
-      "tmdb_id": 1478143,
-      "year": 2025
-    },
-    {
       "film_path": "/film/aftersun/",
       "id": "tt19770238",
       "imdb_id": "tt19770238",
@@ -107,7 +97,7 @@
       "id": "tt36834996",
       "imdb_id": "tt36834996",
       "letterboxd_url": "https://letterboxd.com/film/all-of-a-sudden-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/fgxhBo4elwt89J5k9wzhHSXGQmY.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/kFD1vl6FPt8heIIgFiAyIbZqrYh.jpg",
       "title": "All of a Sudden (2026)",
       "tmdb_id": 1476614,
       "year": 2026
@@ -211,16 +201,6 @@
       "title": "Another Round (2020)",
       "tmdb_id": 580175,
       "year": 2020
-    },
-    {
-      "film_path": "/film/another-world-2021/",
-      "id": "tt14445716",
-      "imdb_id": "tt14445716",
-      "letterboxd_url": "https://letterboxd.com/film/another-world-2021/",
-      "poster": "https://image.tmdb.org/t/p/w500/43xippin6BaLRHvM4HZgsdlgBtv.jpg",
-      "title": "Fragments from Another World (2021)",
-      "tmdb_id": 825872,
-      "year": 2021
     },
     {
       "film_path": "/film/arco/",
@@ -663,11 +643,21 @@
       "year": 1996
     },
     {
+      "film_path": "/film/the-beasts-2022/",
+      "id": "tt4123432",
+      "imdb_id": "tt4123432",
+      "letterboxd_url": "https://letterboxd.com/film/the-beasts-2022/",
+      "poster": "https://image.tmdb.org/t/p/w500/3c5GNLB4yRSLBby0trHoA1DSQxQ.jpg",
+      "title": "Fantastic Beasts: The Secrets of Dumbledore (2022)",
+      "tmdb_id": 338953,
+      "year": 2022
+    },
+    {
       "film_path": "/film/fjord-2026/",
       "id": "tt35410859",
       "imdb_id": "tt35410859",
       "letterboxd_url": "https://letterboxd.com/film/fjord-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/bD6ynFDUP3PZvdIBjPi9VGhyi5a.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/3PPPIeSdeivjUn3O9RahGiaJ9b8.jpg",
       "title": "Fjord (2026)",
       "tmdb_id": 1401459,
       "year": 2026
@@ -691,6 +681,16 @@
       "title": "Forsaken (2026)",
       "tmdb_id": 1645368,
       "year": 2026
+    },
+    {
+      "film_path": "/film/another-world-2021/",
+      "id": "tt14445716",
+      "imdb_id": "tt14445716",
+      "letterboxd_url": "https://letterboxd.com/film/another-world-2021/",
+      "poster": "https://image.tmdb.org/t/p/w500/43xippin6BaLRHvM4HZgsdlgBtv.jpg",
+      "title": "Fragments from Another World (2021)",
+      "tmdb_id": 825872,
+      "year": 2021
     },
     {
       "film_path": "/film/ghost-trail/",
@@ -1613,16 +1613,6 @@
       "year": 2020
     },
     {
-      "film_path": "/film/the-beasts-2022/",
-      "id": "tt4123432",
-      "imdb_id": "tt4123432",
-      "letterboxd_url": "https://letterboxd.com/film/the-beasts-2022/",
-      "poster": "https://image.tmdb.org/t/p/w500/3c5GNLB4yRSLBby0trHoA1DSQxQ.jpg",
-      "title": "Fantastic Beasts: The Secrets of Dumbledore (2022)",
-      "tmdb_id": 338953,
-      "year": 2022
-    },
-    {
       "film_path": "/film/the-beloved-2026/",
       "id": "tt33451014",
       "imdb_id": "tt33451014",
@@ -1743,6 +1733,16 @@
       "year": 2014
     },
     {
+      "film_path": "/film/the-swarm-2020/",
+      "id": "tt13329384",
+      "imdb_id": "tt13329384",
+      "letterboxd_url": "https://letterboxd.com/film/the-swarm-2020/",
+      "poster": "https://image.tmdb.org/t/p/w500/2TGAR1JK11RMBCPxkjoLhqsYp9b.jpg",
+      "title": "The Hive (2020)",
+      "tmdb_id": 760484,
+      "year": 2020
+    },
+    {
       "film_path": "/film/the-human-voice-2020/",
       "id": "tt11760792",
       "imdb_id": "tt11760792",
@@ -1853,6 +1853,16 @@
       "year": 2026
     },
     {
+      "film_path": "/film/adolescence-2025/",
+      "id": "tt36861174",
+      "imdb_id": "tt36861174",
+      "letterboxd_url": "https://letterboxd.com/film/adolescence-2025/",
+      "poster": "https://image.tmdb.org/t/p/w500/gyasYg4xhmmVfbsS96x4CCm6a30.jpg",
+      "title": "The Real Adolescence: Our Killer Kids (2025)",
+      "tmdb_id": 1478143,
+      "year": 2025
+    },
+    {
       "film_path": "/film/the-room-next-door-2024/",
       "id": "tt29439114",
       "imdb_id": "tt29439114",
@@ -1961,16 +1971,6 @@
       "title": "The Summit of the Gods (2021)",
       "tmdb_id": 712454,
       "year": 2021
-    },
-    {
-      "film_path": "/film/the-swarm-2020/",
-      "id": "tt13329384",
-      "imdb_id": "tt13329384",
-      "letterboxd_url": "https://letterboxd.com/film/the-swarm-2020/",
-      "poster": "https://image.tmdb.org/t/p/w500/2TGAR1JK11RMBCPxkjoLhqsYp9b.jpg",
-      "title": "The Hive (2020)",
-      "tmdb_id": 760484,
-      "year": 2020
     },
     {
       "film_path": "/film/the-ties-that-bind-us/",

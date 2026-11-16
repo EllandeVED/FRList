@@ -49,12 +49,6 @@
       "type": "movie"
     },
     {
-      "id": "tt36861174",
-      "name": "The Real Adolescence: Our Killer Kids (2025)",
-      "poster": "https://image.tmdb.org/t/p/w500/gyasYg4xhmmVfbsS96x4CCm6a30.jpg",
-      "type": "movie"
-    },
-    {
       "id": "tt19770238",
       "name": "Aftersun (2022)",
       "poster": "https://image.tmdb.org/t/p/w500/evKz85EKouVbIr51zy5fOtpNRPg.jpg",
@@ -63,7 +57,7 @@
     {
       "id": "tt36834996",
       "name": "All of a Sudden (2026)",
-      "poster": "https://image.tmdb.org/t/p/w500/fgxhBo4elwt89J5k9wzhHSXGQmY.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/kFD1vl6FPt8heIIgFiAyIbZqrYh.jpg",
       "type": "movie"
     },
     {
@@ -124,12 +118,6 @@
       "id": "tt10288566",
       "name": "Another Round (2020)",
       "poster": "https://image.tmdb.org/t/p/w500/aDcIt4NHURLKnAEu7gow51Yd00Q.jpg",
-      "type": "movie"
-    },
-    {
-      "id": "tt14445716",
-      "name": "Fragments from Another World (2021)",
-      "poster": "https://image.tmdb.org/t/p/w500/43xippin6BaLRHvM4HZgsdlgBtv.jpg",
       "type": "movie"
     },
     {
@@ -397,9 +385,15 @@
       "type": "movie"
     },
     {
+      "id": "tt4123432",
+      "name": "Fantastic Beasts: The Secrets of Dumbledore (2022)",
+      "poster": "https://image.tmdb.org/t/p/w500/3c5GNLB4yRSLBby0trHoA1DSQxQ.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt35410859",
       "name": "Fjord (2026)",
-      "poster": "https://image.tmdb.org/t/p/w500/bD6ynFDUP3PZvdIBjPi9VGhyi5a.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/3PPPIeSdeivjUn3O9RahGiaJ9b8.jpg",
       "type": "movie"
     },
     {
@@ -412,6 +406,12 @@
       "id": "tt40435390",
       "name": "Forsaken (2026)",
       "poster": "https://image.tmdb.org/t/p/w500/kfUKP5IgzgLQyQD1MDt99yq9Af0.jpg",
+      "type": "movie"
+    },
+    {
+      "id": "tt14445716",
+      "name": "Fragments from Another World (2021)",
+      "poster": "https://image.tmdb.org/t/p/w500/43xippin6BaLRHvM4HZgsdlgBtv.jpg",
       "type": "movie"
     },
     {
@@ -967,12 +967,6 @@
       "type": "movie"
     },
     {
-      "id": "tt4123432",
-      "name": "Fantastic Beasts: The Secrets of Dumbledore (2022)",
-      "poster": "https://image.tmdb.org/t/p/w500/3c5GNLB4yRSLBby0trHoA1DSQxQ.jpg",
-      "type": "movie"
-    },
-    {
       "id": "tt33451014",
       "name": "The Beloved (2026)",
       "poster": "https://image.tmdb.org/t/p/w500/whk02IOeEHz8KCYZGm3fF92zg0v.jpg",
@@ -1045,6 +1039,12 @@
       "type": "movie"
     },
     {
+      "id": "tt13329384",
+      "name": "The Hive (2020)",
+      "poster": "https://image.tmdb.org/t/p/w500/2TGAR1JK11RMBCPxkjoLhqsYp9b.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt11760792",
       "name": "The Human Voice (2020)",
       "poster": "https://image.tmdb.org/t/p/w500/1ExeKYF7ryDKImnPg2LkDfcYizg.jpg",
@@ -1111,6 +1111,12 @@
       "type": "movie"
     },
     {
+      "id": "tt36861174",
+      "name": "The Real Adolescence: Our Killer Kids (2025)",
+      "poster": "https://image.tmdb.org/t/p/w500/gyasYg4xhmmVfbsS96x4CCm6a30.jpg",
+      "type": "movie"
+    },
+    {
       "id": "tt29439114",
       "name": "The Room Next Door (2024)",
       "poster": "https://image.tmdb.org/t/p/w500/qMibLyArrlBJ87AoqQBeVaFeRXp.jpg",
@@ -1174,12 +1180,6 @@
       "id": "tt7014378",
       "name": "The Summit of the Gods (2021)",
       "poster": "https://image.tmdb.org/t/p/w500/uzvwwdsTXIUweKYhp8Eo7uidzr5.jpg",
-      "type": "movie"
-    },
-    {
-      "id": "tt13329384",
-      "name": "The Hive (2020)",
-      "poster": "https://image.tmdb.org/t/p/w500/2TGAR1JK11RMBCPxkjoLhqsYp9b.jpg",
       "type": "movie"
     },
     {
