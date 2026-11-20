@@ -785,7 +785,7 @@
       "id": "tt36639956",
       "imdb_id": "tt36639956",
       "letterboxd_url": "https://letterboxd.com/film/iron-boy/",
-      "poster": "https://image.tmdb.org/t/p/w500/ltn7a7pfb7bXTEg1YEwVeAHs9GY.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/cXSdbJ6lskse6oDNCN617oh3YbF.jpg",
       "title": "Iron Boy (2026)",
       "tmdb_id": 947493,
       "year": 2026
@@ -865,7 +865,7 @@
       "id": "tt36842933",
       "imdb_id": "tt36842933",
       "letterboxd_url": "https://letterboxd.com/film/just-an-illusion-2026/",
-      "poster": "https://image.tmdb.org/t/p/w500/eWPq3wSvJEMakESTXzaBECUNBYr.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/zkQdcvpjZwUzIfHWJkbPi6wrwY3.jpg",
       "title": "Just an Illusion (2026)",
       "tmdb_id": 1404684,
       "year": 2026
@@ -916,7 +916,7 @@
       "imdb_id": "tt35511966",
       "letterboxd_url": "https://letterboxd.com/film/la-bola-negra/",
       "poster": "https://image.tmdb.org/t/p/w500/7HwFQTMghL6HOvzEnXYUvyuZXeh.jpg",
-      "title": "La Bola Negra (2026)",
+      "title": "LA BOLA NEGRA (2026)",
       "tmdb_id": 1422041,
       "year": 2026
     },
@@ -1345,7 +1345,7 @@
       "id": "tt8613070",
       "imdb_id": "tt8613070",
       "letterboxd_url": "https://letterboxd.com/film/portrait-of-a-lady-on-fire/",
-      "poster": "https://image.tmdb.org/t/p/w500/rUDuOKpkKBHxx41BScqKej72iT3.jpg",
+      "poster": "https://image.tmdb.org/t/p/w500/2LquGwEhbg3soxSCs9VNyh5VJd9.jpg",
       "title": "Portrait of a Lady on Fire (2019)",
       "tmdb_id": 531428,
       "year": 2019
@@ -2212,5 +2212,5 @@
     }
   ],
   "source": "https://letterboxd.com/franceinter/films/",
-  "updated_at_utc": "2026-11-16T14:40:26Z"
+  "updated_at_utc": "2026-11-20T00:27:42Z"
 }
